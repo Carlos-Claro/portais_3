@@ -1,0 +1,81 @@
+
+> - na página de imobiliárias trocar o h1 de imobiliarias anunciantes em curitiba para imobiliarias em curitiba e incluir o texto como h2: Consulte nossa relação de imobiliarias anunciantes em curitiba e encontre a mais perto de você. ou como h1 o texto: Consulte nossa relação de imobiliarias em curitiba. Nesta lista de imobiliarias anunciantes em curitiba poderá encontrar a mais perto de você. O que acha?
+------------ ok, inserido.. tbm no title e description
+>
+> - achei uma loginho com 61kb, normalmente tem 2kb. Favor ver na lista de loginhos se tem alguma grande  eme passe para eu diminuir
+----------- não encontrei nenhuma nesta situação. para verificar apenas utilizar a opção: ver informações da pagina -> midias, ali tem a lista, e as informações delas.
+>
+> - https://testes.powempresas.com/imobiliaria/corteze+imoveis+curitiba-82309/imoveis-venda-curitiba_pr?id_empresa=82309&tipo_negocio=venda&cidade=curitiba_pr&debug=1  quando seleciono locação o sistema diz ter um imóvel mas não mostra nenhum
+--- estava demorando um pouco, mas para mim, funcionou bem...
+>
+> - rodapé da página está alinhado a esquerda
+----- acho que é para ser assim mesmo... é do modelo que pegamos do jango
+>
+> - o esquema de paginação do chaves na mao é interessante pois permite voltar para uma página anterior ou avançar pelo número, apesar de carregar continuamente como o nosso https://www.chavesnamao.com.br/apartamentos-a-venda/pr-curitiba/#+&pg=3
+--- vamos implementar algo assim... que role para baixo no momento do clique
+
+> - as palavras mínimo e máximo na busca parecem estar sem acento
+ok
+>
+> - como busco por código?
+esqueci de deixar visivel, vou otimizar.
+>
+> - hoje o filtro fica fixo no topo, se ele puder descer junto com os imóveis facilita. Sei do problema da altura, uma alternativa é colocar áreas e quartos em pastas.
+--------------- não, pois dependendo do tamanho da tela, não vai aparecer o filtro todo... tem icone para acessar o filtro em 1 clique
+>
+> - banner de não encontrei abaixo no filtro
+---
+>
+> - ao aplicar filtro no celular nao vi onde ordenar
+------
+>
+> - no filtro nao trouxe vitrine de apto
+--- vou conferir, pode ser que a tabela nao esteja atualizada no banco local
+>
+> - nos 7 primeiros aptos tinha 3 de uma mesma imobiliaria
+---- precisa marcar a busca... para conferir...
+>
+> - as fotos quadradas no celular ficam muito deformadas na lista
+---- depende do tamanho do celular e tudo... mas vamos fazer mais alguns formatos...
+>
+> - traço forte acho que deveria separar imoveis e não preço
+pode... esta feito... o problema é que fica meio complicado no desktop
+>
+>  
+>
+>  
+>
+>  
+>
+>  
+>
+> Na Ficha do imóvel
+>
+> - Formulário de financiamento trocar o texto Gostaria de receber mais informações sobre o imóvel referência: AP0466, PI: 1848982  para Gostaria de receber simulação de financiamento do imóvel referência: AP0466, PI: 1848982
+--- eu adapto isso no envio do email... acho que não tem necessidade de trocar no formulario.
+>
+> - mesmo com o formulário de ligação : Gostaria de receber uma ligação para mais informações sobre o imóvel referência: AP0466, PI: 1848982
+--- eu adapto isso no envio do email... acho que não tem necessidade de trocar no formulario.
+>
+> - nos dados do anunciante tem 3 botões embaixo, sendo que o do meio, azul, não tem nome
+--- é o do whatsapp, a maria ficou de corrigir.
+>
+> - o botao indicar não faz nada
+--- vou verificar...
+>
+> - Acho que podemos colocar links de continuação de navegação como [comprar] [tipo] em [Cidade] de [cliente] , [comprar] [tipo] em [Cidade] e Não encontrei
+
+> - Quando cliquei em imobiliárias no link do topo demorou demais e desisti de esperar.
+--- devia ser alguma instabilidade, pois esta bem rapido normalmente.
+>
+> - ver o fone abre janela com um tik verde sobre o nome, não consigo clicar para telefonar pelo celular
+--- vou colocar junto no rodape, com o whats e contato... tinha omitido, pois estava sem espaço, dai resolvemos e vou inserir lá...
+>
+> - no celular as flechas de navegação das fotos estão desalinhadas
+----- vou verificar
+>
+> - na ficha no celular não achei onde favorito o imóvel , nem como mando por email (discutível eu sei)
+---- ta escrito, bem grande... "contato"... quer que escreva, "clique aqui e envie um email para a empresa solicitando informações dobre este imóvel"?
+>
+> - no preço se o cara filtrou compra acho que deveríamos mostrar só o valor de venda e se pediu locação só o de locação. O quadro do imovelweb ficou bem claro.
+---- pode ser...

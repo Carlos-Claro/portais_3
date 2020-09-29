@@ -1,0 +1,16 @@
+{
+    "name": "Rede de Portais Imobiliários",
+    "icons": [
+        {
+            "src":"images/logo_portais_imobiliarios.png",
+            "type":"image/png",
+            "sizes":"48x48"
+        }
+    ],
+    "start_url": "/",
+    "theme_color": "#285384",
+    "background_color":"#FFFFFF",
+    "orientation":"portrait",
+    "display":"standalone",
+    "lang": "pt-BR"
+}

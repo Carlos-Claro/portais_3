@@ -1,0 +1,1 @@
+sudo certbot --authenticator webroot --installer apache -d pneumaxbr.com.br -d www.pneumaxbr.com.br

@@ -1,0 +1,222 @@
+<div class="container-fluid main" data-uri="<?php echo $url;?>">
+    <div class="c-layout-sidebar-menu c-theme ">
+        <div class="data-valores hide"><?php echo json_encode($data_valores);?></div>
+        <ul class="c-shop-filter-search-1 list-unstyled ">
+            <li class="localidade">
+                <label class="control-label c-font-uppercase c-font-bold">Localidade</label>
+                <select class="form-control c-square c-theme localidade_select" name="localidade">
+                    <option value="">Busque a localidade</option>';
+                    <?php 
+                        foreach ( $bairros as $bairro ) :
+                            echo '<option value="'.$bairro->id.'">'.$bairro->descricao.'</option>';
+                        endforeach;
+                    ?>
+                </select>
+                <span class="help-block itens" >
+                </span>
+            </li>
+            <li class="tipos">
+                <label class="control-label c-font-uppercase c-font-bold">Tipo do imóvel</label>
+                <select class="form-control c-square c-theme">
+                    <option value="">Selecione o tipo</option>
+                    <?php foreach( $tipos as $tipo ) :
+                        echo '<option value="'.$tipo->id.'">'.$tipo->descricao.'</option>';
+                    endforeach;
+                    ?>
+                </select>
+                <span class="help-block itens" >
+                </span>
+            </li>
+            <li>
+		<label class="control-label c-font-uppercase c-font-bold">Faixa de preço</label>
+		<div class="c-price-range-box input-group">
+			<div class="c-price input-group col-md-6 pull-left">
+				<span class="input-group-addon c-square c-theme">R$</span>
+				<input class="form-control c-square c-theme valor_min" placeholder="Minimo" type="text" value="<?php echo (isset($valores['valor_min']) ? $valores['valor_min'] : '');?>">
+			</div>
+			<div class="c-price input-group col-md-6 pull-left">
+				<span class="input-group-addon c-square c-theme">R$</span>
+				<input class="form-control c-square c-theme valor_max" placeholder="Maximo" type="text" value="<?php echo (isset($valores['valor_max']) ? $valores['valor_max'] : '');?>">
+			</div>
+		</div>
+            </li>
+            <li>
+		<label class="control-label c-font-uppercase c-font-bold">Área util</label>
+		<div class="c-price-range-box input-group">
+			<div class="c-price input-group col-md-6 pull-left">
+				<span class="input-group-addon c-square c-theme">m²</span>
+				<input class="form-control c-square c-theme area_min" placeholder="Minimo" type="text" value="<?php echo (isset($valores['area_min']) ? $valores['area_min'] : '');?>">
+			</div>
+			<div class="c-price input-group col-md-6 pull-left">
+				<span class="input-group-addon c-square c-theme">m²</span>
+				<input class="form-control c-square c-theme area_max" placeholder="Maximo" type="text"  value="<?php echo (isset($valores['area_max']) ? $valores['area_max'] : '');?>">
+			</div>
+		</div>
+            </li>
+            <li class="c-margin-b-40">
+                <label class="control-label c-font-uppercase c-font-bold">Quartos</label>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-1" class="c-check quartos" <?php echo (isset($valores['quartos']) && in_array(1, $valores['quartos']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-1">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> 1
+                        </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-2" class="c-check quartos" <?php echo (isset($valores['quartos']) && in_array(2, $valores['quartos']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-2">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> 2
+                        </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-3" class="c-check quartos" <?php echo (isset($valores['quartos']) && in_array(3, $valores['quartos']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-3">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> 3
+                        </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-4" class="c-check quartos" <?php echo (isset($valores['quartos']) && in_array(4, $valores['quartos']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-4">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> 4+
+                        </p>
+                    </label>
+                </div>
+                
+            </li>
+            <li class="c-margin-b-40">
+                <label class="control-label c-font-uppercase c-font-bold">Banheiros</label>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-1" class="c-check banheiros" <?php echo (isset($valores['banheiros']) && in_array(1, $valores['banheiros']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-1">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> 1
+                        </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-2" class="c-check banheiros" <?php echo (isset($valores['banheiros']) && in_array(2, $valores['banheiros']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-2">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> 2
+                        </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-3" class="c-check banheiros" <?php echo (isset($valores['banheiros']) && in_array(3, $valores['banheiros']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-3">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> 3
+                        </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-4" class="c-check banheiros" <?php echo (isset($valores['banheiros']) && in_array(4, $valores['banheiros']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-4">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> 4+
+                        </p>
+                    </label>
+                </div>
+                
+            </li>
+            <li class="c-margin-b-40">
+                <label class="control-label c-font-uppercase c-font-bold">Vagas</label>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-1" class="c-check vagas" <?php echo (isset($valores['vagas']) && in_array(1, $valores['vagas']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-1">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> 1
+                        </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-2" class="c-check vagas" <?php echo (isset($valores['vagas']) && in_array(2, $valores['vagas']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-2">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> 2
+                        </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-3" class="c-check vagas" <?php echo (isset($valores['vagas']) && in_array(3, $valores['vagas']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-3">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> 3
+                        </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-4" class="c-check vagas" <?php echo (isset($valores['vagas']) && in_array(4, $valores['vagas']) ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-4">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> 4+
+                        </p>
+                    </label>
+                </div>
+                
+            </li>
+            <li class="c-margin-b-40">
+                <label class="control-label c-font-uppercase c-font-bold"></label>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-1" class="c-check residencial" <?php echo (isset($valores['residencial'])  ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-1">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> Residencial
+                        </p>
+                    </label>
+                </div>
+                <div class="c-checkbox">
+                    <input type="checkbox" id="checkbox-sidebar-2-1" class="c-check comercial" <?php echo (isset($valores['comercial'])  ? 'checked="checked"' : '');?>> <label for="checkbox-sidebar-2-1">
+                        <span class="inc"></span> <span class="check"></span> <span class="box"></span>
+                        <p class="c-review-star">
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span>
+                            <span class="fa fa-star c-theme-font"></span> <span class="fa fa-star c-theme-font"></span> Comercial
+                        </p>
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="c-layout-sidebar-content">
+        <div class="c-shop-result-filter-1 clearfix form-inline">
+            <div class="clearfix">
+                <ul class="nav nav-tabs c-font-uppercase c-font-bold">
+                    <li class="tipo-negocio <?php echo ((isset($valores['tipo_negocio']) && $valores['tipo_negocio'] == 'venda') || ! isset($valores['tipo_negocio']) ? 'active"' : '');?>" data-tipo="comprar"><a href="#" data-toggle="tab">Comprar</a></li>
+                    <li class="tipo-negocio <?php echo (isset($valores['tipo_negocio']) && $valores['tipo_negocio'] == 'locacao' ? 'active"' : '');?>" data-tipo="alugar"><a href="#"  data-toggle="tab">Alugar</a></li>
+                    <li class="tipo-negocio <?php echo (isset($valores['tipo_negocio']) && $valores['tipo_negocio'] == 'locacao_dia' ? 'active"' : '');?>" data-tipo="alugar_dia"><a href="#"  data-toggle="tab">Alugar Dia</a></li>
+                </ul>
+            </div>
+            <div class="c-filter">
+                <label class="control-label c-font-16">Ordenação:</label>
+                <select class="form-control c-square c-theme c-input">
+                    <option value="#?sort=p.sort_order&amp;order=ASC" selected="selected">Default</option>
+                    <option value="#?sort=p.price&amp;order=ASC">Preço (Menor &gt; Maior)</option>
+                    <option value="#?sort=p.price&amp;order=DESC" selected>Preço (Maior &gt; Menor)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="c-margin-t-20"></div>
+        <?php 
+        /**
+         * @todo inserção de imóveis. 
+         */
+        ?>
+    </div>
+</div>
