@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * 
- * 
+ *
+ *
  */
 
 class Lista_normal
@@ -30,14 +30,14 @@ class Lista_normal
         private $titulo = NULL;
         private $cidade = NULL;
         private $links_relacionados = NULL;
-        //str_replace('codEmpresa',$item->id_empresa, 
-        
-        
+        //str_replace('codEmpresa',$item->id_empresa,
+
+
         /**
-	 * 
+	 *
 	 * Contrutor da Classe
 	 */
-	public function __construct($config = FALSE) 
+	public function __construct($config = FALSE)
 	{
 		if ( $config )
 		{
@@ -45,7 +45,7 @@ class Lista_normal
 		}
                 $this->CI =& get_instance();
 	}
-	
+
         public function set_favoritos( $monta_retorno, $retorno_tipo )
         {
             $favoritos = get_cookie('imoveis_favoritos');
@@ -104,7 +104,7 @@ class Lista_normal
             }
             return $retorno;
         }
-        
+
         public function get_html_vertical( $publicidade = TRUE, $favorito = FALSE )
         {
             $retorno = '';
@@ -145,7 +145,7 @@ class Lista_normal
             $data['relacionados'] = '';
             if ( isset($this->links_relacionados) && count($this->links_relacionados) > 0 )
             {
-            	$data['relacionados'] .= '<ul class="list-group links-relacionados">'; 
+            	$data['relacionados'] .= '<ul class="list-group links-relacionados">';
             	$data['relacionados'] .= '<li class="list-group-item list-group-item-success col-lg-12 col-md-12 col-sm-12 col-xs-12"><p class="titulo">Talvez você deseje alguma destas pesquisas:</p></li>';
                 foreach( $this->links_relacionados as $link )
                 {
@@ -156,18 +156,18 @@ class Lista_normal
             $retorno .= $this->CI->layout->view('html_vertical', $data, 'layout/sem_head', TRUE);
             return $retorno;
         }
-        
-        
-              
+
+
+
         public function get_html_imobiliarias( $link_cidade = 'curitiba_pr' )
         {
             //echo $link_cidade;
-            if ( isset($this->itens) && count($this->itens) > 0 ) 
+            if ( isset($this->itens) && count($this->itens) > 0 )
             {
                 //$this->_set_publicidade();
                 //var_dump($this->publicidade); die();
                 $retorno = '';
-                
+
                 $retorno .= '<div class="imobiliarias">';
                 $retorno .= '<div class="row"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">';
                 $retorno .= '<h1>'.( isset($this->h1) && ! empty($this->h1) ? $this->h1 : 'Imobiliárias com imóveis na Cidade' ).'.</h1>';
@@ -217,7 +217,7 @@ class Lista_normal
                     }
                 }
                 $retorno .= '       </div>';
-                 * 
+                 *
                  */
                 $retorno .= '   </div><!-- .row-->';
                 $retorno .= '</div><!-- .container-->';
@@ -229,9 +229,9 @@ class Lista_normal
             }
             return $retorno;
         }
-        
-        
-	
+
+
+
         private function _set_qtde()
         {
             $retorno = '';
@@ -249,7 +249,7 @@ class Lista_normal
                         $titulo = $qtdes['titulo'];
                         $tipo = $qtdes['tipo'];
                     }
-                    
+
                     $container .= '<a href="'.$qtdes['url'].'" title="'.$qtdes['titulo'].'">'.$qtdes['titulo'].'</a><br>';
                 }
                 $retorno_ .= $container;
@@ -261,13 +261,13 @@ class Lista_normal
             }
             return $retorno;
         }
-        
+
         public function get_ordenacao($data)
         {
             $this->ordenacao = $data['ordenacao'];
             return $this->_set_ordenacao();
         }
-        
+
         private function _set_ordenacao()
         {
             $retorno = '';
@@ -285,7 +285,7 @@ class Lista_normal
                         $titulo = $ordem['titulo'];
                         $tipo = $ordem['tipo'];
                     }
-                    
+
                     $container .= '<a href="'.$ordem['url'].'" title="'.$ordem['titulo'].'">'.$ordem['titulo'].'</a><br>';
                 }
                 $retorno_ .= $container;
@@ -297,7 +297,7 @@ class Lista_normal
             }
             return $retorno;
         }
-        
+
         public function set_publicidade ( $itens = FALSE, $interno = FALSE )
         {
             if ( isset($this->itens['publicidade']) || $itens )
@@ -306,7 +306,7 @@ class Lista_normal
                 //echo count($this->itens['publicidade']).'<br>';
                 foreach ( $publicidade as $chave => $valor )
                 {
-                    
+
                     if ( isset($valor) && count($valor) > 0 )
                     {
                         $this->publicidade[$chave] = array();
@@ -349,11 +349,11 @@ class Lista_normal
                         }
                     }
                 }
- 
+
             }
             return $this->publicidade;
         }
-        
+
         private function _set_publicidade_cabecalho ( $d )
         {
             $retorno = '<p class="titulo">Publicidade</p>';
@@ -368,7 +368,7 @@ class Lista_normal
             //$retorno .= '<button class="btn btn-contato-email publicidade-contato" data-item="'.$d->id_campanha.'" data-email="'.$d->email.'">Contato por e-mail</button>';
             return $retorno;
         }
-        
+
         private function _set_publicidade_image ( $p, $interno = FALSE )
         {
             if ( isset($_GET['usuario']) )
@@ -408,10 +408,10 @@ class Lista_normal
             }
             return $retorno;
         }
-        
+
         public function _set_item_email ( $item = NULL, $email = FALSE, $por_empresa = FALSE )
         {
-            
+
             $retorno = '';
             $tn = 0;
             if ( $item->tipo_venda == 1 && $item->tipo_locacao == 1 )
@@ -427,7 +427,7 @@ class Lista_normal
                 $tn = 'venda';
                 $tipo = (object)array('classe' => 'venda', 'titulo' => 'Imóvel para Venda');
             }
-            elseif ( $item->tipo_locacao == 1 ) 
+            elseif ( $item->tipo_locacao == 1 )
             {
                 $tn = 'locacao';
                 $tipo = (object)array('classe' => 'locacao', 'titulo' => 'Imóvel para Locação');
@@ -452,8 +452,8 @@ class Lista_normal
                 $arquivo = set_arquivo_image($item->id_imovel, $item->image, $item->id_empresa, $item->mudou, $item->fs1,1,'T5');
                $retorno .= $arquivo;
                /*
-                * 
-                 
+                *
+
                if ( strstr($item->image, 'http' ) )
                 {
                     $retorno .= $item->image;
@@ -463,7 +463,7 @@ class Lista_normal
                     $retorno .= ( $item->mudou ) ? str_replace('codEmpresa',$item->id_empresa, 'http://www.pow.com.br/powsites/codEmpresa/imo/').$item->image : 'http://www.guiasjp.com/imoveis_imagens/'.$item->image;
                 }
                 */
-            } 
+            }
             else
             {
                 $retorno .= 'https://www.icuritiba.com/imagens/naodisponivel.jpg';
@@ -475,7 +475,7 @@ class Lista_normal
             //lin ha abaixo modificada
             $retorno .= (isset($item->imoveis_tipos_titulo)) ? '<h4><strong>'.$item->imoveis_tipos_titulo.' </strong></h4>' : '';
             $retorno .= (isset($item->bairro) && ! empty($item->bairro) ) ? '<h5><strong>'.$item->bairro.' </strong></h5>' : '';
-            
+
             //$retorno .= '<h3>'.(isset($item->nome) ? $item->nome : '' ).'</h3>';
             //$retorno .= '<hr>';
             //if ( isset($item->descricao) && ! empty($item->descricao) )
@@ -486,17 +486,17 @@ class Lista_normal
             //{
                 $retorno .= '<p class="border-bottom">'.$item->cidade_nome.'/'.$item->uf.' </p>';
                 /*
-                if ( $item->area > 0 || $item->area_terreno > 0 )  
+                if ( $item->area > 0 || $item->area_terreno > 0 )
                 {
                     $retorno .= '<p>'.( ( $item->area > 0 ) ? '<span class="bold">'. $item->area.'</span>' : '<span class="bold">'.$item->area_terreno.'</span>' ).' m&sup2; de área útil </p> ';
                 }
                 $retorno .= '<p>'.( ($item->terreno) && ! empty($item->terreno) ? 'Terreno em Condominio' : ( ! empty($item->quartos) && $item->quartos > 0 ) ? '<span>'.$item->quartos.'</span> Dormitórios' : '' ).'</p>';
                 //$retorno .= (isset($item->garagens) && $item->garagens > 0) ? '<p><strong>'.$item->garagens.'</strong> Vagas</p>' : '';
-                 * 
+                 *
                  */
                 /**
-                 * 
-                 
+                 *
+
                 if ( $item->preco_venda != '0.00' && $item->preco_venda > 0 )
                 {
                     $retorno .= '<p class="valor_imovel">R$ '.( ! $email ? '<span itemprop="price">' : '').''.  number_format($item->preco_venda, 2, ',', '.').' '.( ! $email ? '</span>' : '').' </p>';
@@ -536,7 +536,7 @@ class Lista_normal
             }
             return $retorno;
         }
-        
+
         public function _set_item_destaque ( $item = NULL, $email = FALSE )
         {
             $retorno = '';
@@ -552,7 +552,7 @@ class Lista_normal
             $retorno .= $this->CI->layout->view('item_destaque', $data, 'layout/sem_head', TRUE);
             return $retorno;
         }
-        
+
         private function _set_tipo( $item )
         {
             if ( $item->tipo_venda == 1 && $item->tipo_locacao == 1 )
@@ -567,7 +567,7 @@ class Lista_normal
             {
                 $tipo = (object)array('classe' => 'venda', 'titulo' => ( isset($item->imoveis_tipos_titulo) ? $item->imoveis_tipos_titulo : 'Imóvel' ).' à  Venda');
             }
-            elseif ( $item->tipo_locacao == 1 ) 
+            elseif ( $item->tipo_locacao == 1 )
             {
                 $tipo = (object)array('classe' => 'locacao', 'titulo' => ( isset($item->imoveis_tipos_titulo) ? $item->imoveis_tipos_titulo : 'Imóvel' ).' para Alugar');
             }
@@ -577,7 +577,7 @@ class Lista_normal
             }
             return $tipo;
         }
-        
+
         private function _set_valor( $item )
         {
             $retorno = '';
@@ -595,7 +595,7 @@ class Lista_normal
             }
             return $retorno;
         }
-        
+
         public function _set_item_vertical ( $item, $destaque = FALSE, $favoritos = FALSE )
         {
             $origem = $this->get_origem($destaque, $favoritos);
@@ -615,7 +615,7 @@ class Lista_normal
             $retorno = $this->CI->layout->view('item_vertical', $data, 'layout/sem_head', TRUE);
             return $retorno;
         }
-        
+
         public function get_origem($destaque, $favoritos)
         {
             if ( $favoritos )
@@ -643,7 +643,7 @@ class Lista_normal
             }
             return $origem;
         }
-        
+
         public function _set_item_grid ( $item, $destaque = FALSE, $favoritos = FALSE )
         {
             //var_dump($item);
@@ -665,7 +665,7 @@ class Lista_normal
             $retorno = $this->CI->layout->view('item_grid', $data, 'layout/sem_head', TRUE);
             return $retorno;
         }
-        
+
         public function get_images($item, $destaque = FALSE, $imovel = FALSE)
         {
             if ( $destaque )
@@ -674,7 +674,7 @@ class Lista_normal
                 {
                     $data['arquivo'] = ( isset($item->image) && ! empty($item->image) ) ? $item->image : base_url().'imagens/naodisponivel.jpg';
                     $data['alt_image'] = ( ( ! empty($item->image_descricao) ) ? $item->image_descricao : $item->nome );
-                    
+
                 }
                 else
                 {
@@ -705,7 +705,7 @@ class Lista_normal
             $data['galeria'] = $this->set_galeria($data, $item, $imovel);
             return $data;
         }
-        
+
         public function set_galeria($data,$item)
         {
             $galeria = '';
@@ -732,7 +732,7 @@ class Lista_normal
             $galeria .= '</div>';
             return $galeria;
         }
-        
+
         public function set_titulo($item)
         {
 //            var_dump($item);die();
@@ -746,7 +746,7 @@ class Lista_normal
             {
                 $titulo .= ' '.($item->area).' m²';
                 $area = TRUE;
-                
+
             }
             elseif ( ( ! empty($item->area_terreno) && $item->area_terreno > 0.00 ) )
             {
@@ -759,10 +759,10 @@ class Lista_normal
             if ( isset($bairro) || ! isset($area) )
             {
                 $titulo .= ( ! empty($item->area) && $item->area > 0.00 ) ? ($item->area).' m²' : ( ( ! empty($item->area_terreno) && $item->area_terreno > 0.00 ) ? ($item->area_terreno).' m²' : '' );
-                
+
             }
             $titulo .= ($item->condominio) ? ' em condomínio' : '';
-            
+
             $retorno['h2'] = $titulo;
             $retorno['localizacao'] = '';
             if ( isset($item->logradouro) && ! empty($item->logradouro) && (! strstr($item->logradouro,'N?o informado')) )
@@ -781,7 +781,7 @@ class Lista_normal
             }
             return $retorno;
         }
-        
+
         public function set_lista_images($images, $id_empresa = NULL)
         {
             $retorno = array();
@@ -792,7 +792,7 @@ class Lista_normal
                 {
                     if ( isset($image) && ! empty($image) )
                     {
-                        
+
                         if ( $a == 0 )
                         {
                             $retorno['principal'] = (object)array();
@@ -813,13 +813,13 @@ class Lista_normal
             }
             return $retorno;
         }
-        
+
         public function set_item_relacionado ( $item, $destaque = FALSE, $favoritos = FALSE )
         {
             //var_dump($item);die();
             $origem = 2;
             $link = $this->_set_link($item, $origem );
-            
+
             $retorno .= '<li itemscope itemtype="http://schema.org/Product" class="media '.( ($destaque) ? 'destaque' : '' ).'" data-item="'.$item->_id.'">';
             $retorno .= '<a class="pull-left link-img" href="'.$link.'" title="'.$item->nome.'"  >';
             $retorno .= '<img itemprop="image" class="media-object" src="';
@@ -830,7 +830,7 @@ class Lista_normal
                 {
                    $arquivo = str_replace(array('http://www.powempresas.com/images/por_empresa'),'https://images.powempresas.com/portais',$image->arquivo);
                    $retorno .= $arquivo;
-                    
+
                 }
                 $conta_image++;
             }
@@ -850,16 +850,16 @@ class Lista_normal
             $retorno .= '</div>';//.text-right
             $retorno .= '</div>';//.media-body
             $retorno .= '</li>';
-            
+
             return $retorno;
         }
-        
+
         public function _set_item_relacionado_ficha ( $item, $zero = FALSE, $local = 2 )
         {
             $link = $this->_set_link($item, $local );
             $retorno = '<div class="col-lg-3 col-sm-3 col-md-3 col-xs-6">';
             $retorno .= '<div class="thumbnail">';
-            
+
             $retorno .= '<a class="pull-left link-img" href="'.$link.'" title="'.$item->nome.'"  >';
             $retorno .= '<img itemprop="image" src="';
             $conta_image = 0;
@@ -869,7 +869,7 @@ class Lista_normal
                 {
                    $arquivo = LOCALHOST ? $image->arquivo : str_replace(array('http://www.powempresas.com/images/por_empresa', 'https://www.powempresas.com'),'https://images.powempresas.com/portais',$image->arquivo);
                    $retorno .= $arquivo;
-                    
+
                 }
                 $conta_image++;
             }
@@ -889,14 +889,14 @@ class Lista_normal
             $retorno .= $this->_set_valores($item->preco_venda, $item->preco_locacao, $item->preco_locacao_dia);
             $retorno .= '</div>';//.text-right
             $retorno .= '</div>';//.media-body
-            
+
             $retorno .= '</div>';
             $retorno .= '</div>';
             //**/
             return $retorno;
         }
-        
-        
+
+
         public function set_itens_relacionado_ficha ( $itens, $empresa = FALSE )
         {
             $nome_ = 'carousel-relacionados'.($empresa ? '-empresa' : '');
@@ -943,7 +943,7 @@ class Lista_normal
                 $retorno .= '</div>';
                 $retorno .= '</div>';
                 $retorno .= '</div>';
-                 * 
+                 *
                  */
             }
             $retorno .= '<div class="row">';
@@ -960,11 +960,11 @@ class Lista_normal
             $retorno .= '</div>';
             return $retorno;
         }
-        
+
         private function _set_valores ( $venda, $locacao, $locacao_dia )
         {
             $retorno = '<div class="espaco-valores">';
-            
+
             $qtde = 0;
             if ( $venda > 0.00 || $locacao > 0.00 || $locacao_dia > 0.00 )
             {
@@ -984,7 +984,7 @@ class Lista_normal
             $retorno .= '</div><div class="clearfix"></div>';
             return $retorno;
         }
-        
+
         /**
          * monta o item imobiliaria na lista
          * @version 20151021 modificado, retirada de mapa da empresa
@@ -994,7 +994,7 @@ class Lista_normal
          * @param type $h
          * @return type
          */
-        public function set_item_imobiliaria($item, $link_cidade = NULL, $links = TRUE, $h = FALSE) 
+        public function set_item_imobiliaria($item, $link_cidade = NULL, $links = TRUE, $h = FALSE)
         {
             $mapa = $item->mapa;
             $item->mapa = NULL;
@@ -1010,26 +1010,26 @@ class Lista_normal
                 $retorno .= '<div class="col-lg-8 col-sm-8 col-md-8 col-xs-12">';
             }
             $retorno .= '<h'.( $h ? 1 : 2 ).' itemprop="name" class="media-heading">'.$item->nome_fantasia.' <small>'.$item->creci.'</small></h'.( $h ? 1 : 2 ).'>';
-            
+
             $retorno .= '<span itemprop="review" itemscope itemtype="http://schema.org/Review"><p itemprop="reviewBody">'.character_limiter($item->descricao, 120).'</p></span>';
             $retorno .= '<p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">'.$item->endereco.'</p>';
-            
-            if ( isset($item->mapa) && ! empty($item->mapa) ) 
+
+            if ( isset($item->mapa) && ! empty($item->mapa) )
             {
                 $retorno .= '</div>';
-                $retorno .= '<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 pull-right">'; 
+                $retorno .= '<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 pull-right">';
                 $retorno .= '<iframe src="'.base_url().'imoveis/mapa_empresa/'.$item->id.'" frameborder="0" height="140" width="100%" scrolling="no" class="pull-right"></iframe>';
                 $retorno .= '<a href="'.base_url().'imoveis/mapa_empresa/'.$item->id.'" target="_blank" rel="nofollow">Visualizar mapa em tela inteira.</a>';
                 $retorno .= '</div>';
-            } 
-            if ( $links ) 
+            }
+            if ( $links )
             {
                 $retorno .= '<div class="btn-group btn-group-sm">';
                 if ( $item->imoveis_qtde > 0 )
                 {
                     $retorno .= '<a data-item="'.$item->id.'" class="btn btn-default carrinho" href="'.base_url().'imobiliaria/'.urlencode( tira_especiais($item->nome_fantasia) ).'-'.$item->id.'/imoveis-'.$link_cidade.'?itens='. urlencode(json_encode(array('cidade'=>$link_cidade))).'" style="width:auto;">Imóveis na cidade</a>';
                 }
-                $link = base_url().'imobiliaria/'.tira_especiais($item->nome_fantasia).'-'.$item->id.'/imoveis-'.$link_cidade;
+                $link = base_url().'imobiliaria/'.tira_especiais($item->nome_seo).'-'.$item->id.'/imoveis-'.$link_cidade;
 //                $retorno .= '<button class="btn btn-default contato" type="button" data-item="'.$item->id.'" data-titulo="'.$item->nome_fantasia.'">Contato por e-mail</button>';
                 $retorno .= '<button class="btn btn-default ver-telefone-empresa" type="button" data-item="'.$item->id.'" data-telefone="'.$item->telefone.'" >Ver Telefone</button>';
                 if ( isset($item->whatsapp) && !empty($item->whatsapp) )
@@ -1043,7 +1043,7 @@ class Lista_normal
                                             <li><a class="btn" href="https://web.whatsapp.com/send?phone=+55'.$item->whatsapp.'&text='. urlencode('Encontrei sua imobiliária no link: '.$link).'" data-item="'.$item->id.'" data-log="22">Conversar com a imobiliária</a></li>
                                             <li><a class="btn" href="https://web.whatsapp.com/send?text='. urlencode('Veja esta pagina: '.$link).'" data-item="'.$item->id.'" data-log="22">Enviar para um amigo</a></li>
                                         </ul>
-                                      </div> 
+                                      </div>
                                       <div class="btn-group btn-vertical">
                                         <button type="button" class="btn btn-whats whats-mobile ver-telefone-whats-empresa btn-secondary dropdown-toggle " data-item="'.$item->id.'" data-log="22" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-whatsapp"></i>
@@ -1061,25 +1061,25 @@ class Lista_normal
                 }
                 $retorno .= '</div>';//.btn-group
             }
-             
+
             $retorno .= '</div>';//.media-body
-            
+
             $retorno .= '</div>';//.media
             $retorno .= $links ? '' : '<br>';
             return $retorno;
         }
-        
-        public function set_item_noticia($item) 
+
+        public function set_item_noticia($item)
         {
-            
+
             $retorno = '<div class="media noti" data-titulo="'.strip_tags($item->titulo).'" >';
             $retorno .= '<a itemscope itemtype="http://schema.org/Article"  href="'.base_url().'blog/'.urlencode( tira_especiais($item->titulo) ).'/'.$item->id.'">';
-            
+
             if ( ! empty($item->icone) )
             {
                 $retorno .= '<img itemprop="image" class="media-object pull-left" src="http://www.guiasjp.com/fotos_noticias/'.$item->foto.'" alt="'.$item->titulo.'" class="img-responsive">';
             }
-            
+
             $retorno .= '<div class="media-body">';
             $retorno .= '<h2 itemprop="name" class="media-heading">'.strip_tags($item->titulo).'</h2>';
             $retorno .= '<p itemprop="articleBody">'.character_limiter(strip_tags($item->descricao), 120).'</p>';
@@ -1088,7 +1088,7 @@ class Lista_normal
             $retorno .= '</div>';//.media
             return $retorno;
         }
-        
+
         private function _set_opcionais ( $quartos, $garagens, $banheiros, $relacionados = FALSE )
         {
             $retorno = '';
@@ -1117,7 +1117,7 @@ class Lista_normal
             }
             return $retorno;
         }
-        
+
         private function _set_area( $area = '', $area_terreno = '', $area_util = '' )
         {
 //            var_dump($area,$area_terreno,$area_util);
@@ -1131,14 +1131,14 @@ class Lista_normal
             $retorno .= ( ! empty($area_util) && $area_util > 0.00 ) ? '| '.$area_util.'<span class="bold opcional">m&sup2; de área útil </span>' : '';
             return $retorno;
         }
-        
+
         public function _set_link( $item, $origem = NULL )
         {
             $venda = isset($item->tipo_venda) ? $item->tipo_venda : $item->venda;
             $locacao = isset($item->tipo_locacao) ? $item->tipo_locacao : $item->locacao;
             $locacao_dia = isset($item->tipo_locacao_dia) ? $item->tipo_locacao_dia : $item->locacao_dia;
-            
-            
+
+
             //var_dump($item);
             $separador = '-';
             $retorno = base_url().'imovel/';
@@ -1152,16 +1152,16 @@ class Lista_normal
             $retorno = trim($retorno);
             //$retorno .= 'teste';
             $retorno .= '/'.(isset($item->_id) ? $item->_id : $item->id);
-            
+
             if ( isset($origem) && ! empty($origem) )
             {
                 $retorno .= '/'.$origem;
             }
-            
+
             return $retorno;
         }
-        
-             
+
+
         private function _set_item ( $item )
         {
             $retorno = '';
@@ -1201,7 +1201,7 @@ class Lista_normal
                     $retorno .= ( $item->mudou ) ? str_replace('codEmpresa',$item->id_empresa, 'https://www.pow.com.br/powsites/codEmpresa/imo/').$item->image : 'https://www.guiasjp.com/imoveis_imagens/'.$item->image;
                 }
 
-            } 
+            }
             else
             {
                 $retorno .= 'https://www.icuritiba.com/imagens/naodisponivel.jpg';
@@ -1211,7 +1211,7 @@ class Lista_normal
             $retorno .= (isset($item->bairro) && ! empty($item->bairro) ) ? '<h3>'.$item->bairro.'</h3>' : '';
             $retorno .= '<p>'.(isset($item->nome) ? $item->nome : '' ).'</p>';
             $retorno .= '<hr>';
-            if ( $item->area > 0 || $item->area_terreno > 0 )  
+            if ( $item->area > 0 || $item->area_terreno > 0 )
             {
                 $retorno .= '<p>'.( ( $item->area > 0 ) ? '<strong>'. $item->area.'</strong>' : '<strong>'.$item->area_terreno.'</strong>' ).' m&sup2; de área útil </p> ';
             }
@@ -1235,9 +1235,9 @@ class Lista_normal
             $retorno .= '</div>';
             return $retorno;
         }
-        
-        
-        
+
+
+
 	private function _set_itens()
 	{
 		$retorno = '';
@@ -1250,8 +1250,8 @@ class Lista_normal
                         $retorno .= 'href="';
                         $retorno .= $this->link.( ($this->link_compl) ? '' : $item->link ) ;
                         $retorno .= '" ';
-                        $retorno .= ' class="'.( isset($item->class) ? $item->class : '' ).'">'; 
-                        $retorno .= $item->descricao.( isset($item->qtde) ? ' <span class="ui-li-count"> '.number_format($item->qtde, 0, ',', '.').' </span>' :  '' );  
+                        $retorno .= ' class="'.( isset($item->class) ? $item->class : '' ).'">';
+                        $retorno .= $item->descricao.( isset($item->qtde) ? ' <span class="ui-li-count"> '.number_format($item->qtde, 0, ',', '.').' </span>' :  '' );
                         $retorno .= '</a>';
                         $retorno .= '</li>';
                     }
@@ -1262,7 +1262,7 @@ class Lista_normal
 		}
 		return $retorno;
 	}
-	
+
 	public function inicia( $config )
 	{
             $this->theme = ( isset($config['theme']) ) ? $config['theme'] : NULL;
@@ -1286,5 +1286,5 @@ class Lista_normal
             $this->links_relacionados = ( isset($config['links_relacionados']) ) ? $config['links_relacionados'] : NULL;
             return $this;
 	}
-	
+
 }
