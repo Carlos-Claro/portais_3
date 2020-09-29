@@ -209,6 +209,10 @@ class Imoveis extends MY_Controller {
                       var_dump($filtro_tipo);
                     }
                     $i = $this->imoveis_mongo_model->get_item_destaque_por_filtro($filtro_tipo, 'destaque_tipo', -1, ($empresas[$empresa_tipo] + ( ($this->offset)/12 )));
+                    if( isset($_GET['debug_tipo']) ){
+                      var_dump($i);
+                    }
+
                     if ( $i )
                     {
                         $imoveis_data['tipo'][] = $i;
