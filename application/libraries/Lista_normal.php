@@ -1040,8 +1040,8 @@ class Lista_normal
                                             <i class="fa fa-whatsapp"></i> WhatsApp
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><a class="btn" href="https://web.whatsapp.com/send?phone=+55'.$item->whatsapp.'&text='. urlencode('Encontrei sua imobiliária no link: '.$link).'" data-item="'.$item->id.'" data-log="22">Conversar com a imobiliária</a></li>
-                                            <li><a class="btn" href="https://web.whatsapp.com/send?text='. urlencode('Veja esta pagina: '.$link).'" data-item="'.$item->id.'" data-log="22">Enviar para um amigo</a></li>
+                                            <li><a class="btn" href="https://web.whatsapp.com/send?phone=+55'.$item->whatsapp.'&text='. urlencode('Encontrei sua imobiliária no link: '.$link).'" data-item="'.$item->id.'" data-log="22" target="_blank">Conversar com a imobiliária</a></li>
+                                            <li><a class="btn" href="https://web.whatsapp.com/send?text='. urlencode('Veja esta pagina: '.$link).'" data-item="'.$item->id.'" data-log="22" target="_blank">Enviar para um amigo</a></li>
                                         </ul>
                                       </div>
                                       <div class="btn-group btn-vertical">
@@ -1049,8 +1049,8 @@ class Lista_normal
                                             <i class="fa fa-whatsapp"></i>
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><a class="btn" href="https://api.whatsapp.com/send?phone=+55'.$item->whatsapp.'&text='. urlencode('encontrei sua imobiliaria atraves do link: '.$link).'" data-item="'.$item->id.'" data-log="22">Conversar com a imobiliária</a></li>
-                                            <li><a class="btn" href="https://api.whatsapp.com/send?text='. urlencode('Veja estes imóveis: '.$link).'" data-item="'.$item->id.'" data-log="22">Enviar para um amigo</a></li>
+                                            <li><a class="btn" href="https://api.whatsapp.com/send?phone=+55'.$item->whatsapp.'&text='. urlencode('encontrei sua imobiliaria atraves do link: '.$link).'" data-item="'.$item->id.'" data-log="22" target="_blank">Conversar com a imobiliária</a></li>
+                                            <li><a class="btn" href="https://api.whatsapp.com/send?text='. urlencode('Veja estes imóveis: '.$link).'" data-item="'.$item->id.'" data-log="22" target="_blank">Enviar para um amigo</a></li>
                                         </ul>
                                       </div>
                                 ';
