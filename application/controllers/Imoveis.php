@@ -7,17 +7,17 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  * @author Carlos Claro
  * @package Imoveis
  * @since 14/08/2018
- * 
+ *
  * @copyright (c) 2018 POW Internet, Carlos Claro
  */
 class Imoveis extends MY_Controller {
-    
-    
-    
+
+
+
     /**
      * construtor da função extendida de MyController
      * Identifica o portal, e set as informações necessárias para o View
-     * 
+     *
      * @version 1.0
      */
     public function __construct()
@@ -51,8 +51,8 @@ class Imoveis extends MY_Controller {
         $this->print_time('setlogPesquisa');
     }
 
-    
-    
+
+
     /**
      * Set inicial, verifica o location para direcionar montagem.
      * @access public
@@ -64,14 +64,14 @@ class Imoveis extends MY_Controller {
         $this->view = 'imoveis';
         $this->_set_page();
     }
-    
+
     public function imovel()
     {
         $uri = $this->uri->segment_array();
         var_dump($uri);
     }
-    
-    
+
+
     public function imobiliaria($empresa = NULL)
     {
         if ( isset($empresa) )
@@ -84,20 +84,20 @@ class Imoveis extends MY_Controller {
             $this->index();
         }
     }
-    
+
     public function set_empresa($id_empresa)
     {
         $this->empresa = $this->empresas_mongo_model->get_item($id_empresa);
         return $this;
     }
-    
+
     public function get_empresa($campo = NULL)
     {
         return isset($this->empresa) ? ( $campo ? $this->empresa->{$campo} : $this->empresa ) : NULL;
     }
-    
+
     /**
-     * 
+     *
      */
     private function _set_page()
     {
@@ -108,7 +108,7 @@ class Imoveis extends MY_Controller {
         $data['is_mobile'] = $this->is_mobile;
         $layout = $this->layout
                 ->set_includes_defaults()
-                ->set_include('js/filtro.js', TRUE)	
+                ->set_include('js/filtro.js', TRUE)
                 ->set_time($this->soma_time())
                 ->set_mobile($this->is_mobile)
                 ->set_robot($this->cidade->link === $this->get_request('cidade'))
@@ -120,18 +120,18 @@ class Imoveis extends MY_Controller {
                 ->set_sobre($this->cidade->sobre, $this->cidade->nome, $this->cidade->portal, $this->cidade->gentilico, $this->cidade->link, $this->cidade->uf, $this->cidade->link_prefeitura,1 )
                 ->set_analytics($this->cidade->instrucoes_head);
 //                ->set_google_tag($this->cidade->google_tag);
-        
+
         $layout
-                ->view($this->view, $data, 'layout/layout_3'); 
-        
-        
+                ->view($this->view, $data, 'layout/layout_3');
+
+
     }
-    
-    
+
+
     private $post = NULL;
-    
-    
-    
+
+
+
     public function pesquisa( $return = FALSE )
     {
         $this->benchmark->mark('getPesquisa_start');
@@ -152,7 +152,7 @@ class Imoveis extends MY_Controller {
         }
         echo json_encode($data);
     }
-    
+
     public function get_itens( $return = FALSE )
     {
         $this->benchmark->mark('getImoveis_start');
@@ -179,7 +179,7 @@ class Imoveis extends MY_Controller {
 //        header("Content-Type: text/html; charset=UTF-8",true);
         echo json_encode(['status' => TRUE, 'data' => $retorno]);
     }
-    
+
     public function get_destaques()
     {
         $tipo_negocio = isset($this->request['tipo_negocio']) ? $this->request['tipo_negocio'] : 'venda';
@@ -205,7 +205,7 @@ class Imoveis extends MY_Controller {
                     {
                         $filtro_tipo['negativos'] = ['tipo' => 'where_not_in','campo' => '_id','valor' => $negativos];
                     }
-                    $i = $this->imoveis_mongo_model->get_item_destaque_por_filtro($filtro_tipo, 'destaque_tipo', -1, ($empresas[$empresa_tipo] + ( ($this->offset)/12 )));
+                    $i = $this->imoveis_mongo_model->get_item_destaque_por_filtro($filtro_tipo, 'destaque_tipo', 1, ($empresas[$empresa_tipo] + ( ($this->offset)/12 )));
                     if ( $i )
                     {
                         $imoveis_data['tipo'][] = $i;
@@ -215,7 +215,7 @@ class Imoveis extends MY_Controller {
             }
         }
         $bairros = isset($this->request['bairro']) ? $this->request['bairro'] : FALSE;
-        if ( $bairros ) 
+        if ( $bairros )
         {
             $b = [];
             $this->set_bairros_destaques();
@@ -250,7 +250,7 @@ class Imoveis extends MY_Controller {
         $retorno = ['imoveis' => $imoveis_data,'negativos' => $negativos];
         return $retorno;
     }
-    
+
     public function get_imoveis($imoveis, $destaque = FALSE)
     {
         $retorno = '<li class="publicidade publicidade_0"></li>';
@@ -265,14 +265,14 @@ class Imoveis extends MY_Controller {
             else
             {
                 $retorno .= $this->lista_normal->_set_item_grid($imovel, $destaque);
-                
+
             }
             $contador++;
             if ( ! ($contador % 4) )
             {
                 $retorno .= '<li class="publicidade publicidade_'.$publicidade.'"></li>';
                 $publicidade++;
-                
+
             }
         }
         if ( ! $this->input->is_ajax_request() && ! $destaque )
@@ -281,22 +281,22 @@ class Imoveis extends MY_Controller {
         }
         return $retorno;
     }
-    
+
     private function get_lista_tipo()
     {
         return $this->lista_tipo;
     }
-    
+
     private $mascara_titulo = ['tipo', 'tipo_negocio', 'localidade', ];
-    
+
     public function get_titulo()
     {
         return $this->titulo;
     }
-    
+
     public $titulo;
     public $descricao;
-    
+
     public function set_titulo()
     {
         $this->titulo = '';
@@ -307,7 +307,7 @@ class Imoveis extends MY_Controller {
             $this->titulo .= 'Imoveis por codigo: '.$select['valores']['id'];
             $this->descricao .= 'Busca de Imoveis por codigo: '.$select['valores']['id'];
         }else{
-            
+
             if ( count($data_valores['tipo_selecionado']) > 0 && !isset($this->sem_tipo) ){
                 $a = 0; $tv = '';
                 foreach( $data_valores['tipo_selecionado'] as $t ){
@@ -340,7 +340,7 @@ class Imoveis extends MY_Controller {
                         $bairro_b = $this->get_bairros($cb);
                         var_dump($bairro_b);
                         $tv .= $bairro_b->descricao;
-                        
+
                     }
                     $a++;
                 }
@@ -369,10 +369,10 @@ class Imoveis extends MY_Controller {
             $this->titulo .= $titulo_itens;
             $this->descricao .= $titulo_itens;
         }
-        
+
         return $this;
     }
-    
+
     public function get_titulo_valor($valores)
     {
         $retorno = '';
@@ -385,17 +385,17 @@ class Imoveis extends MY_Controller {
             if ( isset($valores['valor_min']) )
             {
                 $retorno .= ', mínimo R$ '.number_format($valores['valor_min'],0,',','.');
-                
+
             }
             else
             {
                 $retorno .= ', até R$ '.number_format($valores['valor_max'],0,',','.');
-                
+
             }
         }
         return $retorno;
     }
-    
+
     public function get_titulo_area($valores)
     {
         $retorno = '';
@@ -408,18 +408,18 @@ class Imoveis extends MY_Controller {
             if ( isset($valores['area_min']) )
             {
                 $retorno .= ', área mínima '.number_format($valores['area_min'],0,',','.');
-                
+
             }
             else
             {
                 $retorno .= ', área máxima '.number_format($valores['area_max'],0,',','.');
-                
+
             }
         }
         return $retorno;
-        
+
     }
-    
+
     public function get_titulo_itens($valores)
     {
         $retorno = '';
@@ -437,19 +437,19 @@ class Imoveis extends MY_Controller {
         }
         return $retorno;
     }
-    
+
 
     public function get_descricao()
     {
         return $this->descricao;
     }
-    
+
     private $forms = [
         'imoveis'       => ['tipo_negocio','tipo',['cidade','bairro'],['valor_min','valor_max'],['area_min','area_max'],'residencial','comercial','quartos','banheiros','vagas'],
         'imobiliarias'  => ['id_empresa','tipo_negocio','tipo',['cidade','bairro'],['valor_min','valor_max'],['area_min','area_max'],'residencial','comercial','quartos','banheiros','vagas'],
         'id'            => ['id'],
     ];
-    
+
     public function get_forms($tipo = NULL)
     {
         if ( isset($tipo) )
@@ -462,7 +462,7 @@ class Imoveis extends MY_Controller {
         }
         return $retorno;
     }
-    
+
     public function set_form( $tipo = 'imoveis' )
     {
         $this->benchmark->mark('getForm_start');
@@ -470,13 +470,13 @@ class Imoveis extends MY_Controller {
         $data['imoveis'] = $this->get_itens(TRUE);
         $retorno = $layout = $this->layout
                         ->set_time($this->soma_time())
-                        ->view('filtro_3', $data, 'layout/sem_head.php', TRUE); 
+                        ->view('filtro_3', $data, 'layout/sem_head.php', TRUE);
         $this->benchmark->mark('getForm_end');
         $this->print_time('getForm');
         return $retorno;
     }
-    
-    
+
+
     public function get_select()
     {
         $this->benchmark->mark('getSelect_start');
@@ -499,7 +499,7 @@ class Imoveis extends MY_Controller {
         return $retorno;
 
     }
-    
+
     public function get_selecionados( $campo )
     {
         $valor = $this->get_request($campo);
@@ -531,16 +531,16 @@ class Imoveis extends MY_Controller {
         }
         return $retorno;
     }
-    
+
     public function set_bairros_destaques()
     {
         $tipos_json = getcwd().'/application/views/json/destaques_bairros.json';
         $this->bairros_destaques = json_decode(file_get_contents($tipos_json));
         return $this;
     }
-    
+
     /**
-     * utiliza o $this->filtro para que seja retornada as empresas com destaques para o filtro 
+     * utiliza o $this->filtro para que seja retornada as empresas com destaques para o filtro
      * [cidade_uf]
      * [tipo_negocio]
      * [tipo]
@@ -555,10 +555,10 @@ class Imoveis extends MY_Controller {
             $retorno = $this->bairros_destaques->{$data['cidade']}->{$data['tipo_negocio']}->{$data['tipo']}->{$data['bairro']};
         }
         return $retorno;
-        
+
     }
-    
-    
+
+
     public function set_tipos_destaques()
     {
         $tipos_json = getcwd().'/application/views/json/destaques_tipos.json';
@@ -575,9 +575,9 @@ class Imoveis extends MY_Controller {
         }
         return $this;
     }
-    
+
     /**
-     * utiliza o $this->filtro para que seja retornada as empresas com destaques para o filtro 
+     * utiliza o $this->filtro para que seja retornada as empresas com destaques para o filtro
      * [cidade]
      * [tipo_negocio]
      * [tipo]
@@ -592,7 +592,7 @@ class Imoveis extends MY_Controller {
         }
         return $retorno;
     }
-    
+
     public function set_tipos()
     {
         $tipos_json = getcwd().'/application/views/json/tipo';
@@ -607,7 +607,7 @@ class Imoveis extends MY_Controller {
             $this->set_tipos();
         }
     }
-    
+
     private function get_tipos ($id = FALSE)
     {
         if ($id)
@@ -616,12 +616,12 @@ class Imoveis extends MY_Controller {
         }
         return $this->tipos;
     }
-    
+
     private function get_set_cidade()
     {
         return $this->set_cidade;
     }
-    
+
     public function set_bairros($cidade)
     {
         $bairros_json = getcwd().'/application/views/json/bairros/'.$cidade;
@@ -638,7 +638,7 @@ class Imoveis extends MY_Controller {
             $this->set_bairros($cidade);
         }
     }
-    
+
     public function get_bairros($id = FALSE)
     {
         if ($id)
@@ -647,13 +647,13 @@ class Imoveis extends MY_Controller {
         }
         return $this->bairros;
     }
-    
+
     public function get_filtro()
     {
         return $this->filtro;
     }
-    
-        
+
+
     public function set_filtro()
     {
         $filtro = array();
@@ -702,7 +702,7 @@ class Imoveis extends MY_Controller {
         $this->filtro = $filtro;
         return $this;
     }
-    
+
     private function get_cidades($id = FALSE)
     {
         if ( $id )
@@ -711,7 +711,7 @@ class Imoveis extends MY_Controller {
         }
         return $this->cidades;
     }
-    
+
     private function set_cidades()
     {
         $cidades_json = getcwd().'/application/views/json/cidades';
@@ -719,7 +719,7 @@ class Imoveis extends MY_Controller {
         {
             $this->cidades = json_decode(file_get_contents($cidades_json));
             return $this;
-            
+
         }
         else
         {
@@ -727,7 +727,7 @@ class Imoveis extends MY_Controller {
             $this->set_cidades();
         }
     }
-    
+
     private function get_post()
     {
         $get = $this->input->get(NULL,TRUE);
@@ -741,7 +741,7 @@ class Imoveis extends MY_Controller {
         }
         return $post;
     }
-    
+
     /**
      * @todo 'quando retornar 0 itens, forçar sugestões em valores diferentes e possiveis outros itens'
      */
@@ -840,10 +840,10 @@ class Imoveis extends MY_Controller {
         $this->print_time('setValores');
         return $this;
     }
-    
+
     private function set_ordem ( $ordem = 'padrao')
     {
-        switch ( $ordem ) 
+        switch ( $ordem )
         {
             default:
             case 'padrao':
@@ -857,14 +857,14 @@ class Imoveis extends MY_Controller {
                 break;
         }
         return $t_ordem;
-        
+
     }
-    
+
     private function get_ordem ( $casa = 'coluna')
     {
         return $this->ordem[$casa];
     }
-    
+
     private function get_request($campo = FALSE)
     {
         if ( $campo )
@@ -873,7 +873,7 @@ class Imoveis extends MY_Controller {
         }
         return $this->request;
     }
-    
+
     private function get_uri_valores()
     {
         $valores = array();
@@ -920,7 +920,7 @@ class Imoveis extends MY_Controller {
         }
         return $valores;
     }
-    
+
     private function get_url( $completo = FALSE )
     {
         $retorno = 'imoveis';
@@ -960,12 +960,12 @@ class Imoveis extends MY_Controller {
 //            }
         }
         return $retorno;
-        
+
     }
-    
+
     private $uri_chaves = ['pesquisa','get_filtro','imovel','imobiliaria','set_form','get_itens',];
     private $uri_chaves_ordem = ['pesquisa' => 2,'get_filtro' => 2,'imovel' => 2,'imobiliaria' => 3,'set_form' => 2,'get_itens' => 2,];
-    
+
     private function set_uri()
     {
         $r = $this->uri->segment_array();
@@ -983,7 +983,7 @@ class Imoveis extends MY_Controller {
         }
         return $this;
     }
-    
+
     private function get_uri($i = NULL)
     {
         $retorno = isset($i) ? '' : $this->uri;
@@ -993,12 +993,12 @@ class Imoveis extends MY_Controller {
         }
         return $retorno;
     }
-    
+
     private function set_campos()
     {
-        
+
     }
-    
+
     private function get_campos($url = FALSE)
     {
         $retorno = array();
@@ -1018,7 +1018,7 @@ class Imoveis extends MY_Controller {
         }
         return $retorno;
     }
-    
+
     public function imovel_modal($id)
     {
         $this->load->model('imoveis_mongo_model');
@@ -1026,13 +1026,13 @@ class Imoveis extends MY_Controller {
         $data['item'] = $this->imoveis_mongo_model->get_item($id);
         $layout = $this->layout;
         $retorno = $layout
-                ->view('imovel_modal', $data, 'layout/sem_head', TRUE); 
+                ->view('imovel_modal', $data, 'layout/sem_head', TRUE);
         echo $retorno;
     }
-    
-    
-    
-    
+
+
+
+
     private function set_log_pesquisa_mongo()
     {
         $this->benchmark->mark('estatistica_start');
@@ -1051,8 +1051,8 @@ class Imoveis extends MY_Controller {
         $this->print_time('estatistica');
 //        echo $this->soma_time();
     }
-    
-    
-    
-    
+
+
+
+
 }
