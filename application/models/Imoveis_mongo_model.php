@@ -1,16 +1,16 @@
 <?php
 
 class Imoveis_mongo_model extends MY_Mongo {
-    
+
     public function __construct() {
         parent::__construct();
     }
-    
+
     public function adicionar($data = array())
     {
         return $this->insert_('imoveis', $data);
     }
-    
+
     public function adicionar_multi($data = array())
     {
         return $this->adicionar_multi_('imoveis', $data);
@@ -33,7 +33,7 @@ class Imoveis_mongo_model extends MY_Mongo {
         $retorno = $this->get_item_($data);
         return $retorno;
     }
-    
+
     public function get_item_por_filtro($filtro, $coluna = '', $ordem = -1)
     {
         $data['tabela'] = 'imoveis';
@@ -42,13 +42,13 @@ class Imoveis_mongo_model extends MY_Mongo {
         $retorno = $this->get_item_($data);
         return $retorno;
     }
-    
+
     public function get_item_destaque_por_filtro($filtro, $coluna = '', $ordem = -1, $off_set = 0)
     {
         $data['tabela'] = 'imoveis';
         $data['filtro'] = $filtro;
         $data['ordem'] = array($coluna => $ordem);
-        $data['off_set'] = $off_set;
+        // $data['off_set'] = $off_set;
         $data['qtde_itens'] = 1;
         $retorno = $this->get_itens_($data);
         if ( $retorno['qtde'] > 0 )
@@ -60,7 +60,7 @@ class Imoveis_mongo_model extends MY_Mongo {
         }
         return FALSE;
     }
-    
+
     public function get_total_itens( $filtro = array() )
     {
         $data['tabela'] = 'imoveis';
@@ -68,7 +68,7 @@ class Imoveis_mongo_model extends MY_Mongo {
         $retorno = $this->get_count_($data);
         return isset($retorno) ? $retorno : NULL;
     }
-    
+
     public function get_itens( $filtro = array(), $coluna = 'ordem', $ordem = -1, $off_set = 0, $qtde_itens = 12 )
     {
         $data['tabela'] = 'imoveis';
@@ -79,5 +79,5 @@ class Imoveis_mongo_model extends MY_Mongo {
         $retorno = $this->get_itens_($data);
         return isset($retorno) ? $retorno : NULL;
     }
-    
+
 }
