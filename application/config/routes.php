@@ -209,8 +209,8 @@ $route['alugar'] = 'index/alugar';
 $route['anuncie'] = 'index/anuncie';
 $route['anuncie/(:any)'] = 'index/anuncie/$1';
 $route['anuncie/(:any)/(:any)'] = 'index/anuncie/$1/$2';
-$route['imoveis/mapa'] = 'imoveis/mapa'; 
-$route['imoveis/mapa/(:any)'] = 'imoveis/mapa/$1'; 
+//$route['imoveis/mapa'] = 'imoveis/mapa'; 
+//$route['imoveis/mapa/(:any)'] = 'imoveis/mapa/$1'; 
 $route['favoritos'] = 'index/favoritos'; 
 $route['favoritos/(:any)'] = 'index/favoritos/$1'; 
 
