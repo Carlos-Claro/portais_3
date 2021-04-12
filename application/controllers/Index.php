@@ -4709,7 +4709,7 @@ class Index extends MY_Controller {
 //        var_dump($id_imovel);die();
         $this->load->model(['imoveis_mongo_model']);
          $imovel = $this->imoveis_mongo_model->get_item(strval($id_imovel));
-         var_dump($imovel);
+//         var_dump($imovel);
         if ( isset($imovel->location[0]) && ! empty($imovel->location[0]) )
         {
             $this->layout->set_function('mapa')->set_mapa($imovel->location)->view('mapa', [], 'layout/branco');
