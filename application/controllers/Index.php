@@ -4708,11 +4708,11 @@ class Index extends MY_Controller {
     public function mapa($id_imovel){
 //        var_dump($id_imovel);die();
         $this->load->model(['imoveis_mongo_model']);
-         $imovel = $this->imoveis_mongo_model->get_item($id_imovel);
+         $imovel = $this->imoveis_mongo_model->get_item(strval($id_imovel));
          var_dump($imovel);
         if ( isset($imovel->location[0]) && ! empty($imovel->location[0]) )
         {
-            $this->layout->set_function('mapa')->set_mapa($this->imovel->location)->view('mapa', [], 'layout/branco');
+            $this->layout->set_function('mapa')->set_mapa($imovel->location)->view('mapa', [], 'layout/branco');
 
         }else{
             echo 'este imóvel não tem os dados necessários para exibir o mapa';
