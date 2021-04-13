@@ -388,7 +388,7 @@ class Contato extends MY_Controller {
         $data_e['to'][] = $this->imovel->empresa_email;
         if ( LOCALHOST || $this->dados['remetente']['email'] == 'programacao@pow.com.br')
         {
-            $data_e['to'] = ['programacao@pow.com.br','comercial@pow.com.br','info@pow.com.br','carlosclaro79@gmail.com','suporte3@pow.com.br'];
+            $data_e['to'] = ['programacao@pow.com.br','carlosclaro79@gmail.com'];
             
         }
         else
@@ -426,7 +426,7 @@ class Contato extends MY_Controller {
         $data_e['to'] = $this->dados['remetente']['email'];
         if ( LOCALHOST || $this->dados['remetente']['email'] == 'programacao@pow.com.br' )
         {
-            $data_e['to'] = ['programacao@pow.com.br','comercial@pow.com.br','info@pow.com.br','carlosclaro79@gmail.com','suporte3@pow.com.br'];
+            $data_e['to'] = ['programacao@pow.com.br','carlosclaro79@gmail.com'];
         }
         $data_e['reply'] = [$this->imovel->empresa_email,$this->empresa->contato_nome];
         $data_e['mensagem'] = $this->mensagem['usuario'];
@@ -505,7 +505,7 @@ class Contato extends MY_Controller {
         $data_e['to'] = $this->dados['remetente']['email'];
         if ( LOCALHOST || $this->dados['remetente']['email'] == 'programacao@pow.com.br' )
         {
-            $data_e['to'] = ['programacao@pow.com.br','comercial@pow.com.br','info@pow.com.br','carlosclaro79@gmail.com','suporte3@pow.com.br'];
+            $data_e['to'] = ['programacao@pow.com.br','carlosclaro79@gmail.com'];
         }
         $data_e['reply'] = ['ll@pow.com.br','Comercial'];
         $data_e['mensagem'] = $mensagem['usuario'];

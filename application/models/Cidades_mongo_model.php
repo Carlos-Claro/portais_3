@@ -47,10 +47,6 @@ class Cidades_mongo_Model extends My_mongo {
         elseif (strstr($portal, 'https://') )
         {
             $portal = str_replace('https://', '', $portal);
-            if( LOCALHOST )
-            {
-                $portal = 'guiaimoveissaopaulo.com';
-            }
         }
         elseif (strstr($portal, 'www.') )
         {

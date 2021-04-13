@@ -409,14 +409,14 @@ class MY_Controller extends CI_Controller
     public function envio( $data )	
     {
         $keys = json_decode(KEYS);
-//        if ( ! isset($data['iagente']) )
-//        {
+        if ( ! isset($data['iagente']) )
+        {
             $config = (array)$keys->email->pow;
-//        }
-//        else
-//        {
-//            $config = (array)$keys->email->iagente;
-//        }
+        }
+        else
+        {
+            $config = (array)$keys->email->iagente;
+        }
         $config['mailtype'] = 'html';
         $config['useragent'] = 'RededePortaisImobiliarios';
         $config['protocol'] = 'smtp';
