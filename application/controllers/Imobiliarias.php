@@ -107,11 +107,11 @@ class Imobiliarias extends MY_Controller {
         //$publicidade = $this->_set_publicidade();
         //$config['itens']['publicidade'] = $publicidade['publicidade'];
         $config['itens']['itens'] = array_merge($itens_cidade['itens'], $itens['itens'] );
-        $this->titulo = 'Imobiliárias em '.$this->cidade->nome.', Consulte nossa relação de imobiliarias anunciantes em Curitiba e encontre a mais perto de você';
-        $this->description = 'As imobiliárias de '.$this->cidade->nome.' reunidas em um só lugar. Consulte nossa relação de imobiliarias anunciantes em Curitiba e encontre a mais perto de você.';
+        $this->titulo = 'Imobiliárias em '.$this->cidade->nome.', Consulte nossa relação de imobiliarias anunciantes em '.$this->cidade->nome.' e encontre a mais perto de você';
+        $this->description = 'As imobiliárias de '.$this->cidade->nome.' reunidas em um só lugar. Consulte nossa relação de imobiliarias anunciantes em '.$this->cidade->nome.' e encontre a mais perto de você.';
         $config['titulo'] = $this->titulo;
         $config['h1'] = 'Imobiliárias em '.$this->cidade->nome;
-        $config['h2'] = 'Consulte nossa relação de imobiliarias anunciantes em Curitiba e encontre a mais perto de você';
+        $config['h2'] = 'Consulte nossa relação de imobiliarias anunciantes em '.$this->cidade->nome.' e encontre a mais perto de você';
         $this->lista_normal->inicia( $config );
         $data['listagem'] = $this->lista_normal->get_html_imobiliarias($this->cidade->link);
         if ( isset ($_SERVER['SCRIPT_URI']) && ( $url_canonica == $_SERVER['SCRIPT_URI'] || $_SERVER['SCRIPT_URI'] == substr($url_canonica,0,-1) ) )
