@@ -425,17 +425,9 @@
             <?php
             endif;
             ?>
-          <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space" id="relacionados">
-            <div class="container-fluid">
-                <div class="c-content-title-1">
-                    <h3 class="c-font-uppercase titulo-ficha c-font-bold">+ Imóveis de <?php echo $item->imobiliaria_nome;?></h3>
-                    <div class="c-line-center c-theme-bg"></div>
-                </div>
-                <div class="row relacionados-item">
-                    <?php echo $relacionados_empresa;?>
-                </div>
-            </div>
-        </div>
+        <?php
+        if ( ! empty($relacionados) ):
+            ?>
         <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space">
             <div class="container-fluid">
                 <div class="c-content-title-1">
@@ -444,6 +436,20 @@
                 </div>
                 <div class="row relacionados-item">
                     <?php echo $relacionados;?>
+                </div>
+            </div>
+        </div>
+            <?php
+        endif;
+        ?>
+          <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space" id="relacionados">
+            <div class="container-fluid">
+                <div class="c-content-title-1">
+                    <h3 class="c-font-uppercase titulo-ficha c-font-bold">+ Imóveis de <?php echo $item->imobiliaria_nome;?></h3>
+                    <div class="c-line-center c-theme-bg"></div>
+                </div>
+                <div class="row relacionados-item">
+                    <?php echo $relacionados_empresa;?>
                 </div>
             </div>
         </div>

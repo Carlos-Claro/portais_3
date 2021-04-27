@@ -197,8 +197,13 @@ class Imovel extends MY_Controller {
             $valores['valor_min'] = ($this->imovel->{$tipo_negocio} - ( $this->imovel->{$tipo_negocio} / 20 ));
             $valores['valor_max'] = ($this->imovel->{$tipo_negocio} + ( $this->imovel->{$tipo_negocio} / 20 ));
             $valores['tipo'] = [$this->imovel->imoveis_tipos_link];
-            $valores['quartos'] = [$this->imovel->quartos];
-            $valores['vagas'] = [$this->imovel->garagens];
+            if ( $this->imovel->quartos ){
+                $valores['quartos'] = [$this->imovel->quartos-1,$this->imovel->quartos,$this->imovel->quartos+1];
+            }
+            if ($this->imovel->garagens ){
+                $valores['vagas'] = [$this->imovel->garagens-1,$this->imovel->garagens,$this->imovel->garagens+1];
+            }
+            $valores['cidade'] = $this->imovel->cidade_link ;
         }
         else
         {
@@ -207,15 +212,23 @@ class Imovel extends MY_Controller {
         }
         $valores['negativos'] = $this->get_negativos();
         $filtro = $this->get_filtro($valores);
+//            var_dump($valores);die();
         $imoveis = $this->imoveis_mongo_model->get_itens($filtro, 'ordem', 'DESC', 0, 3);
 //        var_dump($imoveis);die();
-        $retorno = '<ul class="list-unstyled">';
-        foreach($imoveis['itens'] as $imovel)
-        {
-            $retorno .= $this->lista_normal->_set_item_grid($imovel, 'relacionado');
-            $this->set_negativos($imovel->_id);
+//        if ( ! $empresa ){
+//            var_dump($imoveis);
+//            die();
+//        }
+        $retorno = '';
+        if ( $imoveis['qtde']  ){
+                $retorno .= '<ul class="list-unstyled">';
+            foreach($imoveis['itens'] as $imovel)
+            {
+                $retorno .= $this->lista_normal->_set_item_grid($imovel, 'relacionado');
+                $this->set_negativos($imovel->_id);
+            }
+            $retorno .= '</ul>';
         }
-        $retorno .= '</ul>';
         return $retorno;
     }
     
@@ -226,37 +239,43 @@ class Imovel extends MY_Controller {
         foreach( $request as $c => $v )
         {
             $campo = isset($this->campos[$c]) ? $this->campos[$c] : NULL;
-            if ( isset($campo) && ! empty($v) && (is_array($v) && count($v) > 0) )
+            if ( isset($campo) && ! empty($v) )
             {
                 $filtro[$c]['tipo'] = $campo['filtro']['where'];
                 $filtro[$c]['campo'] = $campo['filtro']['campo'];
-                if ( $campo['filtro']['tipo'] == 'int' )
-                {
-                    if ( $c == 'quartos' || $c == 'banheiros' || $c == 'vagas' )
+                if ( (is_array($v) && count($v) > 0) ){
+                    
+                    if ( $campo['filtro']['tipo'] == 'int' )
                     {
-                        if ( count($v) == 1 )
+                        if ( $c == 'quartos' || $c == 'banheiros' || $c == 'vagas' )
                         {
-                            $filtro[$c]['tipo'] = 'where_gte';
-                            $filtro[$c]['valor'] = (int)$v[0];
+                            if ( count($v) == 1 )
+                            {
+                                $filtro[$c]['tipo'] = 'where_gte';
+                                $filtro[$c]['valor'] = (int)$v[0];
+                            }
+                            else
+                            {
+                                $va = [];
+                                foreach( $v as $val )
+                                {
+                                    $va[] = (int)$val;
+                                }
+                                $filtro[$c]['valor'] = $va;
+                            }
                         }
                         else
                         {
-                            $va = [];
-                            foreach( $v as $val )
-                            {
-                                $va[] = (int)$val;
-                            }
-                            $filtro[$c]['valor'] = $va;
+                            $filtro[$c]['valor'] = ( is_array($v) ? $v : $v );
                         }
                     }
                     else
                     {
-                        $filtro[$c]['valor'] = ( is_array($v) ? $v : $v );
+                        $filtro[$c]['valor'] = $v;
                     }
-                }
-                else
-                {
+                }else{
                     $filtro[$c]['valor'] = $v;
+                    
                 }
             }
         }
