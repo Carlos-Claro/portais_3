@@ -125,7 +125,7 @@ class Imovel extends MY_Controller {
 //            $data['breadscrumb'] = $this->set_url($data['item'], 'imovel');
             $l = $this->layout;
             $l->set_tag_adwords($this->cidade->tag_adwords);
-            $data['link_print'] = $data['url'].'/print';
+            $data['link_print'] = $data['url'].'/'.$local.'/print';
             $keys = json_decode($this->cidade->google_keys);
             $data['sitekey'] = $keys->site;
             $data['tag_adwords'] = $this->cidade->tag_adwords;
@@ -154,10 +154,12 @@ class Imovel extends MY_Controller {
                 ->set_sobre($this->cidade->sobre, $this->cidade->nome, $this->cidade->portal, $this->cidade->gentilico, $this->cidade->link, $this->cidade->uf, $this->cidade->link_prefeitura,1 )
                 ->set_analytics($this->cidade->instrucoes_head)
                 ->set_google_tag($this->cidade->google_tag);
+            $layout_principal = 'layout_3';
             if ( $layout == 'print' )
             {
                 $l->set_include('js/print.js',TRUE);
                 $data['logo'] = $this->logo_principal;
+                $layout_principal = 'limpo';
             }
             $la = 'layout/'.( ($layout == 'print') ? 'limpo' : 'layout');
             if ( $ajax )
@@ -168,7 +170,7 @@ class Imovel extends MY_Controller {
             }
             else
             {
-                $l->view('imovel_'.$layout, $data, 'layout/layout_3');
+                $l->view('imovel_'.$layout, $data, 'layout/'.$layout_principal);
             }
         }
     }

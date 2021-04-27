@@ -167,7 +167,7 @@ endif;
                     </style>
                     <div class="col-sm-12 esp-thumb">
                     <?php
-                    echo isset($images) ? str_replace('-6','-3',$images) : '';
+//                    echo isset($images) ? str_replace('-6','-3',$images) : '';
                     ?>
                     </div>
                 </div>
