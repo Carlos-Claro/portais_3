@@ -6,7 +6,7 @@ toastr.options = {
   "onclick": null,
   "showDuration": "500",
   "hideDuration": "500",
-  "timeOut": "2500",
+  "timeOut": "2800",
   "extendedTimeOut": "100",
   "showEasing": "swing",
   "hideEasing": "linear",
@@ -288,7 +288,7 @@ var pesquisa = {
                 try {
                     $('.imoveis').html(data_.data);
                     $('.imoveis').append('<li class="ultimo col-lg-12 col-sm-12 col-md-12 col-xs-12"></li>');
-                    toastr.info('12 Imóveis carregados de ' + $('.total').html(), 'Lista atualizada...');
+                    toastr.info('12 Imóveis carregados de ' + $('.total').html() + ', continue a navegação para ver os imóveis', 'Lista atualizada...');
                 }catch(e){
                     alert(e);
                 }
