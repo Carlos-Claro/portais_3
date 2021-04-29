@@ -479,7 +479,7 @@ class Layout {
                 }
                 else
                 {
-                    $final_includes .= '<link rel="stylesheet" href="'.$include.'?t='.time().'" type="text/css" />'.PHP_EOL;				
+                    $final_includes .= '<link rel="stylesheet" href="'.$include.'" type="text/css" />'.PHP_EOL;				
                 }
             }				
         }
@@ -497,7 +497,7 @@ class Layout {
                 }
                 else
                 {
-                    $final_includes .= '<script type="text/javascript" src="'.$include.'?t='.time().'"></script>'.PHP_EOL;				
+                    $final_includes .= '<script type="text/javascript" src="'.$include.'"></script>'.PHP_EOL;				
                 }
 
             }				
