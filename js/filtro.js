@@ -1,4 +1,3 @@
-
 var $ =jQuery.noConflict();
 toastr.options = {
   "closeButton": true,
@@ -7,7 +6,7 @@ toastr.options = {
   "onclick": null,
   "showDuration": "500",
   "hideDuration": "500",
-  "timeOut": "500",
+  "timeOut": "2500",
   "extendedTimeOut": "100",
   "showEasing": "swing",
   "hideEasing": "linear",
@@ -284,14 +283,12 @@ var pesquisa = {
     getItens: function(novo){
         pesquisa.carregando = true;
         $.post(pesquisa.urlImoveis,pesquisa.data,function(data_){
-            console.log(data_.status);
-            console.log($('.imoveis'));
             if ( novo )
             {
                 try {
                     $('.imoveis').html(data_.data);
                     $('.imoveis').append('<li class="ultimo col-lg-12 col-sm-12 col-md-12 col-xs-12"></li>');
-                    toastr.info('12 Imóveis carregados de ' + $('.total').html(), 'Buscando...');
+                    toastr.info('12 Imóveis carregados de ' + $('.total').html(), 'Lista atualizada...');
                 }catch(e){
                     alert(e);
                 }
