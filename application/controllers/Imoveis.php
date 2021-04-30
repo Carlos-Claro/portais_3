@@ -106,7 +106,6 @@ class Imoveis extends MY_Controller {
         $data['valores'] = $this->get_request();
         $data['form'] = $this->set_form();
         $data['is_mobile'] = $this->is_mobile;
-        var_dump($data);die();
         $layout = $this->layout
                 ->set_includes_defaults()
                 ->set_include('js/filtro.js', TRUE)
