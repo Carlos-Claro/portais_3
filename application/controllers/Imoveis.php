@@ -106,6 +106,7 @@ class Imoveis extends MY_Controller {
         $data['valores'] = $this->get_request();
         $data['form'] = $this->set_form();
         $data['is_mobile'] = $this->is_mobile;
+        var_dump($data);die();
         $layout = $this->layout
                 ->set_includes_defaults()
                 ->set_include('js/filtro.js', TRUE)
@@ -832,7 +833,7 @@ class Imoveis extends MY_Controller {
             $this->offset = $request['offset'];
             unset($request['offset']);
         }
-        $this->qtde_itens = 12;
+        $this->qtde_itens = 5;
         if (isset($request['qtde_itens']) ){
             $this->qtde_itens = $request['qtde_itens'];
             unset($request['qtde_itens']);

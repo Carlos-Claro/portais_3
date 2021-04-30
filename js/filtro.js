@@ -114,7 +114,7 @@ $(function(){
                     {
                         pesquisa.carregando = true; 
                         pesquisa.paginacao();
-                        toastr.info('Buscando novos itens: + 12 de ' + ( $('.total').html() - qtde  ), 'Paginando...');
+                        toastr.info('Buscando novos itens: + 5 de ' + ( $('.total').html() - qtde  ), 'Paginando...');
                     }
                 }
             }
@@ -288,7 +288,7 @@ var pesquisa = {
                 try {
                     $('.imoveis').html(data_.data);
                     $('.imoveis').append('<li class="ultimo col-lg-12 col-sm-12 col-md-12 col-xs-12"></li>');
-                    toastr.info('12 Imóveis carregados de ' + $('.total').html() + ', continue a navegação para ver os imóveis', 'Lista atualizada...');
+                    toastr.info('5 Imóveis carregados de ' + $('.total').html() + ', continue a navegação para ver os imóveis', 'Lista atualizada...');
                 }catch(e){
                     alert(e);
                 }
