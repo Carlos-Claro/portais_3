@@ -540,8 +540,8 @@ class Layout {
         {	
             $params = array(											
                 'conteudo'              => $view_content, 											
-//                'includes'              => '[*include*]',
-                'includes'              => $this->get_includes(FALSE),
+                'includes'              => '[*include*]',
+//                'includes'              => $this->get_includes(FALSE),
                 'titulo'		=> $this->get_titulo(),											
                 'keywords' 		=> '',											
                 'description'           => $this->get_description(),							
@@ -579,16 +579,16 @@ class Layout {
             {
 //                $this->CI->load->view($layout, $params);	
                 $r = $this->CI->load->view($layout, $params, TRUE);
-                echo $htmlMin->minify($r);
-//                $parametro = ['includes' => $this->get_includes()];
+//                echo $htmlMin->minify($r);
+                $parametro = ['includes' => $this->get_includes()];
 ////                var_dump($parametro['includes']);
 ////                var_dump(preg_replace('/(/* !)*?(*/)/','', $parametro['includes']));die();
-//                $s = $this->CI->load->view('includes', $parametro, TRUE);
-////                $handle = fopen('docs/compilado.html','a+');
-////                fwrite($handle, $s);
-////                fclose($handle);
-////                $s = file_get_contents('docs/compilado.html');
-//                echo str_replace('[*include*]', $s, $r);
+                $s = $this->CI->load->view('includes', $parametro, TRUE);
+//                $handle = fopen('docs/compilado.html','a+');
+//                fwrite($handle, $s);
+//                fclose($handle);
+//                $s = file_get_contents('docs/compilado.html');
+                echo str_replace('[*include*]', $s, $r);
             }
             			
             
