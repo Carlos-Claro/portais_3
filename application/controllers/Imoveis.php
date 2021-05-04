@@ -179,11 +179,13 @@ class Imoveis extends MY_Controller {
         {
             $filtro[] = ['tipo' => 'where_not_in','campo' => '_id','valor' => $imoveis_destaque['negativos']];
         }
-//        var_dump($filtro);
         $imoveis = $this->imoveis_mongo_model->get_itens($filtro, $this->get_ordem('coluna'), $this->get_ordem('ordem'), $this->offset, $this->qtde_itens);
-        $retorno .= $this->get_imoveis($imoveis['itens']);
         $this->benchmark->mark('getImoveis_end');
         $this->print_time('getImoveis');
+        $this->benchmark->mark('montaImoveis_start');
+        $retorno .= $this->get_imoveis($imoveis['itens']);
+        $this->benchmark->mark('montaImoveis_end');
+        $this->print_time('montaImoveis');
         $tempo = $this->soma_time();
         if ( $return )
         {
@@ -485,8 +487,11 @@ class Imoveis extends MY_Controller {
 
     public function set_form( $tipo = 'imoveis' )
     {
-        $this->benchmark->mark('getForm_start');
+        $this->benchmark->mark('getFormSelect_start');
         $data = $this->get_select();
+        $this->benchmark->mark('getFormSelect_end');
+        $this->print_time('getFormSelect');
+        $this->benchmark->mark('getForm_start');
         $data['imoveis'] = $this->get_itens(TRUE);
         $retorno = $layout = $this->layout
                         ->set_time($this->soma_time())
