@@ -492,8 +492,8 @@ class Imoveis extends MY_Controller {
 
     public function get_select()
     {
-        $this->benchmark->mark('getSelect_start');
         $retorno = $this->pesquisa(TRUE);
+        $this->benchmark->mark('getSelect_start');
         $retorno['valores'] = $this->get_request();
         $retorno['empresa'] = $this->get_empresa();
         $retorno['tipos'] = $this->get_tipos();
@@ -725,13 +725,24 @@ class Imoveis extends MY_Controller {
         return $this->cidades;
     }
 
+    
+    private function get_cidade_( $link )
+    {
+        $cidade = $this->cidades_mongo_model->get_item_por_link( $link );
+        
+        $this->cidades->{$cidade->link} = (object)['id' => $cidade->link, 'descricao' => $cidade->nome];
+        
+//        return $retorno;
+    }
+    
+    
     private function set_cidades()
     {
         $cidades_json = getcwd().'/application/views/json/cidades';
         if (file_exists($cidades_json) )
         {
             $this->cidades = json_decode(file_get_contents($cidades_json));
-//            var_dump($this->cidades);
+            var_dump($this->cidades);
             return $this;
 
         }
@@ -826,8 +837,14 @@ class Imoveis extends MY_Controller {
             unset($request['set_cidade']);
         }
         if (isset($request['cidade']) ){
-            $this->set_cidades($request['cidade']);
+            $this->benchmark->mark('setCidadesRequest_start');
+            $this->get_cidade_($request['cidade']);
+            $this->benchmark->mark('setCidadesRequest_end');
+            $this->print_time('setCidadesRequest');
+            $this->benchmark->mark('setBairrosRequest_start');
             $this->set_bairros($request['cidade']);
+            $this->benchmark->mark('setBairrosRequest_end');
+            $this->print_time('setBairrosRequest');
         }
         $this->negativos = NULL;
         if (isset($request['negativos']) ){
