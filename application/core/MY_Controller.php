@@ -108,7 +108,10 @@ class MY_Controller extends CI_Controller
         $this->load->model(array('cidades_mongo_model'));
         $url_base = LOCALHOST ? 'https://icuritiba.com/' : base_url();
         
+        $this->benchmark->mark('setPortal_start');
         $this->get_item_por_portal($url_base);
+        $this->benchmark->mark('setPortal_end');
+        $this->print_time('setPortal');
         $url_portal = strtolower(HTTPS ? str_replace('http://www.', 'https://', $this->cidade->portal).'/' : $this->cidade->portal.'/');
         if ( ( $url_base != strtolower($url_portal) ) || ( HTTPS && (strstr($_SERVER['HTTP_HOST'],'www.')) ) ) 
         { 
