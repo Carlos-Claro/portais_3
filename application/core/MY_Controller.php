@@ -137,7 +137,10 @@ class MY_Controller extends CI_Controller
         $this->logo_principal = $this->cidade->topo;
         $this->adwords = $this->cidade->tag_adwords;
         $this->titulo_padrao = ' - '.substr($this->cidade->portal, 11);
+        $this->benchmark->mark('setMenu_start');
         $this->menu = $this->get_menu();
+        $this->benchmark->mark('setMenu_end');
+        $this->print_time('setCidade');
         return $this;
     }
     
@@ -145,7 +148,8 @@ class MY_Controller extends CI_Controller
     {
          if ( file_exists(getcwd().'/application/views/menus/'.$this->cidade->link) ) 
          {
-             return str_replace('localhost','192.168.1.20',file_get_contents(getcwd().'/application/views/menus/'.$this->cidade->link));
+             $retorno = str_replace('localhost','192.168.1.20',file_get_contents(getcwd().'/application/views/menus/'.$this->cidade->link));
+             return $retorno;
          }
          else
          {
