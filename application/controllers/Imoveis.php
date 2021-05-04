@@ -32,10 +32,16 @@ class Imoveis extends MY_Controller {
         $this->print_time('loadInicial');
         $this->benchmark->mark('setCidade_start');
         $this->set_cidade();
-        $this->set_cidades();
-        $this->set_tipos();
         $this->benchmark->mark('setCidade_end');
         $this->print_time('setCidade');
+        $this->benchmark->mark('setCidades_start');
+//        $this->set_cidades();
+        $this->benchmark->mark('setCidades_end');
+        $this->print_time('setCidades');
+        $this->benchmark->mark('setTipos_start');
+        $this->set_tipos();
+        $this->benchmark->mark('setTipos_end');
+        $this->print_time('setTipos');
         $this->benchmark->mark('setUri_start');
         $this->set_uri();
         $this->benchmark->mark('setUri_end');
@@ -725,13 +731,14 @@ class Imoveis extends MY_Controller {
         if (file_exists($cidades_json) )
         {
             $this->cidades = json_decode(file_get_contents($cidades_json));
+//            var_dump($this->cidades);
             return $this;
 
         }
         else
         {
-            curl_executavel(base_url().'funcoes/get_cidades_json?own=1');
-            $this->set_cidades();
+//            curl_executavel(base_url().'funcoes/get_cidades_json?own=1');
+//            $this->set_cidades();
         }
     }
 
