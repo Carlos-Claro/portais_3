@@ -140,7 +140,7 @@ class MY_Controller extends CI_Controller
         $this->benchmark->mark('setMenu_start');
         $this->menu = $this->get_menu();
         $this->benchmark->mark('setMenu_end');
-        $this->print_time('setCidade');
+        $this->print_time('setMenu');
         return $this;
     }
     
