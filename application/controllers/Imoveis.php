@@ -161,18 +161,25 @@ class Imoveis extends MY_Controller {
 
     public function get_itens( $return = FALSE )
     {
-        $this->benchmark->mark('getImoveis_start');
         $this->load->model('imoveis_mongo_model');
         $this->load->library('lista_normal');
+        $this->benchmark->mark('getDestaques_start');
         $this->set_filtro();
         $imoveis_destaque = $this->get_destaques();
         $retorno = $this->get_imoveis($imoveis_destaque['imoveis']['tipo'], 'tipo');
         $retorno .= $this->get_imoveis($imoveis_destaque['imoveis']['bairro'], 'bairro');
+        $this->benchmark->mark('getDestaques_end');
+        $this->print_time('getDestaques');
+        $this->benchmark->mark('getFiltro_start');
         $filtro = $this->get_filtro();
+        $this->benchmark->mark('getFiltro_end');
+        $this->print_time('getFiltro');
+        $this->benchmark->mark('getImoveis_start');
         if ( count($imoveis_destaque['negativos']) > 0 )
         {
             $filtro[] = ['tipo' => 'where_not_in','campo' => '_id','valor' => $imoveis_destaque['negativos']];
         }
+//        var_dump($filtro);
         $imoveis = $this->imoveis_mongo_model->get_itens($filtro, $this->get_ordem('coluna'), $this->get_ordem('ordem'), $this->offset, $this->qtde_itens);
         $retorno .= $this->get_imoveis($imoveis['itens']);
         $this->benchmark->mark('getImoveis_end');
