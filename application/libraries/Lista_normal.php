@@ -612,7 +612,7 @@ class Lista_normal
             $data['area'] = $this->_set_area($item->area,$item->area_terreno,$item->area_util);
             $data['opcionais'] = $this->_set_opcionais($item->quartos, $item->garagens, $item->banheiros);
             $data['valores'] = $this->_set_valores($item->preco_venda, $item->preco_locacao, $item->preco_locacao_dia);
-            $retorno = $this->CI->layout->view('item_vertical', $data, 'layout/sem_head', TRUE);
+            $retorno = $this->CI->layout_view->view('item_vertical', $data, 'layout/sem_head', TRUE);
             return $retorno;
         }
 

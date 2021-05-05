@@ -19,6 +19,7 @@ class MY_Controller extends CI_Controller
         $this->load->library('listagem');
         $this->load->library('pagination');
         $this->load->library('email');
+        $this->load->library('layout_view');
         $this->load->helper('text');
         if ( $verifica_login )		
         {			
