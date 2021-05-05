@@ -16,25 +16,29 @@ var URI = base_url;
 var URL_ADMIN = base_url;
 
 $(function(){
-    fotos.inicia();
+    fotos.inicia(3);
     $(document).on('click','.carousel-control',function(){
         fotos.set_images($(this));
     });
     $('.busca-id').on('blur',function(){
         window.location.href = URL_HTTP + '?id=' + $(this).val();
     });
+    $(window).scroll(function(e){
+        y = $(this).scrollTop();
+        fotos.inicia((y/100)+2);
+    });
 });
 var fotos = {
-    inicia: function(){
-//        console.log('fotos.inicia');
-//        console.log(LOCALHOST);
-//        if ( ! LOCALHOST )
-//        {
-            $.each($('.carousel-inner img'), function(k,v){
+    inicia: function(x){
+        var y = 0; 
+//        console.log(x);
+        $.each($('.carousel-inner img'), function(k,v){
+            if (y < x){
                 img = $(v).data('src');
                 $(v).attr('src',img);
-            });
-//        }
+            }
+            y = y + 1;
+        });
     },
     lista: {},
     get_lista : function(){

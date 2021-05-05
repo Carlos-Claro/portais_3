@@ -85,7 +85,7 @@ $(function(){
     $(window).scroll(function(e){
         y = $(this).scrollTop();
         if ( y > 20 )
-        {
+        {y = $(this).scrollTop();
             $('.busca-lg').removeClass('hide');
         }
         else
@@ -107,14 +107,14 @@ $(function(){
             if ( ! pesquisa.carregando )
             {
                 qtde = $('.imoveis li.organico').length;
-                ultimo = $('.ultimo').html('<div class="btn-azul-pow"><center><i class="fa fa-spinner fa-spin"></i></center></div>').offset().top;
+                ultimo = $('.ultimo').html('<div class="btn"><center><i class="fa fa-spinner fa-spin"></i></center></div>').offset().top;
                 if ( ultimo > 0 )
                 {
                     if( y > ( ultimo - coeficiente ) )
                     {
                         pesquisa.carregando = true; 
                         pesquisa.paginacao();
-                        toastr.info('Buscando novos itens: + 5 de ' + ( $('.total').html() - qtde  ), 'Paginando...');
+                        toastr.info('Buscando novos itens: + 12 de ' + ( $('.total').html() - qtde  ), 'Paginando...');
                     }
                 }
             }
@@ -288,7 +288,7 @@ var pesquisa = {
                 try {
                     $('.imoveis').html(data_.data);
                     $('.imoveis').append('<li class="ultimo col-lg-12 col-sm-12 col-md-12 col-xs-12"></li>');
-                    toastr.info('5 Imóveis carregados de ' + $('.total').html() + ', continue a navegação para ver os imóveis', 'Lista atualizada...');
+                    toastr.info('12 Imóveis carregados de ' + $('.total').html() + ', continue a navegação para ver os imóveis', 'Lista atualizada...');
                 }catch(e){
                     alert(e);
                 }
@@ -313,7 +313,7 @@ var pesquisa = {
 
             }
             setTimeout(function(){
-                fotos.inicia();
+                fotos.inicia(3);
                 pesquisa.carregando = false;
             },500);
         },'json');
@@ -640,7 +640,6 @@ $(function(){
         $(this).carousel('next');  
         fotos.set_images($(this), 'next');
     }); 
-    
     
 //    $(document).on('click','.amplia-images',function(){
 //        item = $(this).data('item');

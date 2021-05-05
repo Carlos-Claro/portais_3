@@ -868,7 +868,7 @@ class Imoveis extends MY_Controller {
             $this->offset = $request['offset'];
             unset($request['offset']);
         }
-        $this->qtde_itens = 5;
+        $this->qtde_itens = 12;
         if (isset($request['qtde_itens']) ){
             $this->qtde_itens = $request['qtde_itens'];
             unset($request['qtde_itens']);

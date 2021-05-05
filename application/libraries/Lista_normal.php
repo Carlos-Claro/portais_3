@@ -599,7 +599,7 @@ class Lista_normal
         public function _set_item_vertical ( $item, $destaque = FALSE, $favoritos = FALSE )
         {
             $origem = $this->get_origem($destaque, $favoritos);
-            $fav = $this->set_favoritos(FALSE, 'array');
+//            $fav = $this->set_favoritos(FALSE, 'array');
             $data = $this->get_images($item);
             $data['itens_favoritos'] = isset($fav) ? $fav : array();
             $data['item'] = $item;

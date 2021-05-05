@@ -76,6 +76,7 @@ class Imoveis_mongo_model extends MY_Mongo {
         $data['qtde_itens'] = $qtde_itens;
         $data['filtro'] = $filtro;
         $data['ordem'] = array($coluna => $ordem);
+        $tag = 'getImoveis';
         $retorno = $this->get_itens_($data);
         return isset($retorno) ? $retorno : NULL;
     }
