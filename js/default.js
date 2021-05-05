@@ -89,7 +89,7 @@ var fotos = {
 //                var array_item = {id : item, itens : images};
 //                this.set_lista(array_item);
 //                var retorno = array_item;
-            $.getJSON(this.url + item,function(images){
+            $.getJSON(fotos.url + item,function(images){
                 console.log(images);
                 var array_item = {id : item, itens : images};
                 this.set_lista(array_item);
