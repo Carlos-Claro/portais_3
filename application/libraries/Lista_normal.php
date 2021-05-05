@@ -612,7 +612,10 @@ class Lista_normal
             $data['area'] = $this->_set_area($item->area,$item->area_terreno,$item->area_util);
             $data['opcionais'] = $this->_set_opcionais($item->quartos, $item->garagens, $item->banheiros);
             $data['valores'] = $this->_set_valores($item->preco_venda, $item->preco_locacao, $item->preco_locacao_dia);
+//            $this->CI->benchmark->mark('images_start');    
             $retorno = $this->CI->layout_view->view('item_vertical', $data, 'layout/sem_head', TRUE);
+//            $this->CI->benchmark->mark('images_end');    
+//            var_dump('Images - '.$this->CI->benchmark->elapsed_time('images_start', 'images_end'));
             return $retorno;
         }
 
@@ -711,7 +714,8 @@ class Lista_normal
             $galeria = '';
             $galeria .= '';
             $mais_images = ( isset($data['images']) && ! empty($data['images']) ) ? TRUE : FALSE;
-            $galeria .= '<div class="espaco-image slide carousel item-'.$item->_id.'" data-item="'.$item->_id.'" data-images="'.($mais_images ? $data['images'] : '').'">';
+            // data-images="'.($mais_images ? $data['images'] : '').'"
+            $galeria .= '<div class="espaco-image slide carousel item-'.$item->_id.'" data-item="'.$item->_id.'" >';
             $galeria .= '<a class="amplia-images" data-item="'.$item->_id.'" href="#" title="'.$item->nome.'">';
             $galeria .= '<div class="carousel-inner" role="listbox">';
             $galeria .= '<div class="item active" data-atual="0">';

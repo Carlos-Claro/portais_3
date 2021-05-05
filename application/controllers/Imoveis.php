@@ -741,7 +741,6 @@ class Imoveis extends MY_Controller {
     private function get_cidade_( $link )
     {
         $cidade = $this->cidades_mongo_model->get_item_por_link( $link );
-        
         $this->cidades->{$cidade->link} = (object)['id' => $cidade->link, 'descricao' => $cidade->nome];
         
 //        return $retorno;

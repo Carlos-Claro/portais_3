@@ -25,6 +25,7 @@ class Imovel extends MY_Controller {
         parent::__construct(FALSE);
         $this->benchmark->mark('loadInicialFavorito_start');
         $this->load->library(['Mongo_db','my_mongo']);
+        $this->load->model(array('imoveis_mongo_model'));
         $this->load->library(['lista_normal','encryption']);
         $this->load->helper('cookie');
         $this->benchmark->mark('setCidade_start');
@@ -100,7 +101,7 @@ class Imovel extends MY_Controller {
     public function index ( $complemento = NULL, $id_imovel = 0, $local = 0, $layout = 'novo_3', $ajax = FALSE )
     {
         $this->benchmark->mark('Imovel_start');
-        $this->load->model(array('imoveis_mongo_model'));
+        
         $log = $this->set_local($local);
         $this->set_imovel($id_imovel);
         $data['item'] = $this->imovel;
@@ -291,7 +292,7 @@ class Imovel extends MY_Controller {
     
     public function set_imovel($id_imovel)
     {
-        $this->imovel = $data['item'] = $this->imoveis_mongo_model->get_item($id_imovel);
+        $this->imovel = $this->imoveis_mongo_model->get_item($id_imovel);
         return $this;
     }
     
@@ -477,5 +478,15 @@ class Imovel extends MY_Controller {
     public function get_linhas()
     {
         return $this->linha;
+    }
+    
+    public function get_fotos($id_imovel = NULL){
+        $retorno = [];
+        if ( isset($id_imovel)){
+            $this->load->library('lista_normal');
+            $this->set_imovel($id_imovel);
+            $retorno = $this->lista_normal->get_images($this->imovel);
+        }
+        echo json_encode($retorno['lista']['lista']);
     }
 }

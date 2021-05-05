@@ -29,6 +29,7 @@ $(function(){
     });
 });
 var fotos = {
+    url: URL_HTTP + 'get_images_por_imovel/',
     inicia: function(x){
         var y = 0; 
 //        console.log(x);
@@ -60,15 +61,20 @@ var fotos = {
         var qtde_montado = $('.item-' + item + ' .carousel-inner .item').length;
         if ( qtde_montado === 1 )
         {
-            var item_lista = fotos.verifica_lista(item);
-            var itens = this.monta_lista(item_lista, item);
+            $.getJSON(this.url + item,function(images){
+                var item_lista = {id : item, itens : images};
+//            var item_lista = fotos.verifica_lista(item);
+                var itens = fotos.monta_lista(item_lista, item);
+            });
         }
-        if ( lado === undefined )
-        {
-            var lado = campo.attr('data-slide');
-        }
-        $('.item-' + item + '.carousel').carousel(lado);
-        $('.item-' + item + '.carousel').carousel('pause');
+        setTimeout(function(){
+            if ( lado === undefined )
+            {
+                var lado = campo.attr('data-slide');
+            }
+            $('.item-' + item + '.carousel').carousel(lado);
+            $('.item-' + item + '.carousel').carousel('pause');
+        },500);
     },
     verifica_lista: function( item ){
         $.each(this.get_lista(),function(k,v){
@@ -79,13 +85,22 @@ var fotos = {
         });
         if ( retorno == undefined )
         {
-            var images = JSON.parse(decodeURIComponent($('.item-' + item).attr('data-images')));
-            var array_item = {id : item, itens : images};
-            this.set_lista(array_item);
-            var retorno = array_item;
+//            var images = JSON.parse(decodeURIComponent($('.item-' + item).attr('data-images'))); // troca por assync
+//                var array_item = {id : item, itens : images};
+//                this.set_lista(array_item);
+//                var retorno = array_item;
+            $.getJSON(this.url + item,function(images){
+                console.log(images);
+                var array_item = {id : item, itens : images};
+                this.set_lista(array_item);
+                var retorno = array_item;
+                return retorno;
+            });
         }
         
-        return retorno;
+    },
+    get_images: function(item){
+            return data;
     },
     monta_lista: function( itens, item ){
         var retorno = '';
@@ -98,11 +113,8 @@ var fotos = {
             contador ++;
         });
         $('.item-' + item + ' .carousel-inner').append(retorno);
-        
-        
     },
     item: function(item){
-//        console.log(item);
         var retorno = '<div data-atual="0" class="item"><div rel="nofollow" title="' + item.titulo + '" class="pull-left link-img center-block"><center><img class="img-responsive" alt="' + item.titulo + '" src="'+item.arquivo_local+'" itemprop="image"></center></div></div>';
         return retorno;
     },
