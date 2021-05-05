@@ -258,6 +258,8 @@ $route['pesquisa'] = 'imoveis/pesquisa/';
 $route['pesquisa/(:any)'] = 'imoveis/pesquisa/$1'; 
 $route['pesquisa/(:any)/(:any)'] = 'imoveis/pesquisa/$1/$2'; 
 
+$route['get_images_por_imovel/(:any)'] = 'imovel/get_fotos/$1'; 
+
 $route['(:any)'] = 'imoveis/index/$1'; 
 $route['(:any)/(:any)'] = 'imoveis/index/$1/$2'; 
 $route['(:any)/(:any)/(:any)'] = 'imoveis/index/$1/$2/$3'; 
