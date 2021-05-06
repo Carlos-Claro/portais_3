@@ -9,7 +9,25 @@ function onSubmit(token) {
     return false;
 }
 
+var setModal = {
+    set: function(tipo){
+        $.getJSON(URL_HTTP + 'get_' + tipo, function(data){
+            $('#modal .titulo-modal').html('');
+            $('#modal .titulo-modal').html(data.titulo);
+            $('#modal .modal-body').html('');
+            $('#modal .modal-body').html(data.texto);
+        });
+    },
+}
+
 $(function(){
+    $('.politica').on('click',function(){
+        setModal.set('politica');
+    });
+    $('.termos').on('click',function(){
+        setModal.set('termos');
+    });
+    
     $('.filtro-atalho').on('click',function(){
         console.log('atalho filtro');
         window.location.replace(URI+'?filtro_aberto=1');

@@ -67,16 +67,6 @@
     <header class="c-layout-header c-layout-header-4 c-layout-header-default-mobile" data-minimize-offset="80">
         <div class="c-topbar c-topbar-light c-solid-bg">
             <div class="container-fluid">
-                <!-- BEGIN: INLINE NAV -->
-              <!--  <nav class="c-top-menu c-pull-left">
-                    <ul class="c-icons c-theme-ul">
-                        <li><a href="#"><i class="icon-social-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-social-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-social-dribbble"></i></a></li>
-                    </ul>
-                </nav> -->
-                <!-- END: INLINE NAV -->
-                <!-- BEGIN: INLINE NAV -->
                 <nav class="c-top-menu c-pull-right">
                     <ul class="c-links c-theme-ul">
                         <li><a href="<?php echo base_url();?>nao_encontrei">Não Encontrei</a></li>
@@ -90,15 +80,12 @@
                         <li><a href="http://www.portaisimobiliarios.com.br/anuncio.php" target="_blank" class="vermelho-pow">Anuncie em nosso portal</a></li>
                         <li class="c-divider">|</li>
                         <li><a href="https://admin.powempresas.com" class="azul-pow">Área do assinante</a></li>
-                        <!--<li class="c-divider">|</li>-->
                     </ul>
                 </nav>
-                <!-- END: INLINE NAV -->
             </div>
         </div>
         <div class="c-navbar">
             <div class="container-fluid">
-                <!-- BEGIN: BRAND -->
                 <div class="c-navbar-wrapper clearfix">
                     <div class="c-brand c-pull-left">
                         <a href="<?php echo base_url();?>" title="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!" class="c-logo">
@@ -108,34 +95,22 @@
                         </a>
                         <button class="c-hor-nav-toggler" type="button" data-target=".c-mega-menu">
                             Menu
-<!--                            <span class="c-line"></span>
-                            <span class="c-line"></span>
-                            <span class="c-line"></span>-->
                         </button>
                         <button class="c-topbar-toggler" type="button">
                             Portal
-<!--                            <i class="fa fa-ellipsis-v"></i>-->
                         </button>
                         <button class="c-search-toggler filtro-atalho" type="button">
                           <i class="fa fa-filter"></i> Filtrar imóveis
-<!--                            <i class="fa fa-search"></i>-->
                         </button>
                     </div>
-                    <!-- END: BRAND -->				
-                    <!-- BEGIN: QUICK SEARCH -->
                     <form class="c-quick-search" action="<?php echo base_url();?>" method="get">
                         <input type="text" name="id" placeholder="Digite o código do imóvel e aperte enter." value="" class="form-control busca-id" autocomplete="off">
                         <span class="c-theme-link">&times;</span>
                     </form>
-                    <!-- END: QUICK SEARCH -->	
-                    <!-- BEGIN: HOR NAV -->
-                    <!-- BEGIN: LAYOUT/HEADERS/MEGA-MENU -->
-                    <!-- BEGIN: MEGA MENU -->
-                    <!-- Dropdown menu toggle on mobile: c-toggler class can be applied to the link arrow or link itself depending on toggle mode -->
                     <nav class="c-mega-menu c-pull-right c-mega-menu-light c-mega-menu-light-mobile c-fonts-uppercase c-fonts-bold">
                         <ul class="nav navbar-nav c-theme-nav"> 
                             <li >
-                                <a href="javascript:;" id="imoveis-menu" class="c-link dropdown-toggle vermelho-pow">Imóveis<span class="c-arrow c-toggler"></span></a>
+                                <a href="return false" data-toggle="dropdown" id="imoveis-menu" class="c-link dropdown-toggle js-activated hold-on-click vermelho-pow">Imóveis<span class="c-arrow c-toggler"></span></a>
                                 <div class="imoveis-menu dropdown-menu c-menu-type-mega c-menu-type-fullwidth" style="min-width: auto">
                                     <div class="row">
                                         <?php echo $menu;?>
@@ -219,16 +194,10 @@
                             </li>
                         </ul>
                     </nav>
-                    <!-- END: MEGA MENU --><!-- END: LAYOUT/HEADERS/MEGA-MENU -->
-                    <!-- END: HOR NAV -->		
                 </div>			
-                <!-- BEGIN: LAYOUT/HEADERS/QUICK-CART -->
             </div>
         </div>
     </header>
-    <!-- END: HEADER --><!-- END: LAYOUT/HEADERS/HEADER-1 -->
-
-    <!-- BEGIN: LAYOUT/SIDEBARS/QUICK-SIDEBAR -->
     <nav class="c-layout-quick-sidebar">
         <div class="c-header">
             <button type="button" class="c-link c-close">
@@ -266,12 +235,6 @@
                     </div>
                 </div>
             </div>	
-<!--            <div class="c-section">
-                <h3>Histórico de visualização</h3>
-                <div class="c-settings">
-
-                </div>
-            </div>	-->
         </div>
     </nav><!-- END: LAYOUT/SIDEBARS/QUICK-SIDEBAR -->
     <div class="c-layout-page">
@@ -318,9 +281,6 @@
     </footer>
     
 <style type="text/css">
-/*body.preloader-site { overflow: hidden; }*/
-/*.preloader-wrapper { height: 100%;width: 100%;background: #FFF;position: fixed;top: 0;left: 0;z-index: 9999999;}
-.preloader-wrapper .preloader {position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);width: 120px;}*/
 .center-e {
     text-align: center;
     color: #1f374a;
@@ -336,11 +296,6 @@
     font-weight: bold;
 }
 </style>
-<!--<div class="preloader-wrapper">
-    <div class="preloader">
-        <center><i class="fa fa-spin fa-spinner"></i></center>
-    </div>
-</div>-->
 <div class="c-layout-go2top">
     <i class="fa fa-arrow-circle-up"></i>
 </div>
@@ -365,51 +320,15 @@
     </div>
 </div><!-- /.modal -->
 
-<div class="modal fade container" id="modal-politica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade container" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">                
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Política de privacidade PORTAISIMOBILIARIOS.COM <button style="float: right;" type="button" class="btn btn-default" data-dismiss="modal">Fechar</button></h4>
+                <h4 class="modal-title" id="myModalLabel"><span class="titulo-modal"></span><button style="float: right;" type="button" class="btn btn-default" data-dismiss="modal">Fechar</button></h4>
             </div>
             <div class="modal-body">
-                <p>
-Esse Portal é integrante da rede PORTAISIMOBILIARIOS.COM.
-                </p>
-                <p>
-O presente instrumento estabelece a política de privacidade e segurança de informações e de direitos e deveres assumidos pelos seus anunciantes, usuários e pelo PORTAISIMOBILIARIOS.COM quanto ao presente Portal de serviços de publicidade.
-                </p>
-                <p>
-Através deste documento, a rede PORTAISIMOBILIARIOS.COM esclarece aos usuários como essas informações são coletadas e a que uso se destina.
-O PORTAISIMOBILIARIOS.COM mostra o respeito por sua privacidade nos termos a seguir:
-                </p>
-                <p>
-A rede PORTAISIMOBILIARIOS.COM não fornecerá informações pessoais do usuário sem sua devida autorização, exceto se tais informações forem necessárias para prestar o serviço solicitado pelo próprio usuário, ou, ainda, na hipótese das informações pessoais do usuário ser requeridas por motivos legais. A rede tomará todas as medidas possíveis para manter a confidencialidade e a segurança das informações do usuário, porém não responderá por prejuízo que possa advir da divulgação de tais informações pelo motivo excepcionado acima, ou ainda por violação ou quebra das barreiras de segurança de internet por terceiros como “hackers” ou “crackers”.
-                </p>
-                <p>
-A rede PORTAISIMOBILIARIOS.COM utiliza ainda a tecnologia “Cookies HTTP”, que são mecanismos reconhecidamente confiáveis que analisam as preferências de navegação do usuário e o direcionam com precisão para aqueles assuntos de seu maior interesse e a parceiros comerciais. Em geral, é possível desativar estes “Cookies HTTP”, para tanto basta desabilitá-los através da caixa de ferramentas do seu navegador. É importante dizer que os “cookies” não executam programas nem infectam computadores com vírus, e só podem ser lidos por nós.
-                </p>
-                <p>
-Ou seja, o objetivo da instalação dos “cookies” é sempre beneficiar o USUÁRIO que os recebe.
-                </p>
-                <p>
-Para ter acesso às algumas seções dos portais da rede, o usuário deve preencher um formulário, no qual ele deverá fornecer algumas informações, como por exemplo, forma de contato, entre outras.
-                </p>
-                <p>
-Este registro é armazenado em um banco de dados protegido e sigiloso.
-                </p>
-                <p>
-Quanto mais informações você fornecer, melhor será a personalização da sua experiência.
-                </p>
-                <p>
-Os newsletters e mensagens publicitárias enviadas por e-mail sempre trarão opção de cancelamento do envio daquele tipo de mensagem por parte da rede PORTAISIMOBILIARIOS.COM
-                </p>
-                <p>
-Não nos responsabilizamos por eventuais prejuízos advindos de eventual divulgação de dados, seja por erro no preenchimento ou mau uso do usuário, seja de ordem legal, judicial, ou quebra de sistema por terceiros.
-                </p>
-                <p>
-Ciente destas condições torna-se inegavelmente uma decisão singular do usuário a utilização deste Portal.
-                </p>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -417,73 +336,6 @@ Ciente destas condições torna-se inegavelmente uma decisão singular do usuár
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<div class="modal fade container" id="modal-termo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Termos de uso PORTAIS IMOBILIÁRIOS <button style="float: right;" type="button" class="btn btn-default" data-dismiss="modal">Fechar</button></h4>
-            </div>
-            <div class="modal-body">
-                <p>
-
-Portais Imobiliários:
-                </p>
-                <p>
-Com o objetivo de integrar várias cidades do Brasil o PORTAISIMOBILIARIOS.COM atualmente conta com mais de 270 cidades integrantes da rede. Cada cidade conta com seu próprio site, estes são de nomes intuitivos, com fácil memorização e busca.
-Esse portal é integrante da rede PORTAISIMOBILIARIOS.COM.
-                </p>
-                <p>
-
-
-É imprescindível que seus anunciantes e usuários leiam com atenção o presente TERMO DE USO antes de acessar e utilizar o Portal PORTAISIMOBILIARIOS.COM eis que seu acesso repercute na concordância de todos os seus estritos termos de uso.
-                </p>
-                <p>
-
-O PORTAISIMOBILIARIOS.COM atua como mero veiculador de anúncios, serviços e informações correlatas e específicas de seus anunciantes relativas a imóveis. Portanto, não presta serviços de consultoria ou intermediações de negócios entre seus anunciantes e usuários.
-                </p>
-                <p>
-
-Dessa forma, o SITE não assume responsabilidade por nenhuma consequência que possa advir de qualquer relação entre o USUÁRIO e o(s) ANUNCIANTE(S), seja ela direta ou indireta.
-                </p>
-                <p>
-
-Os anúncios, produtos e informações veiculadas em qualquer um dos sites que fazem parte da rede PORTAISIMOBILIARIOS.COM são de inteira, total e exclusiva responsabilidade dos seus anunciantes e usuários, de forma que qualquer ação comissiva ou omissiva dos seus anunciantes e usuários tais como, mas não se limitando, a erros, fraudes, inexatidão ou divergência de dados, fotos, vídeos ou outros materiais relacionados a anúncios ou oferecidas pelos usuários, são de única e exclusiva responsabilidade de seus anunciantes e usuários.
-                </p>
-                <p>
-
-A rede PORTAISIMOBILIARIOS.COM também não se responsabiliza pelo cumprimento devido por Você, por anunciantes ou quaisquer terceiros, das respectivas obrigações tributárias que venham a incidir, nos termos da lei vigente, sobre quaisquer atividades, operações ou negócios que tenham sua origem nos anúncios veiculados em um dos portais da rede. Portanto, a rede PORTAISIMOBILIARIOS.COM recomenda expressamente que Você fique atento a estes pontos e, ao adquirir algum bem, exija todos os documentos fiscais e legais pertinentes.
-                </p>
-                <p>
-
-As marcas, logotipos layouts, nomeações de serviços e todo material deste portal são de propriedade da rede PORTAISIMOBILIARIOS.COM e seus associados, ficando estritamente proibido o seu uso por terceiros sem prévia autorização da direção da rede PORTAISIMOBILIARIOS.COM.
-                </p>
-                <p>
-
-A gestão dos anúncios e informações (vídeos, fotos e características dos bens oferecidos) será realizada exclusivamente pelos anunciantes, mediante cadastro prévio, com inserção e exclusão de informações e dados através de login e senha de caráter confidencial e pessoal dos anunciantes e sob a responsabilidade destes.
-                </p>
-                <p>
-
-
-Ao Transmitir Conteúdo à rede PORTAISIMOBILIARIOS.COM, Você afirma e garante que tem o direito de ceder e transferir a rede PORTAISIMOBILIARIOS.COM, como de fato cede e transfere uma licença irrevogável, perpétua, não exclusiva, gratuita e mundial para que a rede PORTAISIMOBILIARIOS.COM possa usar, copiar, exibir e distribuir o Conteúdo, bem como preparar trabalhos derivados dele, ou incorporar em outros trabalhos ao Conteúdo, bem como deles livremente dispor.
-                </p>
-                <p>
-
-
-Para fins de obtenção de informações sobre um anúncio, o usuário da rede PORTAISIMOBILIARIOS.COM não necessitará desembolsar qualquer valor em favor do anunciante. Qualquer infração nesse sentido por parte do anunciante deve ser notificada imediatamente a rede PORTAISIMOBILIARIOS.COM.
-                </p>
-                <p>
-
-Ao adquirir qualquer bem, o usuário deverá exigir sempre nota fiscal do anunciante, a menos que este esteja dispensado legalmente de fornecê-la, uma vez que o Portal também não se responsabiliza pelas exações tributárias que recaiam sobre a relação comercial estabelecida entre anunciante e usuário.
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 
 <?php
     echo ( isset($includes) ? $includes : '' );

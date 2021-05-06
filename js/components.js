@@ -946,8 +946,8 @@ $(document).ready(function () {
 	// init layout handlers
 	LayoutBrand.init();
 	LayoutHeaderCart.init();
-	LayoutMegaMenu.init();
-	LayoutSidebarMenu.init();
+//	LayoutMegaMenu.init();
+//	LayoutSidebarMenu.init();
 	LayoutQuickSearch.init();
 	LayoutCartMenu.init();
 	LayoutQuickSidebar.init();
@@ -961,7 +961,7 @@ $(document).ready(function () {
 
 	// init plugin wrappers
 	ContentOwlcarousel.init();
-	ContentCubeLatestPortfolio.init();
+//	ContentCubeLatestPortfolio.init();
 //	ContentCounterUp.init();
 //	ContentFancybox.init();
 //	ContentTwitter.init();

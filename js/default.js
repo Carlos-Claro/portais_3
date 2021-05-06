@@ -140,7 +140,15 @@ var fotos = {
         $('#links-importantes').on('click', function(){
          $('.links-importantes').toggle();
         });
-         $('#imoveis-menu').on('click', function(){
+       $('#imoveis-menu').on('click', function(){
          $('.imoveis-menu').toggle();
         });
+        
+       $('#imoveis-menu').on('hover', function(){
+           var relatedTarget = { relatedTarget: this }
+           $('#imoveis-menu').trigger('click');
+           
+         return false;
+        });
+        
     });

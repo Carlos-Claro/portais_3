@@ -294,7 +294,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group"><button class="btn btn-success envia ladda-button g-recaptcha" data-sitekey="<?php echo $sitekey;?>" type="submit" data-size="invisible" data-callback="onSubmit"> Contatar Anunciante </button></div>
-                                                    <div class="form-group"><label>&nbsp;Ao enviar, você concorda com os <a data-toggle="modal" data-target="#modal-termo" class="termos" href="#">Termos de Uso</a>, <a data-toggle="modal" data-target="#modal-politica" class="termos" href="#">Política de Privacidade</a> e recebimento de sugestões de imóveis.</label></div>
+                                                    <div class="form-group"><label>&nbsp;Ao enviar, você concorda com os <a data-toggle="modal" data-target="#modal" class="termos" href="#">Termos de Uso</a>, <a data-toggle="modal" data-target="#modal" class="politica" href="#">Política de Privacidade</a> e recebimento de sugestões de imóveis.</label></div>
                                                     <ul class="list-unstyled list-inline">
                                                         <li>
                                                             <button class="btn btn-form btn-secondary btn-topo ver-telefone"  data-item="<?php echo $item->id_empresa;?>" type="button">Ver telefone</button>

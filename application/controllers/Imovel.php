@@ -489,4 +489,102 @@ class Imovel extends MY_Controller {
         }
         echo json_encode($retorno['lista']['lista']);
     }
+    
+    public function get_politica(){
+        $retorno['titulo'] = 'Política de privacidade PORTAISIMOBILIARIOS.COM ';
+        $retorno['texto'] = '<p>
+Esse Portal é integrante da rede PORTAISIMOBILIARIOS.COM.
+                </p>
+                <p>
+O presente instrumento estabelece a política de privacidade e segurança de informações e de direitos e deveres assumidos pelos seus anunciantes, usuários e pelo PORTAISIMOBILIARIOS.COM quanto ao presente Portal de serviços de publicidade.
+                </p>
+                <p>
+Através deste documento, a rede PORTAISIMOBILIARIOS.COM esclarece aos usuários como essas informações são coletadas e a que uso se destina.
+O PORTAISIMOBILIARIOS.COM mostra o respeito por sua privacidade nos termos a seguir:
+                </p>
+                <p>
+A rede PORTAISIMOBILIARIOS.COM não fornecerá informações pessoais do usuário sem sua devida autorização, exceto se tais informações forem necessárias para prestar o serviço solicitado pelo próprio usuário, ou, ainda, na hipótese das informações pessoais do usuário ser requeridas por motivos legais. A rede tomará todas as medidas possíveis para manter a confidencialidade e a segurança das informações do usuário, porém não responderá por prejuízo que possa advir da divulgação de tais informações pelo motivo excepcionado acima, ou ainda por violação ou quebra das barreiras de segurança de internet por terceiros como “hackers” ou “crackers”.
+                </p>
+                <p>
+A rede PORTAISIMOBILIARIOS.COM utiliza ainda a tecnologia “Cookies HTTP”, que são mecanismos reconhecidamente confiáveis que analisam as preferências de navegação do usuário e o direcionam com precisão para aqueles assuntos de seu maior interesse e a parceiros comerciais. Em geral, é possível desativar estes “Cookies HTTP”, para tanto basta desabilitá-los através da caixa de ferramentas do seu navegador. É importante dizer que os “cookies” não executam programas nem infectam computadores com vírus, e só podem ser lidos por nós.
+                </p>
+                <p>
+Ou seja, o objetivo da instalação dos “cookies” é sempre beneficiar o USUÁRIO que os recebe.
+                </p>
+                <p>
+Para ter acesso às algumas seções dos portais da rede, o usuário deve preencher um formulário, no qual ele deverá fornecer algumas informações, como por exemplo, forma de contato, entre outras.
+                </p>
+                <p>
+Este registro é armazenado em um banco de dados protegido e sigiloso.
+                </p>
+                <p>
+Quanto mais informações você fornecer, melhor será a personalização da sua experiência.
+                </p>
+                <p>
+Os newsletters e mensagens publicitárias enviadas por e-mail sempre trarão opção de cancelamento do envio daquele tipo de mensagem por parte da rede PORTAISIMOBILIARIOS.COM
+                </p>
+                <p>
+Não nos responsabilizamos por eventuais prejuízos advindos de eventual divulgação de dados, seja por erro no preenchimento ou mau uso do usuário, seja de ordem legal, judicial, ou quebra de sistema por terceiros.
+                </p>
+                <p>
+Ciente destas condições torna-se inegavelmente uma decisão singular do usuário a utilização deste Portal.
+                </p>';
+        echo json_encode($retorno);
+    }
+    
+    public function get_termos(){
+        $retorno['titulo'] = 'Termos de uso PORTAIS IMOBILIÁRIOS ';
+        $retorno['texto'] = '<p>
+
+Portais Imobiliários:
+                </p>
+                <p>
+Com o objetivo de integrar várias cidades do Brasil o PORTAISIMOBILIARIOS.COM atualmente conta com mais de 270 cidades integrantes da rede. Cada cidade conta com seu próprio site, estes são de nomes intuitivos, com fácil memorização e busca.
+Esse portal é integrante da rede PORTAISIMOBILIARIOS.COM.
+                </p>
+                <p>
+
+
+É imprescindível que seus anunciantes e usuários leiam com atenção o presente TERMO DE USO antes de acessar e utilizar o Portal PORTAISIMOBILIARIOS.COM eis que seu acesso repercute na concordância de todos os seus estritos termos de uso.
+                </p>
+                <p>
+
+O PORTAISIMOBILIARIOS.COM atua como mero veiculador de anúncios, serviços e informações correlatas e específicas de seus anunciantes relativas a imóveis. Portanto, não presta serviços de consultoria ou intermediações de negócios entre seus anunciantes e usuários.
+                </p>
+                <p>
+
+Dessa forma, o SITE não assume responsabilidade por nenhuma consequência que possa advir de qualquer relação entre o USUÁRIO e o(s) ANUNCIANTE(S), seja ela direta ou indireta.
+                </p>
+                <p>
+
+Os anúncios, produtos e informações veiculadas em qualquer um dos sites que fazem parte da rede PORTAISIMOBILIARIOS.COM são de inteira, total e exclusiva responsabilidade dos seus anunciantes e usuários, de forma que qualquer ação comissiva ou omissiva dos seus anunciantes e usuários tais como, mas não se limitando, a erros, fraudes, inexatidão ou divergência de dados, fotos, vídeos ou outros materiais relacionados a anúncios ou oferecidas pelos usuários, são de única e exclusiva responsabilidade de seus anunciantes e usuários.
+                </p>
+                <p>
+
+A rede PORTAISIMOBILIARIOS.COM também não se responsabiliza pelo cumprimento devido por Você, por anunciantes ou quaisquer terceiros, das respectivas obrigações tributárias que venham a incidir, nos termos da lei vigente, sobre quaisquer atividades, operações ou negócios que tenham sua origem nos anúncios veiculados em um dos portais da rede. Portanto, a rede PORTAISIMOBILIARIOS.COM recomenda expressamente que Você fique atento a estes pontos e, ao adquirir algum bem, exija todos os documentos fiscais e legais pertinentes.
+                </p>
+                <p>
+
+As marcas, logotipos layouts, nomeações de serviços e todo material deste portal são de propriedade da rede PORTAISIMOBILIARIOS.COM e seus associados, ficando estritamente proibido o seu uso por terceiros sem prévia autorização da direção da rede PORTAISIMOBILIARIOS.COM.
+                </p>
+                <p>
+
+A gestão dos anúncios e informações (vídeos, fotos e características dos bens oferecidos) será realizada exclusivamente pelos anunciantes, mediante cadastro prévio, com inserção e exclusão de informações e dados através de login e senha de caráter confidencial e pessoal dos anunciantes e sob a responsabilidade destes.
+                </p>
+                <p>
+
+
+Ao Transmitir Conteúdo à rede PORTAISIMOBILIARIOS.COM, Você afirma e garante que tem o direito de ceder e transferir a rede PORTAISIMOBILIARIOS.COM, como de fato cede e transfere uma licença irrevogável, perpétua, não exclusiva, gratuita e mundial para que a rede PORTAISIMOBILIARIOS.COM possa usar, copiar, exibir e distribuir o Conteúdo, bem como preparar trabalhos derivados dele, ou incorporar em outros trabalhos ao Conteúdo, bem como deles livremente dispor.
+                </p>
+                <p>
+
+
+Para fins de obtenção de informações sobre um anúncio, o usuário da rede PORTAISIMOBILIARIOS.COM não necessitará desembolsar qualquer valor em favor do anunciante. Qualquer infração nesse sentido por parte do anunciante deve ser notificada imediatamente a rede PORTAISIMOBILIARIOS.COM.
+                </p>
+                <p>
+
+Ao adquirir qualquer bem, o usuário deverá exigir sempre nota fiscal do anunciante, a menos que este esteja dispensado legalmente de fornecê-la, uma vez que o Portal também não se responsabiliza pelas exações tributárias que recaiam sobre a relação comercial estabelecida entre anunciante e usuário.
+                </p>';
+        echo json_encode($retorno);
+    }
 }

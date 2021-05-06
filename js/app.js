@@ -170,14 +170,14 @@ var App = function() {
     };
 
     // Handles Bootstrap Dropdowns
-    var handleDropdowns = function() {
-        /*
-          Hold dropdown on click  
-        */
-        $('body').on('click', '.dropdown-menu.hold-on-click', function(e) {
-            e.stopPropagation();
-        });
-    };
+//    var handleDropdowns = function() {
+//        /*
+//          Hold dropdown on click  
+//        */
+//        $('body').on('click', '.dropdown-menu.hold-on-click', function(e) {
+//            e.stopPropagation();
+//        });
+//    };
 
     var handleAlerts = function() {
         $('body').on('click', '[data-close="alert"]', function(e) {
@@ -198,12 +198,12 @@ var App = function() {
     };
 
     // Handle Hower Dropdowns
-    var handleDropdownHover = function() {
-        $('[data-hover="dropdown"]').not('.hover-initialized').each(function() {
-            $(this).dropdownHover();
-            $(this).addClass('hover-initialized');
-        });
-    };
+//    var handleDropdownHover = function() {
+//        $('[data-hover="dropdown"]').not('.hover-initialized').each(function() {
+//            $(this).dropdownHover();
+//            $(this).addClass('hover-initialized');
+//        });
+//    };
 
     // Handles Bootstrap Popovers
 
@@ -268,7 +268,7 @@ var App = function() {
             //handleAnimate(); // handle animate
             handleCheckboxRadios() // handle checkbox & radios
             handleAlerts(); //handle closabled alerts
-            handleDropdowns(); // handle dropdowns
+//            handleDropdowns(); // handle dropdowns
             handleTooltips(); // handle bootstrap tooltips
             handlePopovers(); // handles bootstrap popovers
             handleAccordions(); //handles accordions 

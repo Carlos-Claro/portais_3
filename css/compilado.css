@@ -3725,7 +3725,7 @@ h1 {
             .c-layout-header .c-navbar .c-mega-menu > .nav.navbar-nav > li > .dropdown-menu.c-menu-type-mega > li > .dropdown-menu {
               float: none; }
         .c-layout-header .c-navbar .c-mega-menu > .nav.navbar-nav > li:hover > .dropdown-menu {
-          display: block; }
+          display: none; }
       .c-layout-header .c-navbar .c-mega-menu > .nav.navbar-nav .c-visible-mobile {
         display: none !important; }
     .c-layout-quick-search-shown .c-layout-header .c-navbar .c-mega-menu {

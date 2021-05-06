@@ -492,7 +492,7 @@ class Imoveis extends MY_Controller {
         $this->benchmark->mark('getFormSelect_end');
         $this->print_time('getFormSelect');
         $this->benchmark->mark('getForm_start');
-        $data['imoveis'] = $this->get_itens(TRUE);
+        $data['imoveis'] = '';//$this->get_itens(TRUE);
         $retorno = $layout = $this->layout
                         ->set_time($this->soma_time())
                         ->view('filtro_3', $data, 'layout/sem_head.php', TRUE);
