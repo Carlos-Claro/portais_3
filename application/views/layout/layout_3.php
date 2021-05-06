@@ -110,10 +110,10 @@
                     <nav class="c-mega-menu c-pull-right c-mega-menu-light c-mega-menu-light-mobile c-fonts-uppercase c-fonts-bold">
                         <ul class="nav navbar-nav c-theme-nav"> 
                             <li >
-                                <a href="return false" data-toggle="dropdown" id="imoveis-menu" class="c-link dropdown-toggle js-activated hold-on-click vermelho-pow">Imóveis<span class="c-arrow c-toggler"></span></a>
+                                <a href="javascript:;" data-toggle="dropdown" id="imoveis-menu" class="c-link dropdown-toggle vermelho-pow">Imóveis<span class="c-arrow c-toggler"></span></a>
                                 <div class="imoveis-menu dropdown-menu c-menu-type-mega c-menu-type-fullwidth" style="min-width: auto">
                                     <div class="row">
-                                        <?php echo $menu;?>
+                                        <?php // echo $menu;?>
                                     </div>
                                 </div>
                             </li>

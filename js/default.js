@@ -141,14 +141,16 @@ var fotos = {
          $('.links-importantes').toggle();
         });
        $('#imoveis-menu').on('click', function(){
-         $('.imoveis-menu').toggle();
+            $('.imoveis-menu').toggle();
+       });
+       $('#imoveis-menu').on('mouseover', function(){
+           $.get(URL_HTTP + 'menu',function(data){
+                 $('.imoveis-menu').toggle();
+               $('#imoveis-menu .row').html('');
+               $('.imoveis-menu .row').html(data);
+                 $('.imoveis-menu').toggle();
+           });
         });
-        
-       $('#imoveis-menu').on('hover', function(){
-           var relatedTarget = { relatedTarget: this }
-           $('#imoveis-menu').trigger('click');
-           
-         return false;
-        });
+       
         
     });

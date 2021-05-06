@@ -118,7 +118,7 @@ class Imoveis extends MY_Controller {
                 ->set_time($this->soma_time())
                 ->set_mobile($this->is_mobile)
                 ->set_robot($this->cidade->link === $this->get_request('cidade'))
-                ->set_menu($this->menu)
+//                ->set_menu($this->menu)
                 ->set_logo( $this->logo_principal )
                 ->set_titulo($this->get_titulo())
                 ->set_description($this->get_descricao())
@@ -1094,6 +1094,10 @@ class Imoveis extends MY_Controller {
 //        echo $this->soma_time();
     }
 
+    
+    public function menu(){
+        echo $this->get_menu();
+    }
 
 
 

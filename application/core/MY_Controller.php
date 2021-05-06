@@ -142,13 +142,13 @@ class MY_Controller extends CI_Controller
         $this->adwords = $this->cidade->tag_adwords;
         $this->titulo_padrao = ' - '.substr($this->cidade->portal, 11);
         $this->benchmark->mark('setMenu_start');
-        $this->menu = $this->get_menu();
+//        $this->menu = $this->get_menu();
         $this->benchmark->mark('setMenu_end');
         $this->print_time('setMenu');
         return $this;
     }
     
-    private function get_menu()
+    public function get_menu()
     {
          if ( file_exists(getcwd().'/application/views/menus/'.$this->cidade->link) ) 
          {

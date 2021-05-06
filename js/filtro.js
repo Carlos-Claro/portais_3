@@ -16,7 +16,9 @@ toastr.options = {
 
 $(function(){
     filtro.inicia();
-    pesquisa.inicia();
+    setTimeout(function(){
+        pesquisa.inicia();
+    },100);
     $('.buscar, .mobiliado, .condominio, .quartos, .vagas, .banheiros, .comercial, .residencial').on('click',function(){
         console.log('buscando');
         valores = pesquisa.getValores(true);
