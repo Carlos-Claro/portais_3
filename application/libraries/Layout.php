@@ -525,15 +525,15 @@ class Layout {
     {	
         
             
-        $htmlMin = new HtmlMin();
-        $htmlMin->doOptimizeViaHtmlDomParser();
-        $htmlMin->doOptimizeAttributes();   
-        $htmlMin->doRemoveOmittedQuotes(FALSE); 
+//        $htmlMin = new HtmlMin();
+//        $htmlMin->doOptimizeViaHtmlDomParser();
+//        $htmlMin->doOptimizeAttributes();   
+//        $htmlMin->doRemoveOmittedQuotes(FALSE); 
         $view_content = $this->CI->load->view($view_name, $params, TRUE);
         if ($this->CI->input->is_ajax_request() && ! $retorno_html)				
         {						
-            print $htmlMin->minify($view_content);				
-//            print $view_content;				
+//            print $htmlMin->minify($view_content);				
+            print $view_content;				
             
         }				
         else				
@@ -573,13 +573,15 @@ class Layout {
             if ( $retorno_html ) 
             {
                 $r =  $this->CI->load->view($layout, $params, $retorno_html);	
-                return $htmlMin->minify($r);
+                return $r;
+//                return $htmlMin->minify($r);
             }
             else
             {
 //                $this->CI->load->view($layout, $params);	
                 $r = $this->CI->load->view($layout, $params, TRUE);
-                echo $htmlMin->minify($r);
+                echo $r;
+//                echo $htmlMin->minify($r);
 //                $parametro = ['includes' => $this->get_includes()];
 ////                var_dump($parametro['includes']);
 ////                var_dump(preg_replace('/(/* !)*?(*/)/','', $parametro['includes']));die();

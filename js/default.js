@@ -140,13 +140,22 @@ var fotos = {
         $('#links-importantes').on('click', function(){
          $('.links-importantes').toggle();
         });
+        $('#links-importantes').on('mouseover', function(){
+           $.get(URL_HTTP + 'menu_principais',function(data){
+                 $('.links-importantes').toggle();
+               $('.links-importantes').html('');
+               $('.links-importantes').html(data);
+                 $('.links-importantes').toggle();
+           });
+            
+        });
        $('#imoveis-menu').on('click', function(){
             $('.imoveis-menu').toggle();
        });
        $('#imoveis-menu').on('mouseover', function(){
            $.get(URL_HTTP + 'menu',function(data){
                  $('.imoveis-menu').toggle();
-               $('#imoveis-menu .row').html('');
+               $('.imoveis-menu .row').html('');
                $('.imoveis-menu .row').html(data);
                  $('.imoveis-menu').toggle();
            });

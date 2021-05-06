@@ -123,62 +123,8 @@
                             <li><a class="c-link dropdown-toggle azul-pow" href="<?php echo base_url();?>nao_encontrei">Não Encontrei</a></li>
                             <li >
                                 <a href="javascript:;" id="links-importantes" class="c-link dropdown-toggle azul-pow">Links Importantes<span class="c-arrow c-toggler"></span></a>
-                                <ul class="dropdown-menu links-importantes c-menu-type-mega c-menu-type-fullwidth" style="min-width: auto">
-                                    <li>
-                                        <ul class="dropdown-menu c-menu-type-inline">
-                                            <li>
-                                                <h3>Venda</h3>
-                                            </li>
-                                            <li>
-                                                <a href="<?php echo base_url();?>">Imóveis à Venda em <?php  echo $sobre['nome']; ?></a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Apartamentos à Venda em <?php  echo $sobre['nome']; ?></a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Casas à Venda em <?php  echo $sobre['nome']; ?></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul class="dropdown-menu c-menu-type-inline">
-                                            <li>
-                                                <h3>Alugar</h3>
-                                            </li>
-                                            <li>
-                                                <a href="#">Imóveis para alugar em <?php  echo $sobre['nome']; ?></a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Apartamentos para alugar em <?php  echo $sobre['nome']; ?></a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Casas para alugar em <?php  echo $sobre['nome']; ?></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul class="dropdown-menu c-menu-type-inline">
-                                            <li>
-                                                <h3>Links da Cidade</h3>
-                                            </li>
-                                            <?php 
-                                            if ( $sobre['link_prefeitura'] )
-                                            {
-                                                ?>
-                                                <li>
-                                                    <a href="<?php echo $sobre['link_prefeitura'];?>" title="Prefeitura da Cidade de <?php  echo $sobre['nome']; ?>"  target="_blank" rel="nofollow">Prefeitura de <?php  echo $sobre['nome']; ?></a>
-                                                </li>
-                                                <?php
-                                            }
-                                            ?>
-                                            <li>
-                                                <a href="http://www8.caixa.gov.br/siopiinternet/simulaOperacaoInternet.do?method=inicializarCasoUso" title="Simulador da Caixa" target="_blank" rel="nofollow">Simulador da Caixa</a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.caixa.gov.br/voce/habitacao/minha-casa-minha-vida/Paginas/default.aspx" title="Programa Minha Casa Minha Vida" target="_blank" rel="nofollow">Minha Casa Minha Vida</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                <ul class="dropdown-menu links-importantes c-menu-type-mega">
+                                    
                                 </ul>
                             </li>
                             <li class="c-quick-sidebar-toggler-wrapper">	

@@ -1099,6 +1099,23 @@ class Imoveis extends MY_Controller {
         echo $this->get_menu();
     }
 
+    public function menu_principais(){
+        echo '
+            <li>
+                <ul class="dropdown-menu c-menu-type-inline">
+                    <li>
+                        <h3>Links da Cidade</h3>
+                    </li>
+                    '.(( $sobre['link_prefeitura'] ) ? '<li><a href="'.$this->cidade->sobre['link_prefeitura'].'" title="Prefeitura da Cidade de '.$this->cidade->sobre['nome'].'"  target="_blank" rel="nofollow">Prefeitura de '.$this->cidade->sobre['nome'].'</a></li>' : '').'
+                    <li>
+                        <a href="http://www8.caixa.gov.br/siopiinternet/simulaOperacaoInternet.do?method=inicializarCasoUso" title="Simulador da Caixa" target="_blank" rel="nofollow">Simulador da Caixa</a>
+                    </li>
+                    <li>
+                        <a href="http://www.caixa.gov.br/voce/habitacao/minha-casa-minha-vida/Paginas/default.aspx" title="Programa Minha Casa Minha Vida" target="_blank" rel="nofollow">Minha Casa Minha Vida</a>
+                    </li>
+                </ul>
+            </li>';
+    }
 
 
 }

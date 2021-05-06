@@ -1362,3 +1362,6 @@ padding: 15px;
 }
 @media (min-width: @screen-lg-min) { 
 }*/
+.dropdown-menu{
+    position: relative;
+}
