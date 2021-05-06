@@ -74,7 +74,7 @@ var fotos = {
             }
             $('.item-' + item + '.carousel').carousel(lado);
             $('.item-' + item + '.carousel').carousel('pause');
-        },500);
+        },1000);
     },
     verifica_lista: function( item ){
         $.each(this.get_lista(),function(k,v){
