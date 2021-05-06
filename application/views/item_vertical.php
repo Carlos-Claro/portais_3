@@ -12,7 +12,7 @@
                                         <?php echo $titulo['h2'];?>
                                         <br>
                                         <span class=" glyphicon glyphicon-map-marker"></span>
-                                        <?php echo $titulo['localizacao'];?>
+                                        <small><?php echo $titulo['localizacao'];?></small>
                                     </h2>
                                 </a>
                             </div>
