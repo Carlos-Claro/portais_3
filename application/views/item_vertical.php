@@ -1,6 +1,5 @@
 <li class="imovel item-vertical <?php echo ( ($destaque) ? 'destaque' : 'organico' );?> elemento-<?php echo $item->_id;?>" data-item="<?php echo $item->_id;?>" itemscope itemtype="http://schema.org/Product" data-link="<?php echo $link?>" data-origem="ver-telefone-whats-lista">
-    <div class="c-margin-t-20"></div>
-    <div class="row">
+    <div class="row c-margin-t-20">
         <div class="c-content-product-2 c-bg-white">
             <link itemprop="additionalType" href="http://www.productontology.org/id/<?php echo $item->imoveis_tipos_english;?>"/>
             <meta itemprop="name" content="<?php echo $titulo['h2'];?>"/>

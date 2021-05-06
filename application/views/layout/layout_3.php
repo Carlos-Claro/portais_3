@@ -279,23 +279,6 @@
                 </div>
         </div>
     </footer>
-    
-<style type="text/css">
-.center-e {
-    text-align: center;
-    color: #1f374a;
-}
-.center-e a{
-    text-align: center;
-    color: #1f374a;
-    font-weight: bold;
-}
-.center-e a{
-    text-align: center;
-    color: #1f374a;
-    font-weight: bold;
-}
-</style>
 <div class="c-layout-go2top">
     <i class="fa fa-arrow-circle-up"></i>
 </div>
