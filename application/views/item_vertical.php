@@ -11,8 +11,9 @@
                                     <h2 class="c-title c-font-bold c-font-22 c-font-bold azul-pow" >
                                         <?php echo $titulo['h2'];?>
                                         <br>
+                                        <small>
                                         <span class=" glyphicon glyphicon-map-marker"></span>
-                                        <small><?php echo $titulo['localizacao'];?></small>
+                                            <?php echo $titulo['localizacao'];?></small>
                                     </h2>
                                 </a>
                             </div>
