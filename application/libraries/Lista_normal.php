@@ -716,18 +716,18 @@ class Lista_normal
             $mais_images = ( isset($data['images']) && ! empty($data['images']) ) ? TRUE : FALSE;
             // data-images="'.($mais_images ? $data['images'] : '').'"
             $galeria .= '<div class="espaco-image slide carousel item-'.$item->_id.'" data-item="'.$item->_id.'" >';
-            $galeria .= '<a class="amplia-images" data-item="'.$item->_id.'" href="#" title="'.$item->nome.'">';
-            $galeria .= '<div class="carousel-inner" role="listbox">';
-            $galeria .= '<div class="item active" data-atual="0">';
-            $galeria .= '<div class=" link-img center-block" title="'.$item->nome.'" >';
+//            $galeria .= '   <a class="amplia-images" data-item="'.$item->_id.'" href="#" title="'.$item->nome.'">';
+            $galeria .= '       <div class="carousel-inner" role="listbox">';
+            $galeria .= '           <div class="item active" data-atual="0">';
+            $galeria .= '               <div class=" link-img center-block" title="'.$item->nome.'" >';
             $galeria .= '<center><img '
                     . 'itemprop="image" '
-                    . 'data-src="'.str_replace(['http://www.powempresas.com/','https://www.powempresas.com/', 'http://201.22.56.213/portais_3/','https://201.22.56.213/portais_3/'], base_url(), str_replace('650F_F','F',$data['arquivo']) ).'" '
+                    . 'data-src="'.str_replace(['http://www.powempresas.com/','https://www.powempresas.com/', 'http://201.22.56.213/portais_3/','https://201.22.56.213/portais_3/'], base_url(), $data['arquivo'] ).'" '
                     . 'alt="'.$data['alt_image'].'" src="'.base_url().'imagens/naodisponivel.jpg" title="'.$data['alt_image'].'" class="img-responsive"></center>';
-            $galeria .= '</div>';
-            $galeria .= '</div>';
-            $galeria .= '</div>';
-            $galeria .= '</a>';
+            $galeria .= '               </div>';
+            $galeria .= '           </div>';
+            $galeria .= '       </div>';
+//            $galeria .= '   </a>';
             if ( $mais_images )
             {
                 $galeria .= '<a class="left carousel-control" href="#carousel" role="button" data-slide="prev" data-item="'.$item->_id.'" data-atual="0"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Anterior</span></a>';

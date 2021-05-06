@@ -1,12 +1,6 @@
 <li class="imovel item-vertical <?php echo ( ($destaque) ? 'destaque' : 'organico' );?> elemento-<?php echo $item->_id;?>" data-item="<?php echo $item->_id;?>" itemscope itemtype="http://schema.org/Product" data-link="<?php echo $link?>" data-origem="ver-telefone-whats-lista">
     <div class="row c-margin-t-20">
         <div class="c-content-product-2 c-bg-white">
-            <link itemprop="additionalType" href="http://www.productontology.org/id/<?php echo $item->imoveis_tipos_english;?>"/>
-            <meta itemprop="name" content="<?php echo $titulo['h2'];?>"/>
-            <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                <span itemprop="seller" itemscope itemtype="http://schema.org/RealEstateAgent">
-                    <meta itemprop="name" content="<?php echo $item->nome_empresa;?>"/>
-                </span>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" >
                     <?php echo $galeria;?>
                 </div>
@@ -17,10 +11,8 @@
                                     <h2 class="c-title c-font-bold c-font-22 c-font-bold azul-pow" >
                                         <?php echo $titulo['h2'];?>
                                         <br>
-                                        <small itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                            <span class=" glyphicon glyphicon-map-marker"></span>
-                                            <?php echo $titulo['localizacao'];?>
-                                        </small>
+                                        <span class=" glyphicon glyphicon-map-marker"></span>
+                                        <?php echo $titulo['localizacao'];?>
                                     </h2>
                                 </a>
                             </div>
@@ -45,15 +37,13 @@
                                 </div>
                             </a>
                         </div>
+                        <a href="<?php echo $link;?>" title="<?php echo $item->nome;?>" target="_blank">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="c-price c-font-20 c-font-bold azul-pow">
                             <?php 
                             $valores = trim($valores);
                             if ( ! empty($valores) ) :
                                 echo $valores; 
-                                ?>
-                                <meta itemprop="priceCurrency" content="BRL"/>
-                                <?php
                             endif;
                             ?>
                             </div>
@@ -67,6 +57,7 @@
                             </div>
 
                         </div>
+                        </a>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
                             <ul class="list-inline list-unstyled">
                                     <?php
@@ -122,7 +113,6 @@
                         </div>
                         
                 </div>
-            </span>
         </div>
     </div>
 </li>
