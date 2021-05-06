@@ -11,77 +11,61 @@
                     <?php echo $galeria;?>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                    <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 espaco-descricao-titulo" data-item="<?php echo $item->_id;?>">
                             <div class="c-info-list">
                                 <a class="" href="<?php echo $link;?>" title="<?php echo $item->nome;?>" target="_blank">
-                                    <div class="espaco-titulo">
-                                        <h2 class="c-title c-font-bold c-font-22 c-font-bold azul-pow" >
-                                            <?php echo $titulo['h2'];
-                                         ?>
-                                            <br>
-                                            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                                <small>
-                                                    <span class=" glyphicon glyphicon-map-marker"></span>
-                                                    <?php echo $titulo['localizacao'];?>
-                                                </small>
-                                            </span>
-                                        </h2>
-                                    </div>
+                                    <h2 class="c-title c-font-bold c-font-22 c-font-bold azul-pow" >
+                                        <?php echo $titulo['h2'];?>
+                                        <br>
+                                        <small itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                            <span class=" glyphicon glyphicon-map-marker"></span>
+                                            <?php echo $titulo['localizacao'];?>
+                                        </small>
+                                    </h2>
                                 </a>
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 espaco-descricao" data-item="<?php echo $item->_id;?>">
-                            <a class="" href="<?php echo $link;?>" title="<?php echo $item->nome;?>" target="_blank">
-                                <div class="espaco-titulo">
-                                    <div class="c-desc c-font-thin c-font-16">
-                                        <span itemprop="description" >
-                                        <?php 
-                                        if ( isset($item->descricao) && ! empty($item->descricao) ) :
-                                            $descricao = str_replace( array('<br>','<br />','<br/>', '</br>'), '-', tira_html($item->descricao));
-                                            echo '<p class="c-font-16">'.ucfirst(mb_strtolower(word_limiter(strip_tags($descricao, '<a>'), 45))).'</p>';
-                                        endif;
-                                        ?>
-                                        </span>
-                                        <div class="row">
-                                            <span class="col-lg-4 col-md-4 col-sm-12 col-xs-12">Código PI: <b><?php echo $item->_id;?></b></span>
-                                            <?php 
-                                            if ( ! empty($item->referencia) ) :
-                                                ?>
-                                            <span class="col-lg-6 col-md-6 col-sm-6 hidden-xs">Referência: <b><?php echo $item->referencia;?></b></span>
-                                                <?php
-                                            endif;
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                    <div class="c-price c-font-20 c-font-bold azul-pow">
+                            <a href="<?php echo $link;?>" title="<?php echo $item->nome;?>" target="_blank">
+                                <div class="c-desc c-font-thin c-font-16">
                                     <?php 
-                                    $valores = trim($valores);
-                                    if ( ! empty($valores) ) :
-                                        echo $valores; 
+                                    if ( isset($item->descricao) && ! empty($item->descricao) ) :
+                                        $descricao = str_replace( array('<br>','<br />','<br/>', '</br>'), '-', tira_html($item->descricao));
+                                        echo '<p itemprop="description" class="c-font-16">'.ucfirst(mb_strtolower(word_limiter(strip_tags($descricao, '<a>'), 45))).'</p>';
+                                    endif;
+                                    ?>
+                                    <span class="col-lg-6 col-md-6 col-sm-6 col-xs-6">Código PI: <b><?php echo $item->_id;?></b></span>
+                                    <?php 
+                                    if ( ! empty($item->referencia) ) :
                                         ?>
-                                        <meta itemprop="priceCurrency" content="BRL"/>
+                                    <span class="col-lg-6 col-md-6 col-sm-6 col-xs-6">Referência: <b><?php echo $item->referencia;?></b></span>
                                         <?php
                                     endif;
                                     ?>
-                                    </div>
                                 </div>
-                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                    <div class="opcionais azul-pow text-right">
-                                        <?php 
-                                        echo $opcionais;
-                                        echo $area;
-                                        ?>
-                                    </div>
-
-                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="c-price c-font-20 c-font-bold azul-pow">
+                            <?php 
+                            $valores = trim($valores);
+                            if ( ! empty($valores) ) :
+                                echo $valores; 
+                                ?>
+                                <meta itemprop="priceCurrency" content="BRL"/>
+                                <?php
+                            endif;
+                            ?>
                             </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            <div class="opcionais azul-pow text-right">
+                                <?php 
+                                echo $opcionais;
+                                echo $area;
+                                ?>
+                            </div>
+
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
                             <ul class="list-inline list-unstyled">
@@ -137,10 +121,8 @@
                             </ul>
                         </div>
                         
-                    </div>
                 </div>
             </span>
         </div>
     </div>
-    <div class="c-margin-t-20"></div>
 </li>
