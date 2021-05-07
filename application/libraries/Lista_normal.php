@@ -720,10 +720,10 @@ class Lista_normal
             $galeria .= '       <div class="carousel-inner" role="listbox">';
             $galeria .= '           <div class="item active" data-atual="0">';
             $galeria .= '               <div class=" link-img center-block" title="'.$item->nome.'" >';
-            $galeria .= '<center><img '
+            $galeria .= '<img '
                     . 'itemprop="image" '
                     . 'data-src="'.str_replace('650F_', '', $data['arquivo']).'" '
-                    . 'alt="'.$data['alt_image'].'" src="'.base_url().'imagens/naodisponivel.jpg" title="'.$data['alt_image'].'" class="img-responsive"></center>';
+                    . 'alt="'.$data['alt_image'].'" src="'.base_url().'imagens/naodisponivel.jpg" title="'.$data['alt_image'].'" class="img-responsive">';
             $galeria .= '               </div>';
             $galeria .= '           </div>';
             $galeria .= '       </div>';

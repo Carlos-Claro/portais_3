@@ -1,32 +1,7 @@
 <li class="imovel <?php echo $favoritos ? 'col-md-12 col-sm-12 favoritos' : ($destaque && $destaque == 'relacionado' ? 'col-md-4 col-sm-4' : 'col-md-4 col-sm-6 ');?>  item-grid <?php echo ( ($destaque) ? 'destaque' : 'organico' );?> elemento-<?php echo $item->_id;?>" data-item="<?php echo $item->_id;?>" itemscope itemtype="http://schema.org/Product" data-link="<?php echo $link?>" data-origem="<?php echo $origem;?>">
     <div class="c-content-product-2 c-bg-white box">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-            <?php $mais_images = ( isset($images) && ! empty($images) ) ? TRUE : FALSE; ?>
-            <div class="espaco-image slide carousel item-<?php echo $item->_id;?>" data-item="<?php echo $item->_id;?>" data-images="<?php echo $mais_images ? $images : '';?>">
-                <a class="" href="<?php echo $link;?>" title="<?php echo $item->nome;?>" target="_blank">
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active" data-atual="0">
-                        <div class=" link-img center-block" title="<?php echo $item->nome;?>" >
-                            <center><img data-src="<?php echo str_replace(array('http://www.powempresas.com/','https://www.powempresas.com/'), base_url(), $arquivo);?>" alt="<?php echo $alt_image;?>" src="<?php echo base_url();?>imagens/naodisponivel.jpg" alt="<?php echo $alt_image;?>" class="img-responsive"></center>
-                        </div>
-                    </div>
-                </div>
-                </a>
-                <?php 
-                if ( $mais_images ) :
-                    ?>
-                    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev" data-item="<?php echo $item->_id;?>" data-atual="0">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Anterior</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel" role="button" data-slide="next" data-item="<?php echo $item->_id;?>" data-atual="0">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> 
-                        <span class="sr-only">Proximo</span>
-                    </a>
-                    <?php
-                endif;
-                ?>
-            </div>
+            <?php echo $galeria;?>
         </div>
         <div class="infos row">
             <a class="" href="<?php echo $link; ?>" title="<?php echo $item->nome; ?>" target="_blank">
