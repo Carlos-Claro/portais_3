@@ -86,9 +86,9 @@
             <div class="c-navbar-wrapper clearfix">
                 <div class="c-brand c-pull-left">
                     <a href="<?php echo base_url();?>" title="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!" class="c-logo">
-                        <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!" class="c-desktop-logo">
-                        <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!"  class="c-desktop-logo-inverse">
-                        <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!"  class="c-mobile-logo">
+                        <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!" class="c-desktop-logo" width="190" height="50">
+                        <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!"  class="c-desktop-logo-inverse" width="190" height="50">
+                        <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!"  class="c-mobile-logo" width="120" height="33">
                     </a>
                     <button class="c-hor-nav-toggler" type="button" data-target=".c-mega-menu">
                         Menu

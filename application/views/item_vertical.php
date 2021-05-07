@@ -25,11 +25,14 @@
                                 echo '<p itemprop="description" class="c-font-16">'.ucfirst(mb_strtolower(word_limiter(strip_tags($descricao, '<a>'), 45))).'</p>';
                             endif;
                             ?>
-                            <span class="col-lg-6 col-md-6 col-sm-6 col-xs-6">Código PI: <b><?php echo $item->_id;?></b></span>
                             <?php 
                             if ( ! empty($item->referencia) ) :
                                 ?>
-                            <span class="col-lg-6 col-md-6 col-sm-6 col-xs-6">Referência: <b><?php echo $item->referencia;?></b></span>
+                                <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 c-font-13">Referência: <b><?php echo $item->referencia;?></b></span>
+                                <?php
+                            else:
+                                ?>
+                                <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Código: <b><?php echo $item->_id;?></b></span>
                                 <?php
                             endif;
                             ?>
