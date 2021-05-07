@@ -479,6 +479,7 @@ class Layout {
                 }
                 else
                 {
+                    $final_includes .= '<link rel="preload" href="'.$include.'" as="style">'.PHP_EOL;
                     $final_includes .= '<link rel="stylesheet" href="'.$include.'" type="text/css" />'.PHP_EOL;				
                 }
             }				
@@ -497,6 +498,7 @@ class Layout {
                 }
                 else
                 {
+                    $final_includes .= '<link rel="preload" href="'.$include.'" as="script">'.PHP_EOL;
                     $final_includes .= '<script type="text/javascript" src="'.$include.'"></script>'.PHP_EOL;				
                 }
 
