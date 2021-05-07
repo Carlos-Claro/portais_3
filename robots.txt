@@ -180,3 +180,6 @@ Disallow: /
 
 User-agent: AhrefsBot
 Disallow: /
+
+User-agent: serpstatbot
+Disallow: /
