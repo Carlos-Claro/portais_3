@@ -722,7 +722,7 @@ class Lista_normal
             $galeria .= '               <div class=" link-img center-block" title="'.$item->nome.'" >';
             $galeria .= '<center><img '
                     . 'itemprop="image" '
-                    . 'data-src="'.str_replace(['http://www.powempresas.com/','https://www.powempresas.com/', 'http://201.22.56.213/portais_3/','https://201.22.56.213/portais_3/'], base_url(), $data['arquivo'] ).'" '
+                    . 'data-src="'.str_replace('650F_', '', $data['arquivo']).'" '
                     . 'alt="'.$data['alt_image'].'" src="'.base_url().'imagens/naodisponivel.jpg" title="'.$data['alt_image'].'" class="img-responsive"></center>';
             $galeria .= '               </div>';
             $galeria .= '           </div>';
