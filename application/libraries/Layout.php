@@ -394,7 +394,7 @@ class Layout {
                 ->set_include('js/jquery-migrate-3.0.1.min.js', TRUE)
                 ->set_include('css/bootstrap.min.css', TRUE, TRUE)
 //                ->set_include('plugins/cubeportfolio/css/cubeportfolio.min.css', TRUE, TRUE)
-//                ->set_include('plugins/font-awesome/css/font-awesome.min.css', TRUE, TRUE)
+                ->set_include('plugins/font-awesome/css/font-awesome.min.css', TRUE, TRUE)
                 ->set_include('plugins/bootstrap-toastr/toastr.min.css', TRUE, TRUE)
 //                ->set_include('plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css', TRUE)
 //                ->set_include('plugins/bootstrap-modal/css/bootstrap-modal.css', TRUE)
