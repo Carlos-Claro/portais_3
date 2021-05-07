@@ -35,7 +35,12 @@ var fotos = {
 //        console.log(x);
         $.each($('.carousel-inner img'), function(k,v){
             if (y < x){
+                var preloadLink = document.createElement("link");
                 img = $(v).data('src');
+                    preloadLink.href = img;
+                    preloadLink.rel = "preload";
+                    preloadLink.as = "image";
+                    document.head.appendChild(preloadLink);
                 $(v).attr('src',img);
             }
             y = y + 1;
