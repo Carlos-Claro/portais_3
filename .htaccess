@@ -29,7 +29,7 @@ RewriteRule ^(.*)$ /index.php/$1 [L]
     ExpiresByType application/font-woff2    "access plus 1 month"
     ExpiresByType application/font-sfnt     "access plus 1 month"
     ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
-   <Filesmatch "\.(jpg|jpeg|png|gif|js|css|swf|ico|woff|mp3)$">
+   <Filesmatch "\.(jpg|jpeg|png|gif|js|css|swf|ico|woff|woff2|mp3)$">
     ExpiresActive on
     ExpiresDefault "access plus 1 month"
 </Filesmatch>
