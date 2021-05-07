@@ -66,7 +66,6 @@
     
     <header class="c-layout-header c-layout-header-4 c-layout-header-default-mobile" data-minimize-offset="80">
         <div class="c-topbar c-topbar-light c-solid-bg">
-            <div class="container-fluid">
                 <nav class="c-top-menu c-pull-right">
                     <ul class="c-links c-theme-ul">
                         <li><a href="<?php echo base_url();?>nao_encontrei">Não Encontrei</a></li>
@@ -82,66 +81,63 @@
                         <li><a href="https://admin.powempresas.com" class="azul-pow">Área do assinante</a></li>
                     </ul>
                 </nav>
-            </div>
         </div>
         <div class="c-navbar">
-            <div class="container-fluid">
-                <div class="c-navbar-wrapper clearfix">
-                    <div class="c-brand c-pull-left">
-                        <a href="<?php echo base_url();?>" title="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!" class="c-logo">
-                            <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!" class="c-desktop-logo">
-                            <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!"  class="c-desktop-logo-inverse">
-                            <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!"  class="c-mobile-logo">
-                        </a>
-                        <button class="c-hor-nav-toggler" type="button" data-target=".c-mega-menu">
-                            Menu
-                        </button>
-                        <button class="c-topbar-toggler" type="button">
-                            Portal
-                        </button>
-                        <button class="c-search-toggler filtro-atalho" type="button">
-                          <i class="fa fa-filter"></i> Filtrar imóveis
-                        </button>
-                    </div>
-                    <form class="c-quick-search" action="<?php echo base_url();?>" method="get">
-                        <input type="text" name="id" placeholder="Digite o código do imóvel e aperte enter." value="" class="form-control busca-id" autocomplete="off">
-                        <span class="c-theme-link">&times;</span>
-                    </form>
-                    <nav class="c-mega-menu c-pull-right c-mega-menu-light c-mega-menu-light-mobile c-fonts-uppercase c-fonts-bold">
-                        <ul class="nav navbar-nav c-theme-nav"> 
-                            <li >
-                                <a href="javascript:;" data-toggle="dropdown" id="imoveis-menu" class="c-link dropdown-toggle vermelho-pow">Imóveis<span class="c-arrow c-toggler"></span></a>
-                                <div class="imoveis-menu dropdown-menu c-menu-type-mega c-menu-type-fullwidth" style="min-width: auto">
-                                    <div class="row">
-                                        <?php // echo $menu;?>
-                                    </div>
+            <div class="c-navbar-wrapper clearfix">
+                <div class="c-brand c-pull-left">
+                    <a href="<?php echo base_url();?>" title="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!" class="c-logo">
+                        <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!" class="c-desktop-logo">
+                        <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!"  class="c-desktop-logo-inverse">
+                        <img src="<?php echo str_replace('/m','',base_url()).'imagens/'.$logo;?>" alt="<?php  echo substr($sobre['portal'], 11); ?> | As imobiliárias e imóveis de <?php  echo $sobre['nome']; ?>  reunidos aqui!"  class="c-mobile-logo">
+                    </a>
+                    <button class="c-hor-nav-toggler" type="button" data-target=".c-mega-menu">
+                        Menu
+                    </button>
+                    <button class="c-topbar-toggler" type="button">
+                        Portal
+                    </button>
+                    <button class="c-search-toggler filtro-atalho" type="button">
+                      <i class="fa fa-filter"></i> Filtrar imóveis
+                    </button>
+                </div>
+                <form class="c-quick-search" action="<?php echo base_url();?>" method="get">
+                    <input type="text" name="id" placeholder="Digite o código do imóvel e aperte enter." value="" class="form-control busca-id" autocomplete="off">
+                    <span class="c-theme-link">&times;</span>
+                </form>
+                <nav class="c-mega-menu c-pull-right c-mega-menu-light c-mega-menu-light-mobile c-fonts-uppercase c-fonts-bold">
+                    <ul class="nav navbar-nav c-theme-nav"> 
+                        <li >
+                            <a href="javascript:;" data-toggle="dropdown" id="imoveis-menu" class="c-link dropdown-toggle vermelho-pow">Imóveis<span class="c-arrow c-toggler"></span></a>
+                            <div class="imoveis-menu dropdown-menu c-menu-type-mega c-menu-type-fullwidth" style="min-width: auto">
+                                <div class="row">
+                                    <?php // echo $menu;?>
                                 </div>
-                            </li>
-                            <li >
-                                <a href="<?php echo base_url();?>imobiliarias" class="c-link azul-pow">Imobiliárias</a>
-                            </li>
-                            <li><a class="c-link dropdown-toggle azul-pow" href="<?php echo base_url();?>nao_encontrei">Não Encontrei</a></li>
-                            <li >
-                                <a href="javascript:;" id="links-importantes" class="c-link dropdown-toggle azul-pow">Links Importantes<span class="c-arrow c-toggler"></span></a>
-                                <ul class="dropdown-menu links-importantes c-menu-type-mega">
-                                    
-                                </ul>
-                            </li>
-                            <li class="c-quick-sidebar-toggler-wrapper">	
-                                <a href="#" class="c-quick-sidebar-toggler c-link azul-pow btn-favorito">		     		
-                                    Favoritos
-                                </a>
-                            </li>
-                            <li class="c-search-toggler-wrapper codigo-busca">
-                                <a  href="#" class=" c-quick-sidebar-toggler c-link azul-pow c-search-toggler">Por código</a>
-                            </li>
-                            <li class="c-search-toggler-wrapper icon-busca">
-                                <a  href="#" class="c-btn-icon icon-voltar c-layout-go2top azul-pow"><i class="fa fa-arrow-circle-up"></i></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>			
-            </div>
+                            </div>
+                        </li>
+                        <li >
+                            <a href="<?php echo base_url();?>imobiliarias" class="c-link azul-pow">Imobiliárias</a>
+                        </li>
+                        <li><a class="c-link dropdown-toggle azul-pow" href="<?php echo base_url();?>nao_encontrei">Não Encontrei</a></li>
+                        <li >
+                            <a href="javascript:;" id="links-importantes" class="c-link dropdown-toggle azul-pow">Links Importantes<span class="c-arrow c-toggler"></span></a>
+                            <ul class="dropdown-menu links-importantes c-menu-type-mega">
+
+                            </ul>
+                        </li>
+                        <li class="c-quick-sidebar-toggler-wrapper">	
+                            <a href="#" class="c-quick-sidebar-toggler c-link azul-pow btn-favorito">		     		
+                                Favoritos
+                            </a>
+                        </li>
+                        <li class="c-search-toggler-wrapper codigo-busca">
+                            <a  href="#" class=" c-quick-sidebar-toggler c-link azul-pow c-search-toggler">Por código</a>
+                        </li>
+                        <li class="c-search-toggler-wrapper icon-busca">
+                            <a  href="#" class="c-btn-icon icon-voltar c-layout-go2top azul-pow"><i class="fa fa-arrow-circle-up"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>			
         </div>
     </header>
     <nav class="c-layout-quick-sidebar">
@@ -157,36 +153,25 @@
             <div class="c-section">
                 <h3>Seus itens favoritos</h3>
                 <div class="c-settings c-demos c-bs-grid-reset-space">	
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="#" class="c-demo-container c-demo-img-lg">
-                                <div class="c-demo-thumb active">
-                                    <button class="btn btn-info comparar-favoritos" type="button">Comparar</button>
-                                    <button class="btn btn-blue comunicar-favoritos" type="button">Entrar em contato com os selecionados</button>
-                                </div>
-                            </a>	
+                    <a href="#" class="c-demo-container c-demo-img-lg">
+                        <div class="c-demo-thumb active">
+                            <button class="btn btn-info comparar-favoritos" type="button">Comparar</button>
+                            <button class="btn btn-blue comunicar-favoritos" type="button">Entrar em contato com os selecionados</button>
                         </div>
-                    </div>
+                    </a>	
                 </div>
                 <ul class="list-unstyled lista-favoritos"></ul>
                 <div class="c-settings c-demos c-bs-grid-reset-space">	
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="#" class="c-demo-container c-demo-img-lg">
-                                <div class="c-demo-thumb active">
-                                    <button class="btn btn-blue comunicar-favoritos" type="button">Entrar em contato com os selecionados</button>
-                                </div>
-                            </a>	
+                    <a href="#" class="c-demo-container c-demo-img-lg">
+                        <div class="c-demo-thumb active">
+                            <button class="btn btn-blue comunicar-favoritos" type="button">Entrar em contato com os selecionados</button>
                         </div>
-                    </div>
+                    </a>	
                 </div>
             </div>	
         </div>
     </nav><!-- END: LAYOUT/SIDEBARS/QUICK-SIDEBAR -->
     <div class="c-layout-page">
-        <div class="row">
-            <div class="col-md"></div>
-        </div>
     <?php 
     echo isset($conteudo) ? $conteudo : '';
     ?>
@@ -195,25 +180,21 @@
     <footer class="c-layout-footer c-layout-footer-2">
         <?php if ( ( isset($sobre['mostra']) && $sobre['mostra'] ) && isset($sobre['sobre']) && !empty($sobre['sobre']) ) :?>
         <div class="c-content-box c-size-md">
-            <div class="container-fluid">
-                <div class="c-content-bar-1 c-opt-1">
-                    <h3 class="c-font-uppercase c-font-bold titulo-ficha c-font-center">Sobre <?php echo $sobre['nome']; ?></h3>
-                    <div class="c-line-center" style="margin-left: auto; margin-right: auto;"></div>
-                    <p class="c-font-center c-font-black">
-                        <?php  echo $sobre['sobre']; ?>
-                    </p>
-                    <?php if ( $sobre['link_prefeitura'] ):?>
-                        <a class="link-prefeitura" href="<?php echo $sobre['link_prefeitura'];?>" title="Visite o site da Prefeitura da Cidade de <?php  echo $sobre['nome']; ?>"  target="_blank" class="">Visite o site da Prefeitura de <?php  echo $sobre['nome']; ?></a>
-                    <?php endif;?>
-                </div>
-            </div> 
-            <div class="container-fluid">
-                <div class="c-content-bar-1 c-opt-1">
-                    <h3 class="c-font-uppercase c-font-bold titulo-ficha c-font-center">O <?php  echo ucfirst($sobre['gentilico']); ?></h3>
-                    <div class="c-line-center" style="margin-left: auto; margin-right: auto;"></div>
-                    <p class="c-font-center c-font-black"><?php  echo ucfirst($sobre['gentilico']); ?>, o Portal <?php  echo substr($sobre['portal'], 11); ?> | Imóveis <?php  echo $sobre['nome']; ?> divulga <a href="<?php echo base_url().'imobiliarias/'?>">imobiliárias em <?php  echo $sobre['nome']; ?></a> e região, é integrante da rede <a href="http://www.portaisimobiliarios.com.br" title="Rede Portais Imobiliários">Portais Imobiliários</a>, que reúne imobiliárias e imóveis em todo o Brasil. Acesse nossa <a href="<?php echo base_url();?>estatistica">página de estatística</a> e veja os valores médios dos imóveis em <?php  echo $sobre['nome']; ?> por tipo de imóvel e bairro.</p>
-                </div>
-            </div> 
+            <div class="c-content-bar-1 c-opt-1">
+                <h3 class="c-font-uppercase c-font-bold titulo-ficha c-font-center">Sobre <?php echo $sobre['nome']; ?></h3>
+                <div class="c-line-center" style="margin-left: auto; margin-right: auto;"></div>
+                <p class="c-font-center c-font-black">
+                    <?php  echo $sobre['sobre']; ?>
+                </p>
+                <?php if ( $sobre['link_prefeitura'] ):?>
+                    <a class="link-prefeitura" href="<?php echo $sobre['link_prefeitura'];?>" title="Visite o site da Prefeitura da Cidade de <?php  echo $sobre['nome']; ?>"  target="_blank" class="">Visite o site da Prefeitura de <?php  echo $sobre['nome']; ?></a>
+                <?php endif;?>
+            </div>
+            <div class="c-content-bar-1 c-opt-1">
+                <h3 class="c-font-uppercase c-font-bold titulo-ficha c-font-center">O <?php  echo ucfirst($sobre['gentilico']); ?></h3>
+                <div class="c-line-center" style="margin-left: auto; margin-right: auto;"></div>
+                <p class="c-font-center c-font-black"><?php  echo ucfirst($sobre['gentilico']); ?>, o Portal <?php  echo substr($sobre['portal'], 11); ?> | Imóveis <?php  echo $sobre['nome']; ?> divulga <a href="<?php echo base_url().'imobiliarias/'?>">imobiliárias em <?php  echo $sobre['nome']; ?></a> e região, é integrante da rede <a href="http://www.portaisimobiliarios.com.br" title="Rede Portais Imobiliários">Portais Imobiliários</a>, que reúne imobiliárias e imóveis em todo o Brasil. Acesse nossa <a href="<?php echo base_url();?>estatistica">página de estatística</a> e veja os valores médios dos imóveis em <?php  echo $sobre['nome']; ?> por tipo de imóvel e bairro.</p>
+            </div>
         </div><!-- END: CONTENT/BARS/BAR-1 -->
         <?php endif;?>
         <div class="container-fluid fundo-portais">
