@@ -1,6 +1,8 @@
 
 $(document).ready(function(){
+    setTimeout(function(){
         estatistica.set();
+    },400)
 });
 
 $(function(){
