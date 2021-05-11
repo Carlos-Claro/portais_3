@@ -205,7 +205,7 @@
                     <p class="c-font-oswald c-font-14 c-font-white">"Graça seja convosco, e paz, da parte de Deus nosso Pai, e do Senhor Jesus Cristo." 1CO 1:3</p>
                     <p class="c-font-oswald c-font-14 c-font-white">O sangue de Jesus Cristo, filho do Deus vivo, te purifica de todos os pecados.</p>
                     <p class="c-font-oswald c-font-14 c-font-white">Copyright &copy; Orionweb informações e tecnologias.</p>
-                    <p class="c-font-oswald c-font-14 c-font-white">Tempo de processamento desta página: <span class="time"><?php echo $time;?></span>s</p>
+                    <!--<p class="c-font-oswald c-font-14 c-font-white">Tempo de processamento desta página: <span class="time"><?php // echo $time;?></span>s</p>-->
                 </div>
         </div>
     </footer>

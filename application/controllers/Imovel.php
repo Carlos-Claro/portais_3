@@ -102,8 +102,14 @@ class Imovel extends MY_Controller {
     {
         $this->benchmark->mark('Imovel_start');
         
+            $this->benchmark->mark('SetLocal_start');
         $log = $this->set_local($local);
+            $this->benchmark->mark('SetLocal_end');
+            $this->print_time('SetLocal');
+            $this->benchmark->mark('SetImovel_start');
         $this->set_imovel($id_imovel);
+            $this->benchmark->mark('SetImovel_end');
+            $this->print_time('SetImovel');
         $data['item'] = $this->imovel;
         $data['log'] = $local;
         if ( ! $this->imovel )
@@ -112,17 +118,28 @@ class Imovel extends MY_Controller {
         }
         else
         {
+            $this->benchmark->mark('Valores_start');
             $this->set_valores_imovel();
             $this->set_titulo_imovel();
+            $this->benchmark->mark('Valores_end');
+            $this->print_time('Valores');
             if ( isset($this->imovel->location[0]) && ! empty($this->imovel->location[0]) )
             {
+            $this->benchmark->mark('Mapa_start');
                 $data['mapa'] = $this->layout->set_function('mapa')->set_mapa($this->imovel->location)->view('mapa', [], 'layout/branco', TRUE);
-                
+            $this->benchmark->mark('Mapa_end');
+            $this->print_time('Valores');
             }
             $data['local'] = $local;
+            $this->benchmark->mark('Images_start');
             $data['images'] = $this->lista_normal->get_images($this->imovel);
+            $this->benchmark->mark('Images_end');
+            $this->print_time('Images');
             $data['image_destaque'] = $data['images']['lista']['principal']->original;
+            $this->benchmark->mark('Link_start');
             $data['url'] = $this->lista_normal->_set_link($this->imovel);
+            $this->benchmark->mark('Link_end');
+            $this->print_time('Link');
 //            $data['breadscrumb'] = $this->set_url($data['item'], 'imovel');
             $l = $this->layout;
             $l->set_tag_adwords($this->cidade->tag_adwords);
@@ -131,22 +148,40 @@ class Imovel extends MY_Controller {
             $data['sitekey'] = $keys->site;
             $data['tag_adwords'] = $this->cidade->tag_adwords;
             $data['h1'] = $this->get_titulo_imovel('h1');
+            $this->benchmark->mark('Lista_start');
             $data['lista'] = $this->get_lista();
+            $this->benchmark->mark('Lista_end');
+            $this->print_time('Lista');
+            $this->benchmark->mark('Valores_start');
             $data['valores'] = $this->get_valores_imovel();
+            $this->benchmark->mark('Valores_end');
+            $this->print_time('Valores');
+            $this->benchmark->mark('relacionados_start');
             $data['relacionados'] = $this->get_relacionados();
             $data['relacionados_empresa'] = $this->get_relacionados(TRUE);
+            $this->benchmark->mark('relacionados_end');
+            $this->print_time('relacionados');
             
         $this->benchmark->mark('Imovel_end');
         $this->print_time('Imovel');
+        $this->benchmark->mark('View_start');
         $l
             ->set_image_destaque(isset($data['image_destaque']) ? $data['image_destaque'] : NULL)
             ->set_includes_defaults()
+            ->set_include('plugins/cubeportfolio/js/jquery.cubeportfolio.min.js', TRUE)
+            ->set_include('plugins/cubeportfolio/css/cubeportfolio.min.css', TRUE)
+            ->set_include('plugins/jango/owl-carousel/owl.carousel.min.js', TRUE)
+            ->set_include('plugins/jango/owl-carousel/assets/owl.carousel.css', TRUE)
+            ->set_include('plugins/jango/fancybox/jquery.fancybox.pack.js', TRUE)
+            ->set_include('plugins/jango/fancybox/jquery.fancybox.css', TRUE)
+            ->set_include('plugins/jango/plugins.css', TRUE)
+            ->set_include('plugins/jango/fullwidth-gallery.js', TRUE)
             ->set_include('css/imovel.css', TRUE)
             ->set_include('css/style.css', TRUE)
             ->set_include('js/imovel.js', TRUE)
             ->set_include('https://www.google.com/recaptcha/api.js', FALSE)
-                ->set_time($this->soma_time())
-                ->set_menu($this->menu)
+//                ->set_time($this->soma_time())
+//                ->set_menu($this->menu)
                 ->set_logo( $this->logo_principal )
                 ->set_mobile($this->is_mobile)
                 ->set_titulo($this->get_titulo_imovel('titulo'))
@@ -155,6 +190,8 @@ class Imovel extends MY_Controller {
                 ->set_sobre($this->cidade->sobre, $this->cidade->nome, $this->cidade->portal, $this->cidade->gentilico, $this->cidade->link, $this->cidade->uf, $this->cidade->link_prefeitura,1 )
                 ->set_analytics($this->cidade->instrucoes_head)
                 ->set_google_tag($this->cidade->google_tag);
+        $this->benchmark->mark('View_end');
+        $this->print_time('View');
             $layout_principal = 'layout_3';
             if ( $layout == 'print' )
             {

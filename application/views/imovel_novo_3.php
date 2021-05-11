@@ -9,68 +9,70 @@
         </div>
     </div>
         <div class="c-product-desc ">
+            
             <div class="container-fluid p-bottom">
                 <div class="row" id="images">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 galeria-mobile" id="images">
-                        <?php if ( (isset($images['lista']) && count($images['lista']) > 0) || ( isset($item->video) && !empty($item->video) ) ) : 
-                            unset($images['lista']['principal']);
-                            ?>    
-                        <div id="carousel-master" class="fundo-imagens carousel slide" >
-                            <div class="carousel-inner fotos-ficha" aria-label="Carousel de imagens expandidas">
-                            <?php 
-                            $qtde_total = 0;
-                            $ol = '';
-                            $chave = 0;
-                            if ( ( isset($item->video) && !empty($item->video) ) ) :
-                                $qtde_total++;
-                                echo '<div class="item im active" data-ordem="'.$qtde_total.'">';
-                                ?>
-                                <div class="" id="video">
-                                    <center><iframe style="width:100%; height: auto; min-height: 550px;" class="video" src="<?php echo set_embed_video($item->video);?>" frameborder="0" allowfullscreen></iframe></center>
-                                </div>
-                                <?php
-                                echo '</div>';
-                                $ol .= '<li data-target="#carousel-master" data-slide-to="'.($chave + 1).'" >';
-                                $ol .= '<center>';
-                                $ol .= '<img class="img-responsive" alt="Logomarca do Youtube" src="'.base_url().'images/youtube.jpg">';
-                                $ol .= '</center>';
-                                $ol .= '</li>';
-                                $chave++;
-                            endif;
-                            foreach ( $images['lista']['lista'] as $chave_ => $image ) :
-                                if ( isset($image) && ! empty( $image->arquivo_local ) ) :
-                                    $qtde_total++;
-                                    $descricao_image = ( isset($image->titulo) && ! empty($image->titulo) ) ? $image->titulo : $item->imoveis_tipos_titulo;
-                                    echo '<div class="item im '.( ! $item->video ? ( ! $chave ? 'active' : '' ) : '' ).'" data-ordem="'.$qtde_total.'">';
-                                    $image_t5 = $image->arquivo_local;
-                                    $image_gr = str_replace('destaque','vitrine',$image->arquivo_local);
-                                    echo '<center><img itemprop="image" src="'.$image_gr;
-                                    echo '" alt="'.$descricao_image.'" class="img-responsive"></center>';
-                                    echo '</div>';
-                                    $ol .= '<li data-target="#carousel-master" data-slide-to="'.($chave).'" class="'.( ! $item->video ? ( $chave ? 'active' : '' ): '' ).'">';
-                                    $ol .= '<center><img itemprop="image" src="'.$image_t5;
-                                    $ol .= '" alt="'.$descricao_image.'" class="img-responsive"></center>';
-                                    $ol .= '</li>';
-                                    $chave++;
-                                endif;
-                            endforeach;
-                            ?>
-                            </div>
-                            <a aria-label="Anterior" class="carousel-control left icone-left" href="#carousel-master" data-slide="prev">
-                                <span  class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a aria-label="Próximo" class="carousel-control right" id="up" name="up" value="up" href="#carousel-master" data-slide="next">
-                                    <span  class="glyphicon glyphicon-chevron-right"></span>                            
-                            </a> 
-                            <div class="espaco-thumbs-lancador">
-                                <ol class="carousel-indicators thumbs-ficha" id="lista" aria-label="Miniaturas de todas imagens do imóvel">
-                                    <?php echo $ol;?>
-                                </ol>
-                            </div>
-                        </div>
-                    <?php endif;?>
-                    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 galeria-mobile" id="images">
+        <?php if ( (isset($images['lista']) && count($images['lista']) > 0) || ( isset($item->video) && !empty($item->video) ) ) : 
+            unset($images['lista']['principal']);
+            ?>    
+        <div id="carousel-master" class="fundo-imagens carousel slide" >
+            <div class="carousel-inner fotos-ficha" aria-label="Carousel de imagens expandidas">
+            <?php 
+            $qtde_total = 0;
+            $ol = '';
+            $chave = 0;
+            if ( ( isset($item->video) && !empty($item->video) ) ) :
+                $qtde_total++;
+                echo '<div class="item im active" data-ordem="'.$qtde_total.'">';
+                ?>
+                <div class="" id="video">
+                    <center><iframe style="width:100%; height: auto; min-height: 550px;" class="video" src="<?php echo set_embed_video($item->video);?>" frameborder="0" allowfullscreen></iframe></center>
                 </div>
+                <?php
+                echo '</div>';
+                $ol .= '<li data-target="#carousel-master" data-slide-to="'.($chave + 1).'" >';
+                $ol .= '<center>';
+                $ol .= '<img class="img-responsive" alt="Logomarca do Youtube" src="'.base_url().'images/youtube.jpg">';
+                $ol .= '</center>';
+                $ol .= '</li>';
+                $chave++;
+            endif;
+            foreach ( $images['lista']['lista'] as $chave_ => $image ) :
+                if ( isset($image) && ! empty( $image->arquivo_local ) ) :
+                    $qtde_total++;
+                    $descricao_image = ( isset($image->titulo) && ! empty($image->titulo) ) ? $image->titulo : $item->imoveis_tipos_titulo;
+                    echo '<div class="item im '.( ! $item->video ? ( ! $chave ? 'active' : '' ) : '' ).'" data-ordem="'.$qtde_total.'">';
+                    $image_t5 = $image->arquivo_local;
+                    $image_gr = str_replace('destaque','vitrine',$image->arquivo_local);
+                    echo '<center><img itemprop="image" src="'.$image_gr;
+                    echo '" alt="'.$descricao_image.'" class="img-responsive"></center>';
+                    echo '</div>';
+                    $ol .= '<li data-target="#carousel-master" data-slide-to="'.($chave).'" class="'.( ! $item->video ? ( $chave ? 'active' : '' ): '' ).'">';
+                    $ol .= '<center><img itemprop="image" src="'.$image_t5;
+                    $ol .= '" alt="'.$descricao_image.'" class="img-responsive"></center>';
+                    $ol .= '</li>';
+                    $chave++;
+                endif;
+            endforeach;
+            ?>
+            </div>
+            <a aria-label="Anterior" class="carousel-control left icone-left" href="#carousel-master" data-slide="prev">
+                <span  class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a aria-label="Próximo" class="carousel-control right" id="up" name="up" value="up" href="#carousel-master" data-slide="next">
+                    <span  class="glyphicon glyphicon-chevron-right"></span>                            
+            </a> 
+            <div class="espaco-thumbs-lancador">
+                <ol class="carousel-indicators thumbs-ficha" id="lista" aria-label="Miniaturas de todas imagens do imóvel">
+                    <?php echo $ol;?>
+                </ol>
+            </div>
+        </div>
+    <?php endif;?>
+    </div>
+</div>
+
                 <span class="primeira-linha"></span>
                 <div class="row">
                     <div class="col-lg-8 col-sm-7 col-dm-12 col-xs-12">

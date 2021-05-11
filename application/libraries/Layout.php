@@ -560,10 +560,10 @@ class Layout {
                 'tag_adwords'           => $this->get_tag_adwords(),
                 'analytics'             => $this->get_analytics(),
                 
-//                'function' 		=> $this->get_function(),							
-//                'classe'		=> $this->get_classe(),	
+                'function' 		=> $this->get_function(),							
+                'classe'		=> $this->get_classe(),	
 //                'usuario'               => $this->get_usuario(),
-//                'mapa'                  => $this->get_mapa(),
+                'mapa'                  => $this->get_mapa(),
 //                'menu'                  => $this->get_menu(),
 //                'favoritos'             => $this->get_favoritos(),
 //                'facebook'              => $this->get_facebook(),

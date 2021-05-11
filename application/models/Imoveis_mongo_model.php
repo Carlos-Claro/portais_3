@@ -29,7 +29,7 @@ class Imoveis_mongo_model extends MY_Mongo {
     public function get_item($id = '')
     {
         $data['tabela'] = 'imoveis';
-        $data['filtro'][] = array('tipo' => 'where', 'campo' => 'id', 'valor' => $id);
+        $data['filtro'][] = array('tipo' => 'where', 'campo' => '_id', 'valor' => intval($id));
         $retorno = $this->get_item_($data);
         return $retorno;
     }
