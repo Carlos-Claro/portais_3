@@ -168,7 +168,7 @@ a:active, a:hover, a:focus {
     height: 450px;
     width: auto;
 }
-#carousel-master .carousel-indicators {
+/*#carousel-master .carousel-indicators {
     position: relative;
     width: 100%;
     bottom: 0px;
@@ -176,7 +176,7 @@ a:active, a:hover, a:focus {
     margin-left: auto;
     margin-bottom: 0px;
     margin-right: auto;
-}
+}*/
 .espaco-thumbs-lancador {
     height: 100%;
     border-bottom: 0px solid #000000;
@@ -856,6 +856,14 @@ padding: 15px;
 .espaco-image {
     height: 290px;
 }
+.espaco-image-imovel{
+    height: 600px;
+    width: auto;
+}
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    height: 600px;
+    
+}
 .img-nao-encontrei {
     width: 100%;
     margin-bottom: 30px;
@@ -996,10 +1004,10 @@ padding: 15px;
     }
 }
 @media (min-width: 991px){
-    .carousel-indicators .active, .carousel-indicators li {
+/*    .carousel-indicators .active, .carousel-indicators li {
     width: 100%!important;
     height: 180px!important;
-}
+}*/
 .img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
     display: block;
     max-width: 100%;
@@ -1027,20 +1035,21 @@ padding: 15px;
 }
 
 .fotos-ficha{
-    width: 75%!important;
+    width: 100%;
+    height: auto;
+    min-height: 500px;
     float: right;
     text-align: center;
     position: relative;
     margin-right: 0px;
 }
-#carousel-master .fotos-ficha .item img {
-    height: 550px!important;
+.fotos-ficha .item img {
+    height: 500px!important;
     width: auto;
-        object-fit: contain;
-
+    object-fit: contain;
 }
 .fundo-imagens {
-    background: #fff;
+    
     padding: 0px 0px!important;
 }
 .espaco-thumbs-lancador {
@@ -1282,6 +1291,10 @@ padding: 15px;
 }
 .galeria-mobile {
     padding: 0;
+}
+#images{
+    background-color: #363638;
+    
 }
 .portlet-azul-pow .portlet-body {
     padding: 10px 0;

@@ -709,31 +709,14 @@ class Lista_normal
             return $data;
         }
 
-        public function set_galeria($data,$item)
+        public function set_galeria($data,$item,$imovel = FALSE)
         {
-            $galeria = '';
-            $galeria .= '';
-            $mais_images = ( isset($data['images']) && ! empty($data['images']) ) ? TRUE : FALSE;
-            // data-images="'.($mais_images ? $data['images'] : '').'"
-            $galeria .= '<div class="espaco-image slide carousel item-'.$item->_id.'" data-item="'.$item->_id.'" >';
-//            $galeria .= '   <a class="amplia-images" data-item="'.$item->_id.'" href="#" title="'.$item->nome.'">';
-            $galeria .= '       <div class="carousel-inner" role="listbox">';
-            $galeria .= '           <div class="item active" data-atual="0">';
-            $galeria .= '               <div class=" link-img center-block" title="'.$item->nome.'" >';
-            $galeria .= '<img '
-                    . 'itemprop="image" '
-                    . 'data-src="'.str_replace('650F_', '', $data['arquivo']).'" '
-                    . 'alt="'.$data['alt_image'].'" src="'.base_url().'imagens/naodisponivel.jpg" title="'.$data['alt_image'].'" class="img-responsive">';
-            $galeria .= '               </div>';
-            $galeria .= '           </div>';
-            $galeria .= '       </div>';
-//            $galeria .= '   </a>';
-            if ( $mais_images )
-            {
-                $galeria .= '<a class="left carousel-control" href="#carousel" role="button" data-slide="prev" data-item="'.$item->_id.'" data-atual="0"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Anterior</span></a>';
-                $galeria .= '<a class="right carousel-control" href="#carousel" role="button" data-slide="next" data-item="'.$item->_id.'" data-atual="0"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Proximo</span></a>';
+            $data_ = ['images' => $data, 'imovel' => $item];
+            if ( $imovel ){
+                $galeria = $this->CI->layout_view->view('galeria_imovel', $data_, 'layout/sem_head', TRUE);
+            }else{
+                $galeria = $this->CI->layout_view->view('galeria_lista', $data_, 'layout/sem_head', TRUE);
             }
-            $galeria .= '</div>';
             return $galeria;
         }
 

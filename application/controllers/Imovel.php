@@ -132,7 +132,7 @@ class Imovel extends MY_Controller {
             }
             $data['local'] = $local;
             $this->benchmark->mark('Images_start');
-            $data['images'] = $this->lista_normal->get_images($this->imovel);
+            $data['images'] = $this->lista_normal->get_images($this->imovel,FALSE,TRUE);
             $this->benchmark->mark('Images_end');
             $this->print_time('Images');
             $data['image_destaque'] = $data['images']['lista']['principal']->original;

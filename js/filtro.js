@@ -626,22 +626,7 @@ var filtro = {
 };
 
 $(function(){
-    $(".item-vertical .carousel").swiperight(function() {  
-        $(this).carousel('prev');  
-        fotos.set_images($(this), 'prev');
-    });  
-    $(".item-vertical .carousel").swipeleft(function() {  
-        $(this).carousel('next');  
-        fotos.set_images($(this), 'next');
-    }); 
-    $(".item-grid .carousel").swiperight(function() {  
-        $(this).carousel('prev');  
-        fotos.set_images($(this), 'prev');
-    });  
-    $(".item-grid .carousel").swipeleft(function() {  
-        $(this).carousel('next');  
-        fotos.set_images($(this), 'next');
-    }); 
+    
     
 //    $(document).on('click','.amplia-images',function(){
 //        item = $(this).data('item');
