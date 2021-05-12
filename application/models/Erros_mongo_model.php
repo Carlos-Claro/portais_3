@@ -8,7 +8,7 @@ class Erros_mongo_model extends MY_Mongo {
     
     public function adicionar($data = array())
     {
-        return $this->insert_('erros', $data);
+        return $this->adicionar_('erros', $data);
     }
     
     public function adicionar_multi($data = array())

@@ -406,6 +406,7 @@ class Contato extends MY_Controller {
         $data_e['reply'] = [$this->dados['remetente']['email'],$this->dados['remetente']['nome']];
         $data_e['mensagem'] = $this->mensagem['empresa'];
         $data_e['retorno'] = TRUE;
+        $data_e['iagente'] = TRUE;
         $data_e['portal'] = substr($this->cidade->portal, 11);
         $enviado = $this->envio($data_e);
         if ( ! $enviado['status'] )
