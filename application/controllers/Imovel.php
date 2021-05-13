@@ -168,6 +168,7 @@ class Imovel extends MY_Controller {
         $l
             ->set_image_destaque(isset($data['image_destaque']) ? $data['image_destaque'] : NULL)
             ->set_includes_defaults()
+            ->set_include('plugins/css/components.min.css', TRUE)
             ->set_include('plugins/cubeportfolio/js/jquery.cubeportfolio.min.js', TRUE)
             ->set_include('plugins/cubeportfolio/css/cubeportfolio.min.css', TRUE)
             ->set_include('plugins/jango/owl-carousel/owl.carousel.min.js', TRUE)

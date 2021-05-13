@@ -10,7 +10,7 @@
         </div>
         <ul class="nav nav-tabs">
             <li class="active">
-                <a href="#images" data-toggle="tab"> Fotos </a>
+                <a href="#images_tab" data-toggle="tab"> Fotos </a>
             </li>
             <?php if ( ( isset($imovel->video) && !empty($imovel->video) ) ) : ?>
             <li >
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="tab-pane" id="video">
-                <?php if ( ( isset($item->video) && !empty($item->video) ) ) : ?>
+                <?php if ( ( isset($imovel->video) && !empty($imovel->video) ) ) : ?>
                     <center><iframe style="width:100%; height: auto; min-height: 550px;" class="video" src="<?php echo set_embed_video($imovel->video);?>" frameborder="0" allowfullscreen></iframe></center>
                 <?php endif; ?>
             </div>
