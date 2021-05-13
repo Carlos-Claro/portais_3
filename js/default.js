@@ -77,6 +77,9 @@ var fotos = {
             this.lista = item;
         }
     },
+    set_foto_atual: function(a){
+        $('.foto-atual').html(a);
+    },
     set_images: function( campo, lado ){
         var item = campo.attr('data-item');
         var qtde_montado = $('.item-' + item + ' .carousel-inner .item').length;
@@ -95,6 +98,7 @@ var fotos = {
             }
             $('.item-' + item + '.carousel').carousel(lado);
             $('.item-' + item + '.carousel').carousel('pause');
+            console.log($('.item-' + item + '.carousel.active'));
         },1000);
     },
     verifica_lista: function( item ){

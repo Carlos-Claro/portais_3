@@ -9,15 +9,15 @@
             <span class="caption-helper"></span>
         </div>
         <ul class="nav nav-tabs">
-            <li class="active">
-                <a href="#images_tab" data-toggle="tab"> Fotos </a>
-            </li>
             <?php if ( ( isset($imovel->video) && !empty($imovel->video) ) ) : ?>
             <li >
                 <a href="#video" data-toggle="tab"> Vídeo </a>
             </li>
             <?php endif; ?>
-        </ul>
+            <li class="active">
+                <a href="#images_tab" data-toggle="tab"> Fotos ( <?php echo count($images['lista']['lista']);?> ) </a>
+            </li>
+        </ul>   
     </div>
     <div class="portlet-body">
         <div class="tab-content">
