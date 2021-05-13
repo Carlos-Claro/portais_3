@@ -15,7 +15,7 @@
             </li>
             <?php endif; ?>
             <li class="active">
-                <a href="#images_tab" data-toggle="tab"> Fotos ( <?php echo count($images['lista']['lista']);?> ) </a>
+                <a href="#images_tab" data-toggle="tab"> Fotos ( <span class="foto-atual">1</span> de <?php echo count($images['lista']['lista']);?> ) </a>
             </li>
         </ul>   
     </div>
