@@ -21,6 +21,26 @@ var setModal = {
 }
 
 $(function(){
+    $(window).scroll(function(e){
+        y = $(this).scrollTop();
+        if ( y > 500){
+            setTimeout(function(){
+                
+                if ( $('.relacionados-item').html() == '' ){
+                    $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':0},function(res){
+                        $('.relacionados-item').html(res);
+                    });
+                }
+                if ( $('.relacionados-imobiliaria').html() == '' ){
+                    $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':1},function(res){
+                        $('.relacionados-imobiliaria').html(res);
+                    });
+
+                }
+            },1000);
+        }
+    });
+    
     $('.politica').on('click',function(){
         setModal.set('politica');
     });

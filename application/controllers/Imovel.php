@@ -131,6 +131,7 @@ class Imovel extends MY_Controller {
             $this->print_time('Valores');
             }
             $data['local'] = $local;
+            $data['origem'] = $local;
             $this->benchmark->mark('Images_start');
             $data['images'] = $this->lista_normal->get_images($this->imovel,FALSE,TRUE);
             $this->benchmark->mark('Images_end');
@@ -157,8 +158,9 @@ class Imovel extends MY_Controller {
             $this->benchmark->mark('Valores_end');
             $this->print_time('Valores');
             $this->benchmark->mark('relacionados_start');
-            $data['relacionados'] = $this->get_relacionados();
-            $data['relacionados_empresa'] = $this->get_relacionados(TRUE);
+            $data['relacionados'] = '';//$this->get_relacionados();
+            $data['relacionados_empresa'] = '';// $this->get_relacionados(TRUE);
+            $data['itens_favoritos'] = [];// $this->get_relacionados(TRUE);
             $this->benchmark->mark('relacionados_end');
             $this->print_time('relacionados');
             
@@ -220,48 +222,56 @@ class Imovel extends MY_Controller {
     
     public function get_relacionados($empresa = FALSE)
     {
-        $valores = [];
-        $this->set_negativos($this->imovel->_id);
-        if ( ! $empresa )
-        {
-            $valores['tipo_negocio'] = $this->imovel->tipo;
-            $tipo_negocio = 'preco_'.$this->imovel->tipo;
-            $valores['valor_min'] = ($this->imovel->{$tipo_negocio} - ( $this->imovel->{$tipo_negocio} / 20 ));
-            $valores['valor_max'] = ($this->imovel->{$tipo_negocio} + ( $this->imovel->{$tipo_negocio} / 20 ));
-            $valores['tipo'] = [$this->imovel->imoveis_tipos_link];
-            if ( $this->imovel->quartos ){
-                $valores['quartos'] = [$this->imovel->quartos-1,$this->imovel->quartos,$this->imovel->quartos+1];
-            }
-            if ($this->imovel->garagens ){
-                $valores['vagas'] = [$this->imovel->garagens-1,$this->imovel->garagens,$this->imovel->garagens+1];
-            }
-            $valores['cidade'] = $this->imovel->cidade_link ;
-        }
-        else
-        {
-            $valores['tipo_negocio'] = $this->imovel->tipo;
-            $valores['id_empresa'] = [$this->imovel->id_empresa];
-        }
-        $valores['negativos'] = $this->get_negativos();
-        $filtro = $this->get_filtro($valores);
-//            var_dump($valores);die();
-        $imoveis = $this->imoveis_mongo_model->get_itens($filtro, 'ordem', 'DESC', 0, 3);
-//        var_dump($imoveis);die();
-//        if ( ! $empresa ){
-//            var_dump($imoveis);
-//            die();
-//        }
-        $retorno = '';
-        if ( $imoveis['qtde']  ){
-                $retorno .= '<ul class="list-unstyled">';
-            foreach($imoveis['itens'] as $imovel)
+        $id_imovel = $this->input->get('id_imovel',TRUE);
+        if ( isset($id_imovel) ){
+            
+            $empresa = $this->input->get('empresa',TRUE);
+            $this->set_imovel($id_imovel);
+            $valores = [];
+            $this->set_negativos($this->imovel->_id);
+            if ( ! $empresa )
             {
-                $retorno .= $this->lista_normal->_set_item_grid($imovel, 'relacionado');
-                $this->set_negativos($imovel->_id);
+                $valores['tipo_negocio'] = $this->imovel->tipo;
+                $tipo_negocio = 'preco_'.$this->imovel->tipo;
+                $valores['valor_min'] = ($this->imovel->{$tipo_negocio} - ( $this->imovel->{$tipo_negocio} / 20 ));
+                $valores['valor_max'] = ($this->imovel->{$tipo_negocio} + ( $this->imovel->{$tipo_negocio} / 20 ));
+                $valores['tipo'] = [$this->imovel->imoveis_tipos_link];
+                if ( $this->imovel->quartos ){
+                    $valores['quartos'] = [$this->imovel->quartos-1,$this->imovel->quartos,$this->imovel->quartos+1];
+                }
+                if ($this->imovel->garagens ){
+                    $valores['vagas'] = [$this->imovel->garagens-1,$this->imovel->garagens,$this->imovel->garagens+1];
+                }
+                $valores['cidade'] = $this->imovel->cidade_link ;
             }
-            $retorno .= '</ul>';
+            else
+            {
+                $valores['tipo_negocio'] = $this->imovel->tipo;
+                $valores['id_empresa'] = [$this->imovel->id_empresa];
+            }
+            $valores['negativos'] = $this->get_negativos();
+            $filtro = $this->get_filtro($valores);
+    //            var_dump($valores);die();
+            $imoveis = $this->imoveis_mongo_model->get_itens($filtro, 'ordem', 'DESC', 0, 3);
+    //        var_dump($imoveis);die();
+    //        if ( ! $empresa ){
+    //            var_dump($imoveis);
+    //            die();
+    //        }
+            $retorno = '';
+            if ( $imoveis['qtde']  ){
+                    $retorno .= '<ul class="list-unstyled">';
+                foreach($imoveis['itens'] as $imovel)
+                {
+                    $retorno .= $this->lista_normal->_set_item_grid($imovel, 'relacionado');
+                    $this->set_negativos($imovel->_id);
+                }
+                $retorno .= '</ul>';
+            }
+            echo $retorno;
+        }else{
+            echo 'nenhum item relacionado';
         }
-        return $retorno;
     }
     
     

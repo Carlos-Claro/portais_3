@@ -263,6 +263,7 @@ $route['get_politica'] = 'imovel/get_politica';
 $route['get_termos'] = 'imovel/get_termos'; 
 $route['menu'] = 'imoveis/menu'; 
 $route['menu_principais'] = 'imoveis/menu_principais'; 
+$route['relacionados'] = 'imovel/get_relacionados'; 
 
 $route['(:any)'] = 'imoveis/index/$1'; 
 $route['(:any)/(:any)'] = 'imoveis/index/$1/$2'; 

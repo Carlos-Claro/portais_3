@@ -34,16 +34,7 @@
                     </div>
                     <a class="left carousel-control" href="#carousel" role="button" data-slide="prev" data-item="<?php echo $imovel->_id;?>" data-atual="1"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Anterior</span></a>
                     <a class="right carousel-control" href="#carousel" role="button" data-slide="next" data-item="<?php echo $imovel->_id;?>" data-atual="1"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Proximo</span></a>
-                    <ol class="carousel-indicators">
-                        <?php 
-                        for ($x=0; $x < count($images['lista']['lista']); $x++):
-                            ?>
-                            <li data-target="#images" data-slide-to="<?php echo $x;?>" class="<?php echo ! $x ? 'active' : '';?>"></li>
-                            <?php
-                        endfor;
-                        ?>
-
-                      </ol>
+                    
                 </div>
             </div>
             <div class="tab-pane" id="video">
