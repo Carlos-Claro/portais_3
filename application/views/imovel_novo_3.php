@@ -1,4 +1,4 @@
-<div class="c-content-box c-content-box c-overflow-hide c-bg-white" itemscope itemtype="http://schema.org/Product">
+<div class="c-content-box c-content-box c-overflow-hide c-bg-white" >
     <div class="container-fluid corpo imovel" data-imovel="<?php echo $item->_id;?>" data-log="<?php echo $log;?>">
         <div class="c-shop-product-detail-4">
             <div class="c-product-header">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-lg-5 col-sm-5 col-md-5 col-xs-12">
                         <div class="empresa" id="empresa" data-empresa="<?php echo $item->id_empresa;?>">
-                                    <div class="imobiliaria" itemprop="brand" itemscope itemtype="http://schema.org/Brand">
+                                    <div class="imobiliaria" itemprop="brand" >
                                         <div  class="media">
                                             <h4 class="text-left azul-pow">Agente imobiliário responsável pelo Imóvel:</h4>
                                             <h4 class="media-heading text-left">

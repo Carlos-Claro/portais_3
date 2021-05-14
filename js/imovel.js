@@ -20,6 +20,13 @@ var setModal = {
     },
 }
 
+$(document).ready(function(){
+    setTimeout(function(){
+        var image = $('.primeira-image').attr('src');
+        $('.primeira-image').attr('src',image.replace('destaque','vitrine'));
+    },3000);
+});
+
 $(function(){
     $(window).scroll(function(e){
         y = $(this).scrollTop();
