@@ -40,7 +40,7 @@
                                             <h4 class="text-left azul-pow">Agente imobiliário responsável pelo Imóvel:</h4>
                                             <h4 class="media-heading text-left">
                                                 <a href="<?php echo base_url().'imobiliaria/'.urlencode( tira_especiais($item->imobiliaria_nome) ).'-'.$item->id_empresa;?>/">
-                                                <img itemprop="logo" src="https://www.pow.com.br/powsites/<?php echo $item->id_empresa.'/'.$item->logo;?>" alt="logo <?php echo $item->imobiliaria_nome;?>" class="media-object pull-left">
+                                                    <img itemprop="logo" width="80" height="60" src="https://www.pow.com.br/powsites/<?php echo $item->id_empresa.'/'.$item->logo;?>" alt="logo <?php echo $item->imobiliaria_nome;?>" class="media-object pull-left">
                                                 </a>
                                                 <span itemprop="name"><strong><?php echo $item->imobiliaria_nome;?></strong><br>CRECI: <?php echo $item->creci;?></span>
                                             </h4>
@@ -387,7 +387,7 @@
                     <h3 class="c-font-uppercase titulo-ficha c-font-bold">Imóveis relacionados</h3>
                     <div class="c-line-center c-theme-bg"></div>
                 </div>
-                <div class="row relacionados-item"></div>
+                <div class="relacionados-item"></div>
             </div>
         </div>
         
@@ -397,7 +397,7 @@
                     <h3 class="c-font-uppercase titulo-ficha c-font-bold">+ Imóveis de <?php echo $item->imobiliaria_nome;?></h3>
                     <div class="c-line-center c-theme-bg"></div>
                 </div>
-                <div class="row relacionados-imobiliaria"></div>
+                <div class="relacionados-imobiliaria"></div>
             </div>
         </div>
                     <div class="nao-encontrei">

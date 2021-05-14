@@ -29,7 +29,7 @@
                         $image_gr = $images['lista']['principal']->arquivo_local;
                         ?>
                         <div class="item im active" data-ordem="0">
-                            <center><img itemprop="image" data-src="<?php echo $image_gr;?>" src="<?php echo base_url();?>imagens/naodisponivel.jpg" alt="<?php echo $descricao_image;?>" class="img-responsive primeira-image"></center>
+                            <center><img itemprop="image" width="100%" height="auto" data-src="<?php echo $image_gr;?>" src="<?php echo base_url();?>imagens/naodisponivel.jpg" alt="<?php echo $descricao_image;?>" class="img-responsive primeira-image"></center>
                         </div>
                     </div>
                     <a class="left carousel-control" href="#carousel" role="button" data-slide="prev" data-item="<?php echo $imovel->_id;?>" data-atual="1"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Anterior</span></a>
