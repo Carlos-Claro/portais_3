@@ -258,7 +258,7 @@ class Imovel extends MY_Controller {
     //            var_dump($imoveis);
     //            die();
     //        }
-            $retorno = '';
+            $retorno = ' ';
             if ( $imoveis['qtde']  ){
                     $retorno .= '<ul class="list-unstyled">';
                 foreach($imoveis['itens'] as $imovel)
