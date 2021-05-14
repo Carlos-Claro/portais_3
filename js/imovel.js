@@ -53,24 +53,15 @@ $(function(){
     });
     $('.ver-telefone').on({
         click:function(){
-            swal({
-                title: "",
-                text: "Buscando a informação, aguarde um segundo...",
-                type: "info",
-                timer:20,
-                showConfirmButton: false,
-                showLoaderOnConfirm: true,
-            }, function(){
-                    id = $('.ver-telefone').data('item');
-                    console.log(id);
-                    var url = URI + 'funcoes/get_empresa/' + id;
-                    $.getJSON(url,function(data){
-                        swal('Fale com ' + data.descricao +' '+ data.contato_telefone + ' fale com ' + data.contato_nome + '. Não se esqueça de dizer que viu este numero no ' + URI,);
-                    }).fail(function(){
-                        swal('','Problemas para adquirir os dados.','error');
-                    });
-                    
-                });
+            $('.espaco-telefone').removeClass('hide');
+            id = $('.ver-telefone').data('item');
+            var url = URI + 'funcoes/get_empresa/' + id;
+            $.getJSON(url,function(data){
+                $('.espaco-telefone .portlet-body').html('<div class="alert alert-info"><p class="bold">Telefone ' + data.contato_telefone_link + ' fale com ' + data.contato_nome + '.</p><p class="bold"> Não se esqueça de dizer que viu este numero no ' + URI +'</p></div>');
+            }).fail(function(){
+                swal('','Problemas para adquirir os dados.','error');
+            });
+            
         }
     });
     

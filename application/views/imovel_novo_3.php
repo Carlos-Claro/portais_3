@@ -49,7 +49,7 @@
                                                 <ul class="list-unstyled list-inline">
 
                                                     <li>
-                                                    <button class="btn btn-topo btn-vermelho-pow ver-telefone"  data-item="<?php echo $item->id_empresa;?>" type="button">Ver telefone</button>
+                                                    <button class="btn btn-topo btn-vermelho-pow ver-telefone mt-ladda-btn ladda-button" data-style="zoom-in" data-item="<?php echo $item->id_empresa;?>" type="button">Ver telefone</button>
                                                     </li>
                                                     <?php
                                                     $col= 6;
@@ -89,6 +89,11 @@
                                                         <a type="button" data-item="<?php echo $item->id_empresa;?>" class="btn btn-azul-pow" target="_blank" href="<?php echo base_url().'imobiliaria/'.urlencode( tira_especiais($item->imobiliaria_nome) ).'-'.$item->id_empresa;?>/" > + Imóveis <span class="hidden-xs">do anunciante</span></a>
                                                     </li>
                                                 </ul>
+                                                <div class="espaco-telefone hide">
+                                                    <div class="portlet light">
+                                                        <div class="portlet-body"></div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

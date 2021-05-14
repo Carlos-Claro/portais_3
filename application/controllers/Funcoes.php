@@ -63,8 +63,24 @@ class Funcoes extends MY_Controller {
             $this->load->library(array('Mongo_db','my_mongo'));
             $this->load->model('empresas_mongo_model');
             $item = $this->empresas_mongo_model->get_item($empresa);
-            if ( $item )
-            {
+            if ( $item ){
+                $item->contato_telefone_link = '<a href="tel:'.$item->contato_telefone.'" target="_blank">';
+                if (strpos($item->contato_telefone, '-') === false ){
+                    if (strlen($item->contato_telefone) == 8 ){
+                        $item->contato_telefone = substr($item->contato_telefone, 0, 4).'-'.substr($item->contato_telefone, 4, 4);
+                    }
+                    elseif (strlen($item->contato_telefone) == 7){
+                        $item->contato_telefone = substr($item->contato_telefone, 0, 3).'-'.substr($item->contato_telefone, 3, 4);
+                    }
+                    elseif (strlen($item->contato_telefone) == 9){
+                        $item->contato_telefone = '('.substr($item->contato_telefone, 0, 2).') '.substr($item->contato_telefone, 2, 3).'-'.substr($item->contato_telefone, 5, 4);
+                    }
+                    elseif (strlen($item->contato_telefone) == 10){
+                        $item->contato_telefone = '('.substr($item->contato_telefone, 0, 2).') '.substr($item->contato_telefone, 2, 4).'-'.substr($item->contato_telefone, 6, 4);
+                    }
+                }
+                $item->contato_telefone_link .= $item->contato_telefone;
+                $item->contato_telefone_link .= '</a>';
                 echo json_encode($item);
             }
             else
