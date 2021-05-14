@@ -1,7 +1,7 @@
 <?php
 //var_dump(count($images['lista']['lista']));die();
 ?>
-<div class="portlet light">
+<div class="portlet light bordered">
     <div class="portlet-title tabbable-line">
         <div class="caption">
             <i class="icon-pin font-yellow-crusta"></i>
@@ -15,7 +15,7 @@
             </li>
             <?php endif; ?>
             <li class="active">
-                <a href="#images_tab" data-toggle="tab"> Fotos ( <span class="foto-atual">1</span> de <?php echo count($images['lista']['lista']);?> ) </a>
+                <a href="#images_tab" data-toggle="tab"> Fotos ( <span class="foto-atual">1</span> de <span class="foto-qtde"><?php echo count($images['lista']['lista']);?></span> ) </a>
             </li>
         </ul>   
     </div>
@@ -32,8 +32,8 @@
                             <center><img itemprop="image" data-src="<?php echo $image_gr;?>" src="<?php echo base_url();?>imagens/naodisponivel.jpg" alt="<?php echo $descricao_image;?>" class="img-responsive"></center>
                         </div>
                     </div>
-                    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev" data-item="<?php echo $imovel->_id;?>" data-atual="0"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Anterior</span></a>
-                    <a class="right carousel-control" href="#carousel" role="button" data-slide="next" data-item="<?php echo $imovel->_id;?>" data-atual="0"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Proximo</span></a>
+                    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev" data-item="<?php echo $imovel->_id;?>" data-atual="1"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Anterior</span></a>
+                    <a class="right carousel-control" href="#carousel" role="button" data-slide="next" data-item="<?php echo $imovel->_id;?>" data-atual="1"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Proximo</span></a>
                     <ol class="carousel-indicators">
                         <?php 
                         for ($x=0; $x < count($images['lista']['lista']); $x++):

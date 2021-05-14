@@ -81,6 +81,21 @@ var fotos = {
         $('.foto-atual').html(a);
     },
     set_images: function( campo, lado ){
+        var atual = parseInt($('.foto-atual').html());
+        var total = parseInt($('.foto-qtde').html());
+        var slide = campo.data('slide');
+        console.log(atual,slide, total);
+        if (slide == 'next'){
+            atual = atual + 1;
+            if ( atual > total ){
+                atual = 1
+            }
+        }else{
+            atual = atual - 1;
+            if ( atual < 1 ){
+                atual = total;
+            }
+        }
         var item = campo.attr('data-item');
         var qtde_montado = $('.item-' + item + ' .carousel-inner .item').length;
         if ( qtde_montado === 1 )
@@ -98,7 +113,8 @@ var fotos = {
             }
             $('.item-' + item + '.carousel').carousel(lado);
             $('.item-' + item + '.carousel').carousel('pause');
-            console.log($('.item-' + item + '.carousel.active'));
+            $('.foto-atual').html(atual);
+            $('.item-' + item + '.carousel-control').data('atual',atual);
         },1000);
     },
     verifica_lista: function( item ){

@@ -77,6 +77,9 @@ h1 small {
     padding-bottom: 10px;
     color: #999;
 }
+.item.im{
+    /*background: none;*/
+}
 
 
 
@@ -102,35 +105,7 @@ h1 small {
 .form {
     margin-top: 0px;
 }
-.nav-tabs-justified > .active > a, .nav-tabs-justified > .active > a:focus, .nav-tabs-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:focus, .nav-tabs.nav-justified > .active > a:hover {
-    background-color: rgb(40,83,132);
-    color: #fff;
-    font-weight: bold;
-    border-color: rgb(40,83,132) !important;
-}
-.nav-tabs-justified > li > a, .nav-tabs.nav-justified > li > a {
-    background-color: rgb(230,29, 40);
-    border-color: #fff;
-    color: #FFF;
-    font-weight: bold;
-}
- 
-.portlet-azul-pow .portlet-body{
-    padding: 10px 20px;
-    background-color: rgb(40,83,132);
-    border-radius: 0px 0px 5px 5px;
-    color: #ffffff;
-    -webkit-box-shadow: 3px 10px 19px -10px rgba(0,0,0,0.75);
-    -moz-box-shadow: 3px 10px 19px -10px rgba(0,0,0,0.75);
-    box-shadow: 3px 10px 19px -10px rgba(0,0,0,0.75);
-    
-}
-.portlet-azul-pow .portlet-body h4, .portlet-azul-pow .portlet-body h5 {
-    color: #FFF;
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
+
 .imobiliaria {
     padding: 10px 20px;
     background-color: #fff;
@@ -734,3 +709,196 @@ h2.media-heading, h1.media-heading{
 .whats-mobile {
     display: none;
 }
+
+
+/* Right tabs */
+.tabs-right.nav-tabs {
+  border-left: 1px solid #ddd; }
+  .tabs-right.nav-tabs > li > a {
+    display: block;
+    margin-left: -1px; }
+    .tabs-right.nav-tabs > li > a:hover, .tabs-right.nav-tabs > li > a:focus {
+      border-color: #eeeeee #eeeeee #eeeeee #dddddd; }
+  .tabs-right.nav-tabs > li.active > a,
+  .tabs-right.nav-tabs > li.active > a:hover
+> li.active > a:focus {
+    border-color: #ddd #ddd #ddd transparent;
+    *border-left-color: #ffffff; }
+
+.portlet > .portlet-title > .nav-tabs-justified > .active > a, .portlet > .portlet-title > .nav-tabs-justified > .active > a:focus, .nav-tabs-justified > .active > a:hover, .portlet > .portlet-title > .nav-tabs.nav-justified > .active > a, .portlet > .portlet-title > .nav-tabs.nav-justified > .active > a:focus, .portlet > .portlet-title > .nav-tabs.nav-justified > .active > a:hover {
+    background-color: rgb(40,83,132);
+    color: #fff;
+    font-weight: bold;
+    border-color: rgb(40,83,132) !important;
+}
+.portlet > .portlet-title > .nav-tabs-justified > li > a, .portlet > .portlet-title > .nav-tabs.nav-justified > li > a {
+    background-color: rgb(230,29, 40);
+    border-color: #fff;
+    color: #FFF;
+    font-weight: bold;
+}
+ 
+.portlet.portlet-azul-pow .portlet-body{
+    padding: 10px 20px;
+    background-color: rgb(40,83,132);
+    border-radius: 0px 0px 5px 5px;
+    color: #ffffff;
+    -webkit-box-shadow: 3px 10px 19px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 10px 19px -10px rgba(0,0,0,0.75);
+    box-shadow: 3px 10px 19px -10px rgba(0,0,0,0.75);
+    
+}
+.portlet.portlet-azul-pow .portlet-body h4, .portlet.portlet-azul-pow .portlet-body h5 {
+    color: #FFF;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+
+
+/*.portlet {
+  margin-top: 0px;
+  margin-bottom: 25px;
+  padding: 0px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px; }*/
+
+.portlet > .portlet-title {
+    border-bottom: 0px solid #eee;
+    padding: 0;
+    /*margin-bottom: 10px;*/
+    /*min-height: 41px;*/
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -ms-border-radius: 4px 4px 0 0;
+    -o-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0; }
+    .portlet > .portlet-title:before, .portlet > .portlet-title:after {
+      content: " ";
+      display: table; }
+    .portlet > .portlet-title:after {
+      clear: both; }
+    .portlet > .portlet-title > .caption {
+      float: left;
+      display: inline-block;
+      font-size: 18px;
+      line-height: 18px;
+      padding: 10px 0; }
+      .portlet > .portlet-title > .caption.bold {
+        font-weight: 400; }
+      .portlet > .portlet-title > .caption > i {
+        float: left;
+        margin-top: 4px;
+        display: inline-block;
+        font-size: 13px;
+        margin-right: 5px;
+        color: #666; }
+        .portlet > .portlet-title > .caption > i.glyphicon {
+          margin-top: 2px; }
+      .portlet > .portlet-title > .caption > .caption-helper {
+        padding: 0;
+        margin: 0;
+        line-height: 13px;
+        color: #9eacb4;
+        font-size: 13px;
+        font-weight: 400; }
+      
+      .portlet > .portlet-title > .nav-tabs {
+      /*background: none;*/
+      margin: 1px 0 0 0;
+      float: right;
+      display: inline-block;
+      border: 0; }
+      .portlet > .portlet-title > .nav-tabs > li {
+        /*background: none;*/
+        margin: 0;
+        border: 0; }
+        .portlet > .portlet-title > .nav-tabs > li > a {
+          /*background: none;*/
+          margin: 5px 0 0 1px;
+          border: 0;
+          padding: 8px 10px;
+          color: #333;
+          /*font-weight: 400;*/
+        }
+        .portlet > .portlet-title > .nav-tabs > li.active > a,
+        .portlet > .portlet-title > .nav-tabs > li:hover > a {
+          color: #333;
+          background: #fff;
+          border: 0; }
+        
+        
+        .portlet.light {
+  padding: 12px 20px 15px 20px;
+  background-color: #fff; }
+  .portlet.light.bordered {
+    border: 1px solid #e7ecf1 ; }
+    .portlet.light.bordered > .portlet-title {
+      border-bottom: 1px solid #eef1f5; }
+  .portlet.light.bg-inverse {
+    background: #f1f4f7; }
+  .portlet.light > .portlet-title {
+    padding: 0;
+    min-height: 48px; }
+    .portlet.light > .portlet-title > .caption {
+      color: #666;
+      padding: 10px 0; }
+      .portlet.light > .portlet-title > .caption > .caption-subject {
+        font-size: 16px; }
+      .portlet.light > .portlet-title > .caption > i {
+        color: #777;
+        font-size: 15px;
+        font-weight: 300;
+        margin-top: 3px; }
+      .portlet.light > .portlet-title > .caption.caption-md > .caption-subject {
+        font-size: 15px; }
+      .portlet.light > .portlet-title > .caption.caption-md > i {
+        font-size: 14px; }
+    .portlet.light > .portlet-title > .actions {
+      padding: 6px 0 14px 0; }
+      .portlet.light > .portlet-title > .actions .btn-default {
+        color: #666; }
+      .portlet.light > .portlet-title > .actions .btn-icon-only {
+        height: 27px;
+        width: 27px; }
+      .portlet.light > .portlet-title > .actions .dropdown-menu li > a {
+        color: #555; }
+    .portlet.light > .portlet-title > .inputs {
+      float: right;
+      display: inline-block;
+      padding: 4px 0; }
+      .portlet.light > .portlet-title > .inputs > .portlet-input .input-icon > i {
+        font-size: 14px;
+        margin-top: 9px; }
+      .portlet.light > .portlet-title > .inputs > .portlet-input .input-icon > .form-control {
+        height: 30px;
+        padding: 2px 26px 3px 10px;
+        font-size: 13px; }
+      .portlet.light > .portlet-title > .inputs > .portlet-input > .form-control {
+        height: 30px;
+        padding: 3px 10px;
+        font-size: 13px; }
+    .portlet.light > .portlet-title > .pagination {
+      padding: 2px 0 13px 0; }
+    .portlet.light > .portlet-title > .tools {
+      padding: 10px 0 13px 0;
+      margin-top: 2px; }
+    .portlet.light > .portlet-title > .nav-tabs > li {
+      margin: 0;
+      padding: 0; }
+      .portlet.light > .portlet-title > .nav-tabs > li > a {
+        margin: 0;
+        padding: 12px 13px 13px 13px;
+        font-size: 13px;
+        color: #666; }
+      .portlet.light > .portlet-title > .nav-tabs > li.active > a,
+      .portlet.light > .portlet-title > .nav-tabs > li:hover > a {
+        margin: 0;
+        background: none;
+        color: #333; }
+
