@@ -26,7 +26,7 @@
                     <div class="carousel-inner fotos-ficha" aria-label="Carousel de imagens expandidas">
                     <?php 
                         $descricao_image = ( isset($images['lista']['principal']->titulo) && ! empty($images['lista']['principal']->titulo) ) ? $images['lista']['principal']->titulo : $imovel->imoveis_tipos_titulo;
-                        $image_gr = str_replace('destaque','vitrine',$images['lista']['principal']->arquivo_local);
+                        $image_gr = $images['lista']['principal']->arquivo_local;
                         ?>
                         <div class="item im active" data-ordem="0">
                             <center><img itemprop="image" data-src="<?php echo $image_gr;?>" src="<?php echo base_url();?>imagens/naodisponivel.jpg" alt="<?php echo $descricao_image;?>" class="img-responsive"></center>
