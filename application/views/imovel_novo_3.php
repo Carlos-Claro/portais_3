@@ -363,7 +363,7 @@
         </div>
         
             <?php
-            if ( $item->mostramapa && isset($item->mapa) && ! empty($item->mapa) ) :
+            if ( $item->mostramapa && ! empty($item->logradouro) ) :
             ?>
             <div class="row " id="mapa">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -372,9 +372,15 @@
                     <p><?php echo $item->logradouro. ' - '. $item->bairro. ' - '. $item->cidade?></p>
                     <p><?php echo $item->estado. ' - '. $item->cep?></p>
                     <br>
+            <?php
+            if ( $item->mostramapa && isset($item->mapa) && ! empty($item->mapa) ) :
+            ?>
                     <div class="mapa" aria-hidden="true">
-                        <?php echo $mapa;?>
+                        <iframe url="<?php echo base_url().'get_mapa?id_imovel='.$item->id;?>" width="100%" height="300px" style="border:none;" ></iframe>
                     </div> 
+            <?php
+            endif;
+            ?>
                 </div>
             </div>
             <?php

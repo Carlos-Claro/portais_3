@@ -126,7 +126,7 @@ class Imovel extends MY_Controller {
             if ( isset($this->imovel->location[0]) && ! empty($this->imovel->location[0]) )
             {
             $this->benchmark->mark('Mapa_start');
-                $data['mapa'] = $this->layout->set_function('mapa')->set_mapa($this->imovel->location)->view('mapa', [], 'layout/branco', TRUE);
+                $data['mapa'] = '';
             $this->benchmark->mark('Mapa_end');
             $this->print_time('Valores');
             }
@@ -173,6 +173,8 @@ class Imovel extends MY_Controller {
         $l
             ->set_image_destaque(isset($data['image_destaque']) ? $data['image_destaque'] : NULL)
             ->set_includes_defaults()
+            ->set_include('plugins/cubeportfolio/css/cubeportfolio.min.css', TRUE, TRUE)
+            ->set_include('plugins/cubeportfolio/js/jquery.cubeportfolio.min.js', TRUE)
             ->set_include('css/imovel.css', TRUE)
             ->set_include('css/style.css', TRUE)
             ->set_include('js/imovel.js', TRUE)
@@ -534,6 +536,18 @@ class Imovel extends MY_Controller {
         }
         echo json_encode($retorno['lista']['lista']);
     }
+    
+    
+    public function get_mapa(){
+        $retorno = '';
+        $id_imovel = $this->input->get('id_imovel',TRUE);
+        if ( isset($id_imovel)){
+            $this->set_imovel($id_imovel);
+            $retorno = $this->layout->set_function('mapa')->set_mapa($this->imovel->location)->view('mapa', [], 'layout/branco', TRUE);
+        }
+        echo $retorno;
+    }
+    
     
     public function get_politica(){
         $retorno['titulo'] = 'Política de privacidade PORTAISIMOBILIARIOS.COM ';

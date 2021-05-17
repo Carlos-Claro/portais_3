@@ -261,6 +261,7 @@ $route['pesquisa/(:any)/(:any)'] = 'imoveis/pesquisa/$1/$2';
 $route['get_images_por_imovel/(:any)'] = 'imovel/get_fotos/$1'; 
 $route['get_politica'] = 'imovel/get_politica'; 
 $route['get_termos'] = 'imovel/get_termos'; 
+$route['get_mapa'] = 'imovel/get_mapa'; 
 $route['menu'] = 'imoveis/menu'; 
 $route['menu_principais'] = 'imoveis/menu_principais'; 
 $route['relacionados'] = 'imovel/get_relacionados'; 

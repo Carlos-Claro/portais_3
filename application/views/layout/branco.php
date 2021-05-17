@@ -1,4 +1,11 @@
-
+<!DOCTYPE html>
+<html lang="pt-BR"  itemscope itemtype="http://schema.org/WebPage">
+<head>
+    <meta charset="UTF-8" >
+    <title>mapa imóvel</title>
+</head>
+<body >
+    
 <?php 
 
 if ( isset($function) && $function == 'mapa' ) :
@@ -36,3 +43,6 @@ echo $conteudo;
         initialize();
 </script>  
 </div>
+
+</body>
+</html>

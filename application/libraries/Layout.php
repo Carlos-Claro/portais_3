@@ -411,7 +411,7 @@ class Layout {
 //                ->set_include('plugins/bootstrap-modal/js/bootstrap-modalmanager.js', TRUE)
 //                ->set_include('plugins/bootstrap-modal/js/bootstrap-modal.js', TRUE)
                 ->set_include('plugins/jquery-slimscroll/jquery.slimscroll.min.js', TRUE)
-                ->set_include('js/jquery.blockui.min.js', TRUE)
+//                ->set_include('js/jquery.blockui.min.js', TRUE)
 //                ->set_include('js/ui-extended-modals.min.js', TRUE)
 //                ->set_include('js/table-datatables-scroller.min.js', TRUE)
                 ->set_include('js/components.min.js', TRUE)				
