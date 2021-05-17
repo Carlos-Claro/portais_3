@@ -445,7 +445,7 @@ class Layout {
         }				
         elseif (preg_match('/css$/', $path))				
         {						
-            $this->file_includes['css'][] = $path.( $replace ? '?replace' : '');				
+            $this->file_includes['css'][] = $path;
         }				
         return $this;		
     

@@ -167,6 +167,9 @@ class Imovel extends MY_Controller {
         $this->benchmark->mark('Imovel_end');
         $this->print_time('Imovel');
         $this->benchmark->mark('View_start');
+        
+        
+        
         $l
             ->set_image_destaque(isset($data['image_destaque']) ? $data['image_destaque'] : NULL)
             ->set_includes_defaults()
@@ -183,7 +186,10 @@ class Imovel extends MY_Controller {
                 ->set_header_extra($this->cidade->header_tag)
                 ->set_sobre($this->cidade->sobre, $this->cidade->nome, $this->cidade->portal, $this->cidade->gentilico, $this->cidade->link, $this->cidade->uf, $this->cidade->link_prefeitura,1 )
                 ->set_analytics($this->cidade->instrucoes_head)
-                ->set_google_tag($this->cidade->google_tag);
+                ->set_google_tag($this->cidade->google_tag)
+                ->set_robot($this->cidade->id === $this->imovel->cidades_id);
+        
+        
         $this->benchmark->mark('View_end');
         $this->print_time('View');
             $layout_principal = 'layout_3';

@@ -31,11 +31,11 @@
         {lang: 'pt-BR'}
     </script>
         <?php 
-    //        if ( $robot ) :
-    //            echo '<meta name="robots" content="index,follow"/>'.PHP_EOL;
-    //        else :
-    //            echo '<meta name="robots" content="noindex,nofollow"/>'.PHP_EOL;
-    //        endif;
+            if ( isset($robot) && $robot ) :
+                echo '<meta name="robots" content="index,follow"/>'.PHP_EOL;
+            else :
+                echo '<meta name="robots" content="noindex,nofollow"/>'.PHP_EOL;
+            endif;
         
             if ( strstr($_SERVER['HTTP_USER_AGENT'], 'MSIE 8') || strstr($_SERVER['HTTP_USER_AGENT'], 'MSIE 7') ) :
                 ?>
