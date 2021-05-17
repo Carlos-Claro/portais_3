@@ -48,16 +48,20 @@ var fotos = {
     url: URL_HTTP + 'get_images_por_imovel/',
     inicia: function(x){
         var y = 0; 
-//        console.log(x);
+        console.log(x);
         $.each($('.carousel-inner img'), function(k,v){
             if (y < x){
                 var preloadLink = document.createElement("link");
                 img = $(v).data('src');
+            console.log(img);
                     preloadLink.href = img;
                     preloadLink.rel = "preload";
                     preloadLink.as = "image";
                     document.head.appendChild(preloadLink);
-                $(v).attr('src',img);
+                    setTimeout(function(){
+                        $(v).attr('src',img);
+                        
+                    },100);
             }
             y = y + 1;
         });

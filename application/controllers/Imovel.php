@@ -167,7 +167,7 @@ class Imovel extends MY_Controller {
         $this->benchmark->mark('Imovel_end');
         $this->print_time('Imovel');
         $this->benchmark->mark('View_start');
-        
+        $data['mobile'] = $this->is_mobile;
         
         
         $l

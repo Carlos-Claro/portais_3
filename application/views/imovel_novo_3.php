@@ -400,11 +400,13 @@
                 <div class="relacionados-imobiliaria"></div>
             </div>
         </div>
+        <?php if ( ! $mobile ): ?>
                     <div class="nao-encontrei">
                         <a target="blank" href="<?php echo base_url();?>nao_encontrei">
-                            <img class="c-margin-t-20 img-nao-encontrei" src="<?php echo base_url();?>images/banner/nao-encontrei.jpg">
+                            <img class="c-margin-t-20 img-nao-encontrei" src="<?php echo base_url();?>images/banner/nao-encontrei.jpg" width="100%" height="">
                         </a>
                     </div>        
+        <?php              endif;?>
       
     </div>
 </div>

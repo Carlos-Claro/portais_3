@@ -24,8 +24,8 @@
     <meta http-equiv="expires" content="<?php echo date(DATE_RFC822,strtotime("1 month"));?>">
     <meta http-equiv="Pragma" content="public"> <!-- reconhecida por todas as versões do HTTP -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="preload" href="fonts/cicle_fina-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="fonts/zantroke-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<!--    <link rel="preload" href="fonts/cicle_fina-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/zantroke-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous">-->
 
     <script src="https://apis.google.com/js/platform.js" async defer>
         {lang: 'pt-BR'}
