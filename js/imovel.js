@@ -34,13 +34,13 @@ $(function(){
             setTimeout(function(){
                 
                 
-                if ( $('.mapa').html() == '' ){
-                    $('.mapa').html(' ');
-                    $.get(URL_HTTP + 'get_mapa',{'id_imovel':$('.imovel').data('imovel')},function(res){
-                        $('.mapa').html(res);
-                        inicialize();
-                    });
-                }
+//                if ( $('.mapa').html() == '' ){
+//                    $('.mapa').html(' ');
+//                    $.get(URL_HTTP + 'get_mapa',{'id_imovel':$('.imovel').data('imovel')},function(res){
+//                        $('.mapa').html(res);
+//                        inicialize();
+//                    });
+//                }
                 if ( $('.relacionados-item').html() == '' ){
                     $('.relacionados-item').html(' ');
                     $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':0},function(res){

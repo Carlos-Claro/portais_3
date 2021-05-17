@@ -126,7 +126,7 @@ class Imovel extends MY_Controller {
             if ( isset($this->imovel->location[0]) && ! empty($this->imovel->location[0]) )
             {
             $this->benchmark->mark('Mapa_start');
-                $data['mapa'] = '';
+                $data['mapa'] = $this->layout->set_function('mapa')->set_mapa($this->imovel->location)->view('mapa', [], 'layout/branco', TRUE);
             $this->benchmark->mark('Mapa_end');
             $this->print_time('Valores');
             }

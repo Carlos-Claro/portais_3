@@ -376,7 +376,8 @@
             if ( $item->mostramapa && isset($item->mapa) && ! empty($item->mapa) ) :
             ?>
                     <div class="mapa" aria-hidden="true">
-                        <iframe url="<?php echo base_url().'get_mapa?id_imovel='.$item->id;?>" width="100%" height="300px" style="border:none;" ></iframe>
+                        <?php echo $mapa;?>
+                        <!--<iframe url="<?php // echo base_url().'get_mapa?id_imovel='.$item->id;?>" width="100%" height="300px" style="border:none;" ></iframe>-->
                     </div> 
             <?php
             endif;
