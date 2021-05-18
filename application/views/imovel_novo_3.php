@@ -375,10 +375,10 @@
             <?php
             if ( $item->mostramapa && isset($item->mapa) && ! empty($item->mapa) ) :
             ?>
-                    <div class="mapa" aria-hidden="true">
-                        <?php echo $mapa;?>
-                        <!--<iframe url="<?php // echo base_url().'get_mapa?id_imovel='.$item->id;?>" width="100%" height="300px" style="border:none;" ></iframe>-->
+                    <div class="mapa" aria-hidden="true" data-ativo="0">
+                        <?php // echo $mapa;?>;
                     </div> 
+                        <!---->
             <?php
             endif;
             ?>

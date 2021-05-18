@@ -125,10 +125,10 @@ class Imovel extends MY_Controller {
             $this->print_time('Valores');
             if ( isset($this->imovel->location[0]) && ! empty($this->imovel->location[0]) )
             {
-            $this->benchmark->mark('Mapa_start');
-                $data['mapa'] = $this->layout->set_function('mapa')->set_mapa($this->imovel->location)->view('mapa', [], 'layout/branco', TRUE);
-            $this->benchmark->mark('Mapa_end');
-            $this->print_time('Valores');
+                $this->benchmark->mark('Mapa_start');
+//                $data['mapa'] = $this->layout->set_function('mapa')->set_mapa($this->imovel->location)->view('mapa', [], 'layout/branco', TRUE);
+                $this->benchmark->mark('Mapa_end');
+                $this->print_time('Valores');
             }
             $data['local'] = $local;
             $data['origem'] = $local;
@@ -149,6 +149,7 @@ class Imovel extends MY_Controller {
             $data['sitekey'] = $keys->site;
             $data['tag_adwords'] = $this->cidade->tag_adwords;
             $data['h1'] = $this->get_titulo_imovel('h1');
+            $data['titulo'] = $this->get_titulo_imovel('titulo');
             $this->benchmark->mark('Lista_start');
             $data['lista'] = $this->get_lista();
             $this->benchmark->mark('Lista_end');
@@ -175,9 +176,14 @@ class Imovel extends MY_Controller {
             ->set_includes_defaults()
             ->set_include('plugins/cubeportfolio/css/cubeportfolio.min.css', TRUE, TRUE)
             ->set_include('plugins/cubeportfolio/js/jquery.cubeportfolio.min.js', TRUE)
+            ->set_include('js/imovel.js', TRUE)
+                ;
+        if ( isset($data['mapa']) ){
+            $l->set_include('https://maps.googleapis.com/maps/api/js?key=AIzaSyBbkOd1YLc7Yr3MEG8ZnrP5eWpOJqSP6XA&callback=initMap', TRUE);
+        }
+        $l
             ->set_include('css/imovel.css', TRUE)
             ->set_include('css/style.css', TRUE)
-            ->set_include('js/imovel.js', TRUE)
             ->set_include('https://www.google.com/recaptcha/api.js', FALSE)
 //                ->set_time($this->soma_time())
 //                ->set_menu($this->menu)
@@ -543,9 +549,9 @@ class Imovel extends MY_Controller {
         $id_imovel = $this->input->get('id_imovel',TRUE);
         if ( isset($id_imovel)){
             $this->set_imovel($id_imovel);
-            $retorno = $this->layout->set_function('mapa')->set_mapa($this->imovel->location)->view('mapa', [], 'layout/branco', TRUE);
+            $retorno = $this->layout->set_function('mapa')->set_mapa($this->imovel->location)->view('mapa', [], 'layout/branco');
         }
-        echo $retorno;
+//        echo $retorno;
     }
     
     

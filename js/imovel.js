@@ -32,15 +32,23 @@ $(function(){
         y = $(this).scrollTop();
         if ( y > 500){
             setTimeout(function(){
-                
-                
-//                if ( $('.mapa').html() == '' ){
+                if ( $('.mapa').data('ativo') == 0 ){
+                    console.log($('.mapa').data('ativo'));
+                    ifrm = document.createElement("IFRAME");
+                    ifrm.setAttribute("src", URL_HTTP + 'get_mapa?id_imovel='+$('.imovel').data('imovel'));
+                    ifrm.style.width = "100%";
+                    ifrm.style.height = 300+"px";
+                    ifrm.style.border = "none";
+                    $('.mapa').append(ifrm);
+                    $('.mapa').data('ativo','1');
+                    
+//                    $('.mapa').html('<iframe url="' + URL_HTTP + 'get_mapa?id_imovel='+$('.imovel').data('imovel')+'" width="100%" height="300px" style="border:none;" ></iframe>');
 //                    $('.mapa').html(' ');
 //                    $.get(URL_HTTP + 'get_mapa',{'id_imovel':$('.imovel').data('imovel')},function(res){
 //                        $('.mapa').html(res);
-//                        inicialize();
+//                        
 //                    });
-//                }
+                }
                 if ( $('.relacionados-item').html() == '' ){
                     $('.relacionados-item').html(' ');
                     $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':0},function(res){
