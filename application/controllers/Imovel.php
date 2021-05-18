@@ -123,13 +123,7 @@ class Imovel extends MY_Controller {
             $this->set_titulo_imovel();
             $this->benchmark->mark('Valores_end');
             $this->print_time('Valores');
-            if ( isset($this->imovel->location[0]) && ! empty($this->imovel->location[0]) )
-            {
-                $this->benchmark->mark('Mapa_start');
-//                $data['mapa'] = $this->layout->set_function('mapa')->set_mapa($this->imovel->location)->view('mapa', [], 'layout/branco', TRUE);
-                $this->benchmark->mark('Mapa_end');
-                $this->print_time('Valores');
-            }
+            
             $data['local'] = $local;
             $data['origem'] = $local;
             $this->benchmark->mark('Images_start');
@@ -174,14 +168,11 @@ class Imovel extends MY_Controller {
         $l
             ->set_image_destaque(isset($data['image_destaque']) ? $data['image_destaque'] : NULL)
             ->set_includes_defaults()
-            ->set_include('plugins/cubeportfolio/css/cubeportfolio.min.css', TRUE, TRUE)
-            ->set_include('plugins/cubeportfolio/js/jquery.cubeportfolio.min.js', TRUE)
+//            ->set_include('plugins/cubeportfolio/css/cubeportfolio.min.css', TRUE, TRUE)
+//            ->set_include('plugins/cubeportfolio/js/jquery.cubeportfolio.min.js', TRUE)
             ->set_include('js/imovel.js', TRUE)
                 ;
-        if ( isset($data['mapa']) ){
-            $l->set_include('https://maps.googleapis.com/maps/api/js?key=AIzaSyBbkOd1YLc7Yr3MEG8ZnrP5eWpOJqSP6XA&callback=initMap', TRUE);
-        }
-        $l
+       $l
             ->set_include('css/imovel.css', TRUE)
             ->set_include('css/style.css', TRUE)
             ->set_include('https://www.google.com/recaptcha/api.js', FALSE)

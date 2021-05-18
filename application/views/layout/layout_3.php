@@ -27,9 +27,9 @@
 <!--    <link rel="preload" href="fonts/cicle_fina-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="fonts/zantroke-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous">-->
 
-    <script src="https://apis.google.com/js/platform.js" async defer>
+<!--    <script src="https://apis.google.com/js/platform.js" async defer>
         {lang: 'pt-BR'}
-    </script>
+    </script>-->
         <?php 
             if ( isset($robot) && $robot ) :
                 echo '<meta name="robots" content="index,follow"/>'.PHP_EOL;

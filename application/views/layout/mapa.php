@@ -24,7 +24,7 @@ function initialize() {
 }
 $(document).ready(function(){
     initialize();
-});
+});;
 </script>  
 <?php endif; ?>
 <div id="mapa">
