@@ -297,10 +297,10 @@ var formulario = {
                                 var u = $('.imprimir').attr('href');
                                 var url_ = u.replace('print','');
                             }
-                            if ( tem_facebook.length > 0 )
-                            {
-                                fbq('track', 'Lead');
-                            }
+//                            if ( tem_facebook.length > 0 )
+//                            {
+//                                fbq('track', 'Lead');
+//                            }
                         }
                         else
                         {

@@ -231,7 +231,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group"><button class="btn btn-success envia ladda-button g-recaptcha" data-sitekey="<?php echo $sitekey;?>" type="submit" data-size="invisible" data-callback="onSubmit"> Contatar Anunciante </button></div>
+                                                <div class="form-group"><button class="btn btn-success envia ladda-button g-recaptcha" data-sitekey="<?php echo $sitekey;?>" type="submit" data-callback="onSubmit" data-action="submit"> Contatar Anunciante </button></div>
                                                 <div class="form-group"><label>&nbsp;Ao enviar, você concorda com os <a data-toggle="modal" data-target="#modal" class="termos" href="#">Termos de Uso</a>, <a data-toggle="modal" data-target="#modal" class="politica" href="#">Política de Privacidade</a> e recebimento de sugestões de imóveis.</label></div>
                                                 <ul class="list-unstyled list-inline">
                                                     <?php
