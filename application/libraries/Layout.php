@@ -400,7 +400,7 @@ class Layout {
 //                ->set_include('plugins/bootstrap-modal/css/bootstrap-modal.css', TRUE)
 //                ->set_include('plugins/css/components.min.css', TRUE)
                 ->set_include('plugins/css/layout.min.css', TRUE, TRUE)
-                ->set_include('css/components.css', TRUE, TRUE)
+                ->set_include('css/components.min.css', TRUE, TRUE)
 //                ->set_include('css/plugins.min.css', TRUE, TRUE)
                 ->set_include('css/default.min.css', TRUE, TRUE)
                 ->set_include('plugins/select2/css/select2.min.css', TRUE, TRUE)
