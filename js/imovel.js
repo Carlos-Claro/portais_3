@@ -52,7 +52,13 @@ $(function(){
                 if ( $('.relacionados-item').html() == '' ){
                     $('.relacionados-item').html(' ');
                     $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':0},function(res){
-                        $('.relacionados-item').html(res);
+                        if ( res != '' ){
+                            $('.relacionados-item').html(res);
+                            
+                        }else{
+                            $('.espaco-imoveis-relacionados').addClass('hide');
+                        }
+                        
                     });
                 }
                 if ( $('.relacionados-imobiliaria').html() == '' ){
@@ -218,11 +224,12 @@ var formulario = {
         var formulario = $('.formulario').html();
         formulario += $('.empresa').html();
         if ( modal ){
-            $('#modal-formulario-xs .modal-body').html('<div class="formulario">'+formulario+'</div>');
+            $('.reserva-modal .modal-body').html('');
+            $('.reserva-modal .modal-body').html('<div class="formulario">'+formulario+'</div>');
             $('.formulario-original').html('');
         }else{
             $('.formulario-original').html(formulario);
-            $('#modal-formulario-xs .modal-body').html('');
+            $('.reserva-modal .modal-body').html('');
         }
     },
     getCampos: function(){
@@ -259,7 +266,7 @@ var formulario = {
         post['token'] = token;
         post['log'] = $('.imovel').attr('data-log');
         erro = data.erro;
-        $('#modal-formulario-xs').modal('hide');
+        $('.reserva-modal').modal('hide');
         if ( erro.length > 0 )
         {
             

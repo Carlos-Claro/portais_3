@@ -5,7 +5,8 @@
     <div class="portlet-title tabbable-line">
         <div class="caption">
             <i class="icon-pin font-yellow-crusta"></i>
-            <h4 class="caption-subject bold font-yellow-crusta uppercase"> Fotos e Vídeo </h4>
+            <h4 class="c-left c-font-18 c-font-bold c-font-uppercase caption-subject bold font-yellow-crusta uppercase"> Fotos e Vídeo </h4>
+            <div class="c-line-center c-theme-bg"></div>
             <span class="caption-helper"></span>
         </div>
         <ul class="nav nav-tabs">
