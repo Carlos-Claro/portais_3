@@ -185,7 +185,7 @@ class Imovel extends MY_Controller {
                 ->set_header_extra($this->cidade->header_tag)
                 ->set_sobre($this->cidade->sobre, $this->cidade->nome, $this->cidade->portal, $this->cidade->gentilico, $this->cidade->link, $this->cidade->uf, $this->cidade->link_prefeitura,1 )
                 ->set_analytics($this->cidade->instrucoes_head)
-                ->set_google_tag($this->cidade->google_tag)
+//                ->set_google_tag($this->cidade->google_tag)
                 ->set_robot($this->cidade->id === $this->imovel->cidades_id);
         
         
