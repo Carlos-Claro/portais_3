@@ -1,9 +1,3 @@
-/* 
-    Created on : 12/07/2016, 21:48:46
-    Author     : carlos
-*/
-
-/* pagina de imoveis */
 .fundo-breadcrumb {
     background-color: #FFF;
     border-top: 5px solid #ededed;
@@ -81,27 +75,15 @@ h1 small {
     width: 100% !important;
     height: auto !important;
 }
-
-
-
-.item.im{
-    /*background: none;*/
-}
-
-
-
-
 .corpo {
     margin-top: 10px;
 }
 .corpo p.descricao {
     text-align: justify;
     line-height: 24px;
-    
 }
 .galeria {
     margin-top: 10px;
-    
 }
 .carousel-master {
     border-radius: 5px;
@@ -112,7 +94,6 @@ h1 small {
 .form {
     margin-top: 0px;
 }
-
 .imobiliaria {
     padding: 10px 20px;
     background-color: #fff;
