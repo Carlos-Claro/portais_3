@@ -49,22 +49,19 @@ $(function(){
 //                        
 //                    });
                 }
-                if ( $('.relacionados-item').html() == '' ){
-                    $('.relacionados-item').html(' ');
+                if ( $('.espaco-imoveis-relacionados').html() == '' ){
+                    $('.espaco-imoveis-relacionados').html(' ');
                     $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':0},function(res){
                         if ( res != '' ){
-                            $('.relacionados-item').html(res);
+                            $('.espaco-imoveis-relacionados').html(res);
                             
-                        }else{
-                            $('.espaco-imoveis-relacionados').addClass('hide');
                         }
-                        
                     });
                 }
-                if ( $('.relacionados-imobiliaria').html() == '' ){
-                    $('.relacionados-imobiliaria').html(' ');
+                if ( $('.espaco-imoveis-relacionados-imobiliaria').html() == '' ){
+                    $('.espaco-imoveis-relacionados-imobiliaria').html(' ');
                     $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':1},function(res){
-                        $('.relacionados-imobiliaria').html(res);
+                        $('.espaco-imoveis-relacionados-imobiliaria').html(res);
                     });
 
                 }

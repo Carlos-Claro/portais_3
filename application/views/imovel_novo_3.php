@@ -364,25 +364,9 @@
             endif;
             ?>
         
-        <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space espaco-imoveis-relacionados">
-            <div class="container-fluid">
-                <div class="c-content-title-1">
-                    <h3 class="c-font-uppercase titulo-ficha c-font-bold">Imóveis relacionados</h3>
-                    <div class="c-line-center c-theme-bg"></div>
-                </div>
-                <div class="relacionados-item"></div>
-            </div>
-        </div>
+        <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space espaco-imoveis-relacionados"></div>
         
-          <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space" id="relacionados">
-            <div class="container-fluid">
-                <div class="c-content-title-1">
-                    <h3 class="c-font-uppercase titulo-ficha c-font-bold">+ Imóveis de <?php echo $item->imobiliaria_nome;?></h3>
-                    <div class="c-line-center c-theme-bg"></div>
-                </div>
-                <div class="relacionados-imobiliaria"></div>
-            </div>
-        </div>
+          <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space espaco-imoveis-relacionados-imobiliaria"></div>
         <?php if ( ! $mobile ): ?>
                     <div class="nao-encontrei">
                         <a target="blank" href="<?php echo base_url();?>nao_encontrei">

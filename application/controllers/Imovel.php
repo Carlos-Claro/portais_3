@@ -256,22 +256,21 @@ class Imovel extends MY_Controller {
             }
             $valores['negativos'] = $this->get_negativos();
             $filtro = $this->get_filtro($valores);
-    //            var_dump($valores);die();
             $imoveis = $this->imoveis_mongo_model->get_itens($filtro, 'ordem', 'DESC', 0, 3);
-    //        var_dump($imoveis);die();
-    //        if ( ! $empresa ){
-    //            var_dump($imoveis);
-    //            die();
-    //        }
-            $retorno = ' ';
+            $retorno = '';
+            
             if ( $imoveis['qtde']  ){
-                    $retorno .= '<ul class="list-unstyled">';
+                $retorno = '<div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space espaco-imoveis-relacionados">
+                <div class="c-content-title-1"><h3 class="c-font-uppercase titulo-ficha c-font-bold">Imóveis '.($empresa ? 'de '.$this->imovel->imobiliaria_nome : 'relacionados').'</h3><div class="c-line-center c-theme-bg"></div></div>
+                <div class="relacionados-item">';
+                $retorno .= '<ul class="list-unstyled">';
                 foreach($imoveis['itens'] as $imovel)
                 {
                     $retorno .= $this->lista_normal->_set_item_grid($imovel, 'relacionado');
                     $this->set_negativos($imovel->_id);
                 }
                 $retorno .= '</ul>';
+                $retorno .= '</div></div> ';
             }
             echo $retorno;
         }else{
