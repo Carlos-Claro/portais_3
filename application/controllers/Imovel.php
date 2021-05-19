@@ -511,12 +511,13 @@ class Imovel extends MY_Controller {
     
     public function set_linha($campo, $valor)
     {
-        $linha = '';
-        $linha .= '<tr><td class="c-compare-info">'.$valor['titulo'].'</td>';
-        $linha .= '<td class="c-compare-item">'.$this->imovel->{$campo}.'</td>';
-        $linha .= '</tr>';
-        $this->linha .= $linha;
-        return $this;
+        if ( isset($this->imovel->{$campo}) && ( ! empty($this->imovel->{$campo}) || $this->imovel->{$campo} > 0 ) ){
+            $linha = '';
+            $linha .= '<tr><td class="c-compare-info">'.$valor['titulo'].'</td>';
+            $linha .= '<td class="c-compare-item">'.$this->imovel->{$campo}.'</td>';
+            $linha .= '</tr>';
+            $this->linha .= $linha;
+        }
     }
     
     public function get_linhas()
