@@ -174,7 +174,7 @@ class Imovel extends MY_Controller {
        $l
             ->set_include('css/style.css', TRUE)
             ->set_include('css/imovel.css', TRUE)
-            ->set_include('https://www.google.com/recaptcha/api.js', FALSE)
+//            ->set_include('https://www.google.com/recaptcha/api.js', FALSE)
                 ->set_logo( $this->logo_principal )
                 ->set_mobile($this->is_mobile)
                 ->set_titulo($this->get_titulo_imovel('titulo'))
