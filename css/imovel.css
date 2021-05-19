@@ -77,6 +77,13 @@ h1 small {
     padding-bottom: 10px;
     color: #999;
 }
+#images_tab .item .img-responsive {
+    width: 100% !important;
+    height: auto !important;
+}
+
+
+
 .item.im{
     /*background: none;*/
 }

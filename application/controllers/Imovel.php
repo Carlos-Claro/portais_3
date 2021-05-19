@@ -173,8 +173,8 @@ class Imovel extends MY_Controller {
             ->set_include('js/imovel.js', TRUE)
                 ;
        $l
-            ->set_include('css/imovel.css', TRUE)
             ->set_include('css/style.css', TRUE)
+            ->set_include('css/imovel.css', TRUE)
             ->set_include('https://www.google.com/recaptcha/api.js', FALSE)
 //                ->set_time($this->soma_time())
 //                ->set_menu($this->menu)

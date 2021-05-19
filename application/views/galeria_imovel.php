@@ -24,7 +24,7 @@
         <div class="tab-content">
             <div class="tab-pane active" id="images_tab">
                 <div class="carousel-master galeria-mobile carousel slide item-<?php echo $imovel->_id;?>" id="images">
-                    <div class="carousel-inner fotos-ficha" aria-label="Carousel de imagens expandidas">
+                    <div class="carousel-inner" aria-label="Carousel de imagens expandidas">
                     <?php 
                         $descricao_image = ( isset($images['lista']['principal']->titulo) && ! empty($images['lista']['principal']->titulo) ) ? $images['lista']['principal']->titulo : $imovel->imoveis_tipos_titulo;
                         $image_gr = $images['lista']['principal']->arquivo_local;
