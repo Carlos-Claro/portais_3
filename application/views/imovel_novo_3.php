@@ -96,16 +96,10 @@
                             <div class="portlet box portlet-azul-pow">
                                 <div class="portlet-title">
                                     <ul class="nav nav-tabs nav-justified">
-                                        <li class="tipo-contato active" data-item="tab-pergunte">
-                                            <a href="#pergunte_imovel" data-toggle="tab"> Dúvidas </a>
-                                        </li>
-                                        <li class="tipo-contato" data-item="tab-ligacao">
-                                            <a href="#solicite_ligacao" data-toggle="tab"> Solicite uma ligação </a>
-                                        </li>
+                                        <li class="tipo-contato active" data-item="tab-pergunte"><a href="#pergunte_imovel" data-toggle="tab"> Dúvidas </a></li>
+                                        <li class="tipo-contato" data-item="tab-ligacao"><a href="#solicite_ligacao" data-toggle="tab"> Solicite uma ligação </a></li>
                                         <?php if ( $item->venda ) :?>
-                                        <li class="tipo-contato" data-item="tab-simule">
-                                            <a href="#simule_financiamento" data-toggle="tab"> Simule um financiamento </a>
-                                        </li>
+                                        <li class="tipo-contato" data-item="tab-simule"><a href="#simule_financiamento" data-toggle="tab"> Simule um financiamento </a></li>
                                         <?php endif;?>
                                     </ul>
                                 </div>
@@ -128,26 +122,11 @@
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
                                                         <label>Quantidade de parcelas</label>
                                                         <div class="btn-group" data-toggle="buttons">
-                                                            <label class="btn btn-horario">
-                                                                <input type="checkbox" value="60" class="toggle parcelas" > 
-                                                                60 x 
-                                                            </label>
-                                                            <label class="btn btn-horario">
-                                                                <input type="checkbox" value="120" class="toggle parcelas" > 
-                                                                120 x 
-                                                            </label>
-                                                            <label class="btn btn-horario">
-                                                                <input type="checkbox" value="180" class="toggle parcelas" > 
-                                                                180 x 
-                                                            </label>
-                                                            <label class="btn btn-horario">
-                                                                <input type="checkbox" value="240" class="toggle parcelas" > 
-                                                                240 x 
-                                                            </label>
-                                                            <label class="btn btn-horario">
-                                                                <input type="checkbox" value="320" class="toggle parcelas" > 
-                                                                320 x 
-                                                            </label>
+                                                            <label class="btn btn-horario"><input type="checkbox" value="60" class="toggle parcelas" > 60 x </label>
+                                                            <label class="btn btn-horario"><input type="checkbox" value="120" class="toggle parcelas" > 120 x </label>
+                                                            <label class="btn btn-horario"><input type="checkbox" value="180" class="toggle parcelas" > 180 x </label>
+                                                            <label class="btn btn-horario"><input type="checkbox" value="240" class="toggle parcelas" > 240 x </label>
+                                                            <label class="btn btn-horario"><input type="checkbox" value="320" class="toggle parcelas" > 320 x </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 coluna">
@@ -161,31 +140,15 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="solicite_ligacao">
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <h4>Solicite uma ligação desta imobiliária</h4>
-                                                    </div>
-                                                </div>
+                                                <div class="row"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h4>Solicite uma ligação desta imobiliária</h4></div></div>
                                                 <div class="row c-bottom-15">
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
                                                         <h5>Clique no melhor período para receber ligações</h5>
                                                         <div class="btn-group" data-toggle="buttons">
-                                                            <label class="btn btn-horario">
-                                                                <input type="checkbox" value="qualquer" class="toggle horario"> 
-                                                                Qualquer horário 
-                                                            </label>
-                                                            <label class="btn btn-horario">
-                                                                <input type="checkbox" value="manha" class="toggle horario" > 
-                                                                Manhã
-                                                            </label>
-                                                            <label class="btn btn-horario">
-                                                                <input type="checkbox" value="tarde" class="toggle horario" > 
-                                                                Tarde
-                                                            </label>
-                                                            <label class="btn btn-horario">
-                                                                <input type="checkbox" value="noite" class="toggle horario" > 
-                                                                Noite 
-                                                            </label>
+                                                            <label class="btn btn-horario"><input type="checkbox" value="qualquer" class="toggle horario"> Qualquer horário </label>
+                                                            <label class="btn btn-horario"><input type="checkbox" value="manha" class="toggle horario" > Manhã</label>
+                                                            <label class="btn btn-horario"><input type="checkbox" value="tarde" class="toggle horario" > Tarde</label>
+                                                            <label class="btn btn-horario"><input type="checkbox" value="noite" class="toggle horario" > Noite </label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -341,115 +304,54 @@
             <?php
             if ( $item->mostramapa && ! empty($item->logradouro) ) :
             ?>
-            <div class="row " id="mapa">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <h4 class="titulo-ficha c-font-bold c-font-uppercase">Localização do Imóvel</h4>
-                    <div class="c-line-center c-theme-bg"></div>
-                    <p><?php echo $item->logradouro. ' - '. $item->bairro. ' - '. $item->cidade?></p>
-                    <p><?php echo $item->estado. ' - '. $item->cep?></p>
-                    <br>
+            <div class="row " id="mapa"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h4 class="titulo-ficha c-font-bold c-font-uppercase">Localização do Imóvel</h4><div class="c-line-center c-theme-bg"></div><p><?php echo $item->logradouro. ' - '. $item->bairro. ' - '. $item->cidade?></p><p><?php echo $item->estado. ' - '. $item->cep?></p><br>
             <?php
             if ( $item->mostramapa && isset($item->mapa) && ! empty($item->mapa) ) :
             ?>
-                    <div class="mapa" aria-hidden="true" data-ativo="0">
-                        <?php // echo $mapa;?>;
-                    </div> 
-                        <!---->
+            <div class="mapa" aria-hidden="true" data-ativo="0"></div> 
             <?php
             endif;
             ?>
-                </div>
-            </div>
+            </div></div>
             <?php
             endif;
             ?>
         
-        <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space espaco-imoveis-relacionados"></div>
-        
-          <div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space espaco-imoveis-relacionados-imobiliaria"></div>
-        <?php if ( ! $mobile ): ?>
-                    <div class="nao-encontrei">
-                        <a target="blank" href="<?php echo base_url();?>nao_encontrei">
-                            <img class="c-margin-t-20 img-nao-encontrei" src="<?php echo base_url();?>images/banner/nao-encontrei.jpg" width="100%" height="">
-                        </a>
-                    </div>        
-        <?php              endif;?>
+<div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space espaco-imoveis-relacionados"></div>
+<div class="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space espaco-imoveis-relacionados-imobiliaria"></div>
+<?php if ( ! $mobile ): ?>
+<div class="nao-encontrei"><a target="blank" href="<?php echo base_url();?>nao_encontrei"><img class="c-margin-t-20 img-nao-encontrei" src="<?php echo base_url();?>images/banner/nao-encontrei.jpg" width="100%" height=""></a></div>
+<?php endif;?>
       
     </div>
 </div>
-<nav class="quick-nav">
-    <a class="quick-nav-trigger" href="#0">
-        <span aria-hidden="true"></span>
-    </a>
-    <ul>
-        <li class="hidden-xs">
-            <a href="#form-cel" class="contato-link">
-                <span>Entre em contato</span>
-                <i class="icon-basket"></i>
-            </a>
-        </li>
-        <li class="hidden-lg">
-            <a href="#" class="contato-link" data-toggle="modal" data-target="#modal-formulario-xs">
-                <span>Entre em contato</span>
-                <i class="icon-basket"></i>
-            </a>
-        </li>
-         <?php
-        if ( $item->mostramapa && isset($item->mapa) && ! empty($item->mapa) ) :
-        ?>
-        <li>
-            <a href="#mapa" >
-                <span>Mapa</span>
-                <i class="icon-users"></i>
-            </a>
-        </li>
-        <?php 
-        endif;
-        ?>
-        <li>
-            <a href="<?php echo $link_print;?>"  target="_blank">
-                <span>Imprimir</span>
-                <i class="icon-print"></i>
-            </a>
-        </li>
-        <li>
-            <a href="#images" >
-                <span>Imagens</span>
-                <i class="icon-user"></i>
-            </a>
-        </li>
-        <li>
-            <a href="#relacionados">
-                <span>Mais imóveis</span>
-                <i class="icon-graph"></i>
-            </a>
-        </li>
-    </ul>
-    <span aria-hidden="true" class="quick-nav-bg"></span>
-</nav>
+<nav class="quick-nav"><a class="quick-nav-trigger" href="#0"><span aria-hidden="true"></span></a><ul>
+<li class="hidden-xs"><a href="#form-cel" class="contato-link"><span>Entre em contato</span><i class="icon-basket"></i></a></li>
+<li class="hidden-lg"><a href="#" class="contato-link" data-toggle="modal" data-target="#modal-formulario-xs"><span>Entre em contato</span><i class="icon-basket"></i></a></li>
+<?php
+if ( $item->mostramapa && isset($item->mapa) && ! empty($item->mapa) ) :
+?>
+<li><a href="#mapa" ><span>Mapa</span><i class="icon-users"></i></a></li>
+<?php 
+endif;
+?>
+<li><a href="<?php echo $link_print;?>"  target="_blank"><span>Imprimir</span><i class="icon-print"></i></a></li>
+<li><a href="#images" ><span>Imagens</span><i class="icon-user"></i></a></li>
+<li><a href="#relacionados"><span>Mais imóveis</span><i class="icon-graph"></i></a></li>
+</ul><span aria-hidden="true" class="quick-nav-bg"></span></nav>
 <div class="quick-nav-overlay"></div>
-<div class="hidden-desktop atalho-xs text-center">
-    <ul class="list-unstyled list-inline">
-        <li class="dropup">
-            <a type="button" class="btn btn-whats whats-desktop btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-whatsapp"></i> WhatsApp
-            </a>
-            <div class="dropdown-menu">
-                <a target="_blank" class="btn ver-telefone-whats-lista" href="https://web.whatsapp.com/send?phone=+55<?php echo $item->imobiliaria_whatsapp.'&text='. urlencode('Gostaria de saber mais sobre o imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Conversar com a imobiliária</a><br>
-                <a target="_blank" class="btn compartilha-telefone-whats-lista"  href="https://web.whatsapp.com/send?<?php echo '&text='. urlencode('Conheça esse imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Enviar para um amigo</a>
-            </div>
-            <a type="button" class="btn btn-whats whats-mobile btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-whatsapp"></i> WhatsApp
-            </a>
-            <div class="dropdown-menu">
-                <a target="_blank" class="btn ver-telefone-whats-lista" href="https://api.whatsapp.com/send?phone=+55<?php echo $item->imobiliaria_whatsapp.'&text='. urlencode('Gostaria de saber mais sobre o imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Conversar com a imobiliária</a><br>
-                <a target="_blank" class="btn compartilha-telefone-whats-lista"  href="https://api.whatsapp.com/send?<?php echo '&text='. urlencode('Conheça esse imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Enviar para um amigo</a>
-            </div>
-        </li>
-        <li>
-            <button type="button" class="btn btn-detalhes btn-azul-pow-reverso " title="Entre em contato" data-toggle="modal" data-target=".reserva-modal"> 
-                Contato
-            </button>
-        </li>
-    </ul>
+<div class="hidden-desktop atalho-xs text-center"><ul class="list-unstyled list-inline">
+<li class="dropup"><a type="button" class="btn btn-whats whats-desktop btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-whatsapp"></i> WhatsApp</a>
+<div class="dropdown-menu">
+<a target="_blank" class="btn ver-telefone-whats-lista" href="https://web.whatsapp.com/send?phone=+55<?php echo $item->imobiliaria_whatsapp.'&text='. urlencode('Gostaria de saber mais sobre o imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Conversar com a imobiliária</a><br>
+<a target="_blank" class="btn compartilha-telefone-whats-lista"  href="https://web.whatsapp.com/send?<?php echo '&text='. urlencode('Conheça esse imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Enviar para um amigo</a>
+</div>
+<a type="button" class="btn btn-whats whats-mobile btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-whatsapp"></i> WhatsApp</a>
+<div class="dropdown-menu">
+<a target="_blank" class="btn ver-telefone-whats-lista" href="https://api.whatsapp.com/send?phone=+55<?php echo $item->imobiliaria_whatsapp.'&text='. urlencode('Gostaria de saber mais sobre o imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Conversar com a imobiliária</a><br>
+<a target="_blank" class="btn compartilha-telefone-whats-lista"  href="https://api.whatsapp.com/send?<?php echo '&text='. urlencode('Conheça esse imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Enviar para um amigo</a>
+</div>
+</li>
+<li><button type="button" class="btn btn-detalhes btn-azul-pow-reverso " title="Entre em contato" data-toggle="modal" data-target=".reserva-modal">Contato</button></li>
+</ul>
 </div>

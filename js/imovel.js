@@ -1,14 +1,7 @@
-
-/**
- * 
- * ações aprovadas para a versão 3
- */
-
 function onSubmit(token) {
     formulario.onSubmit(token);
     return false;
 }
-
 var setModal = {
     set: function(tipo){
         $.getJSON(URL_HTTP + 'get_' + tipo, function(data){
@@ -19,14 +12,12 @@ var setModal = {
         });
     },
 }
-
 $(document).ready(function(){
     setTimeout(function(){
         var image = $('.primeira-image').attr('src');
         $('.primeira-image').attr('src',image.replace('destaque','vitrine'));
     },8000);
 });
-
 $(function(){
     $(window).scroll(function(e){
         y = $(this).scrollTop();
@@ -41,20 +32,12 @@ $(function(){
                     ifrm.style.border = "none";
                     $('.mapa').append(ifrm);
                     $('.mapa').data('ativo','1');
-                    
-//                    $('.mapa').html('<iframe url="' + URL_HTTP + 'get_mapa?id_imovel='+$('.imovel').data('imovel')+'" width="100%" height="300px" style="border:none;" ></iframe>');
-//                    $('.mapa').html(' ');
-//                    $.get(URL_HTTP + 'get_mapa',{'id_imovel':$('.imovel').data('imovel')},function(res){
-//                        $('.mapa').html(res);
-//                        
-//                    });
                 }
                 if ( $('.espaco-imoveis-relacionados').html() == '' ){
                     $('.espaco-imoveis-relacionados').html(' ');
                     $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':0},function(res){
                         if ( res != '' ){
                             $('.espaco-imoveis-relacionados').html(res);
-                            
                         }
                     });
                 }
@@ -63,7 +46,6 @@ $(function(){
                     $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':1},function(res){
                         $('.espaco-imoveis-relacionados-imobiliaria').html(res);
                     });
-
                 }
             },1000);
         }

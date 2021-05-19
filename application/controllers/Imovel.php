@@ -136,6 +136,7 @@ class Imovel extends MY_Controller {
             $this->benchmark->mark('Link_end');
             $this->print_time('Link');
 //            $data['breadscrumb'] = $this->set_url($data['item'], 'imovel');
+            $this->benchmark->mark('Diversas_start');
             $l = $this->layout;
             $l->set_tag_adwords($this->cidade->tag_adwords);
             $data['link_print'] = $data['url'].'/'.$local.'/print';
@@ -144,6 +145,8 @@ class Imovel extends MY_Controller {
             $data['tag_adwords'] = $this->cidade->tag_adwords;
             $data['h1'] = $this->get_titulo_imovel('h1');
             $data['titulo'] = $this->get_titulo_imovel('titulo');
+            $this->benchmark->mark('Diversas_end');
+            $this->print_time('Diversas');
             $this->benchmark->mark('Lista_start');
             $data['lista'] = $this->get_lista();
             $this->benchmark->mark('Lista_end');
@@ -153,8 +156,6 @@ class Imovel extends MY_Controller {
             $this->benchmark->mark('Valores_end');
             $this->print_time('Valores');
             $this->benchmark->mark('relacionados_start');
-            $data['relacionados'] = '';//$this->get_relacionados();
-            $data['relacionados_empresa'] = '';// $this->get_relacionados(TRUE);
             $data['itens_favoritos'] = [];// $this->get_relacionados(TRUE);
             $this->benchmark->mark('relacionados_end');
             $this->print_time('relacionados');
@@ -168,16 +169,12 @@ class Imovel extends MY_Controller {
         $l
             ->set_image_destaque(isset($data['image_destaque']) ? $data['image_destaque'] : NULL)
             ->set_includes_defaults()
-//            ->set_include('plugins/cubeportfolio/css/cubeportfolio.min.css', TRUE, TRUE)
-//            ->set_include('plugins/cubeportfolio/js/jquery.cubeportfolio.min.js', TRUE)
             ->set_include('js/imovel.js', TRUE)
                 ;
        $l
             ->set_include('css/style.css', TRUE)
             ->set_include('css/imovel.css', TRUE)
             ->set_include('https://www.google.com/recaptcha/api.js', FALSE)
-//                ->set_time($this->soma_time())
-//                ->set_menu($this->menu)
                 ->set_logo( $this->logo_principal )
                 ->set_mobile($this->is_mobile)
                 ->set_titulo($this->get_titulo_imovel('titulo'))

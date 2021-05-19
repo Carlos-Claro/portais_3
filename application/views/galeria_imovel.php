@@ -1,6 +1,3 @@
-<?php
-//var_dump(count($images['lista']['lista']));die();
-?>
 <div class="portlet light bordered">
     <div class="portlet-title tabbable-line">
         <div class="caption">
