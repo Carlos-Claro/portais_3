@@ -244,9 +244,9 @@ class Imovel extends MY_Controller {
                 if ( $this->imovel->quartos ){
                     $valores['quartos'] = [$this->imovel->quartos-1,$this->imovel->quartos,$this->imovel->quartos+1];
                 }
-                if ($this->imovel->garagens ){
-                    $valores['vagas'] = [$this->imovel->garagens-1,$this->imovel->garagens,$this->imovel->garagens+1];
-                }
+//                if ($this->imovel->garagens ){
+//                    $valores['vagas'] = [$this->imovel->garagens-1,$this->imovel->garagens,$this->imovel->garagens+1];
+//                }
                 $valores['cidade'] = $this->imovel->cidade_link ;
             }
             else
