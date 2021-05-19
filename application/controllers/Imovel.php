@@ -100,16 +100,8 @@ class Imovel extends MY_Controller {
      */
     public function index ( $complemento = NULL, $id_imovel = 0, $local = 0, $layout = 'novo_3', $ajax = FALSE )
     {
-        $this->benchmark->mark('Imovel_start');
-        
-            $this->benchmark->mark('SetLocal_start');
         $log = $this->set_local($local);
-            $this->benchmark->mark('SetLocal_end');
-            $this->print_time('SetLocal');
-            $this->benchmark->mark('SetImovel_start');
         $this->set_imovel($id_imovel);
-            $this->benchmark->mark('SetImovel_end');
-            $this->print_time('SetImovel');
         $data['item'] = $this->imovel;
         $data['log'] = $local;
         if ( ! $this->imovel )
@@ -118,25 +110,14 @@ class Imovel extends MY_Controller {
         }
         else
         {
-            $this->benchmark->mark('Valores_start');
             $this->set_valores_imovel();
             $this->set_titulo_imovel();
-            $this->benchmark->mark('Valores_end');
-            $this->print_time('Valores');
             
             $data['local'] = $local;
             $data['origem'] = $local;
-            $this->benchmark->mark('Images_start');
             $data['images'] = $this->lista_normal->get_images($this->imovel,FALSE,TRUE);
-            $this->benchmark->mark('Images_end');
-            $this->print_time('Images');
             $data['image_destaque'] = $data['images']['lista']['principal']->original;
-            $this->benchmark->mark('Link_start');
             $data['url'] = $this->lista_normal->_set_link($this->imovel);
-            $this->benchmark->mark('Link_end');
-            $this->print_time('Link');
-//            $data['breadscrumb'] = $this->set_url($data['item'], 'imovel');
-            $this->benchmark->mark('Diversas_start');
             $l = $this->layout;
             $l->set_tag_adwords($this->cidade->tag_adwords);
             $data['link_print'] = $data['url'].'/'.$local.'/print';
@@ -145,24 +126,9 @@ class Imovel extends MY_Controller {
             $data['tag_adwords'] = $this->cidade->tag_adwords;
             $data['h1'] = $this->get_titulo_imovel('h1');
             $data['titulo'] = $this->get_titulo_imovel('titulo');
-            $this->benchmark->mark('Diversas_end');
-            $this->print_time('Diversas');
-            $this->benchmark->mark('Lista_start');
             $data['lista'] = $this->get_lista();
-            $this->benchmark->mark('Lista_end');
-            $this->print_time('Lista');
-            $this->benchmark->mark('Valores_start');
             $data['valores'] = $this->get_valores_imovel();
-            $this->benchmark->mark('Valores_end');
-            $this->print_time('Valores');
-            $this->benchmark->mark('relacionados_start');
             $data['itens_favoritos'] = [];// $this->get_relacionados(TRUE);
-            $this->benchmark->mark('relacionados_end');
-            $this->print_time('relacionados');
-            
-        $this->benchmark->mark('Imovel_end');
-        $this->print_time('Imovel');
-        $this->benchmark->mark('View_start');
         $data['mobile'] = $this->is_mobile;
         
         
@@ -186,8 +152,6 @@ class Imovel extends MY_Controller {
                 ->set_robot($this->cidade->id === $this->imovel->cidades_id);
         
         
-        $this->benchmark->mark('View_end');
-        $this->print_time('View');
             $layout_principal = 'layout_3';
             if ( $layout == 'print' )
             {
