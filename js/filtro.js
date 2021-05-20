@@ -1,24 +1,29 @@
 var $ =jQuery.noConflict();
-toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "positionClass": "toast-top-right",
-  "onclick": null,
-  "showDuration": "500",
-  "hideDuration": "500",
-  "timeOut": "2800",
-  "extendedTimeOut": "100",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-};
+//toastr.options = {
+//  "closeButton": true,
+//  "debug": false,
+//  "positionClass": "toast-top-right",
+//  "onclick": null,
+//  "showDuration": "500",
+//  "hideDuration": "500",
+//  "timeOut": "2800",
+//  "extendedTimeOut": "100",
+//  "showEasing": "swing",
+//  "hideEasing": "linear",
+//  "showMethod": "fadeIn",
+//  "hideMethod": "fadeOut"
+//};
+
 
 $(function(){
     filtro.inicia();
     setTimeout(function(){
         pesquisa.inicia();
     },100);
+    setTimeout(function(){
+        
+        
+    },500);
     $('.buscar, .mobiliado, .condominio, .quartos, .vagas, .banheiros, .comercial, .residencial').on('click',function(){
         console.log('buscando');
         valores = pesquisa.getValores(true);
@@ -116,13 +121,19 @@ $(function(){
                     {
                         pesquisa.carregando = true; 
                         pesquisa.paginacao();
-                        toastr.info('Buscando novos itens: + 12 de ' + ( $('.total').html() - qtde  ), 'Paginando...');
+//                        toastr.info('Buscando novos itens: + 12 de ' + ( $('.total').html() - qtde  ), 'Paginando...');
                     }
                 }
             }
         }
     });
-    
+    $.getScript(URL_HTTP + "plugins/select2/js/select2.full.min.js", function( data, textStatus, jqxhr ) {
+          if (LOCALHOST){
+                console.log( data ); // Data returned
+              console.log( textStatus ); // Success
+              
+          }
+        });
     var $localizacaoSelect = $('.localidade-select').select2({
         tags: false,
         placeholder: 'Clique e pesquise a localidade ',
@@ -276,7 +287,7 @@ var pesquisa = {
             else{
                 //buscar mais itens
                 $('.imoveis').html('<li class="nao-encontrei col-lg-12 col-sm-12 col-md-12 col-xs-12"><a href="' + URI + 'nao_encontrei"><img src="' + pesquisa.banner_nao_encontrei + '"></a></li>');
-                toastr.info('Nenhum imóvel carregado para esta busca.', 'Sem imóveis...');
+//                toastr.info('Nenhum imóvel carregado para esta busca.', 'Sem imóveis...');
             }
             pesquisa.carregando = false;
         },'json');
@@ -290,7 +301,7 @@ var pesquisa = {
                 try {
                     $('.imoveis').html(data_.data);
                     $('.imoveis').append('<li class="ultimo col-lg-12 col-sm-12 col-md-12 col-xs-12"></li>');
-                    toastr.info('12 Imóveis carregados de ' + $('.total').html() + ', continue a navegação para ver os imóveis', 'Lista atualizada...');
+//                    toastr.info('12 Imóveis carregados de ' + $('.total').html() + ', continue a navegação para ver os imóveis', 'Lista atualizada...');
                 }catch(e){
                     alert(e);
                 }
@@ -310,7 +321,7 @@ var pesquisa = {
                 }catch (e){
                     console.log(e)
                 }
-                toastr.info($('.imoveis li.imovel').length + ' Imóveis carregados de ' + $('.total').html(), 'Carga concluída...');
+//                toastr.info($('.imoveis li.imovel').length + ' Imóveis carregados de ' + $('.total').html(), 'Carga concluída...');
                 estatistica.set();
 
             }

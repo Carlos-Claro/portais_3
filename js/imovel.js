@@ -29,9 +29,7 @@ $(document).ready(function(){
               console.log( textStatus ); // Success
               
           }
-//          console.log( jqxhr.status ); // 200
-//          console.log( "Load was performed." );
-    });
+        });
     },4000);
     setTimeout(function(){
         var image = $('.primeira-image').attr('src');

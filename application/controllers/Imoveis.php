@@ -114,6 +114,8 @@ class Imoveis extends MY_Controller {
         $data['is_mobile'] = $this->is_mobile;
         $layout = $this->layout
                 ->set_includes_defaults()
+                ->set_include('plugins/select2/js/select2.min.js', TRUE)
+                ->set_include('plugins/select2/css/select2.min.css', TRUE)
                 ->set_include('js/filtro.js', TRUE)
                 ->set_time($this->soma_time())
                 ->set_mobile($this->is_mobile)
