@@ -52,7 +52,7 @@
                                             ?>
                                             <li class="dropup">
                                                 <div class="btn-group btn-vertical">
-                                                    <button type="button"  class="btn btn-whats hidden-xs whats-desktop  btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button type="button"  class="btn btn-whats whats-desktop  btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="fa fa-whatsapp"></i> WhatsApp
                                                     </button>
                                                     <ul class="dropdown-menu">
@@ -302,7 +302,7 @@ endif;
 </ul><span aria-hidden="true" class="quick-nav-bg"></span></nav>
 <div class="quick-nav-overlay"></div>
 <div class="hidden-desktop atalho-xs text-center"><ul class="list-unstyled list-inline">
-<li class="dropup"><a type="button" class="btn btn-whats whats-desktop btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-whatsapp"></i> WhatsApp</a>
+<li class="dropup"><button class="btn btn-whats whats-desktop btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-whatsapp"></i> WhatsApp</button>
 <div class="dropdown-menu">
 <a target="_blank" class="btn ver-telefone-whats-lista" href="https://web.whatsapp.com/send?phone=+55<?php echo $item->imobiliaria_whatsapp.'&text='. urlencode('Gostaria de saber mais sobre o imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Conversar com a imobiliária</a><br>
 <a target="_blank" class="btn compartilha-telefone-whats-lista"  href="https://web.whatsapp.com/send?<?php echo '&text='. urlencode('Conheça esse imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Enviar para um amigo</a>

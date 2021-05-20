@@ -1,5 +1,10 @@
 function onSubmit(token) {
-    formulario.onSubmit(token);
+            formulario.onSubmit(token);
+//    var key = $('.g-recaptcha').data('sitekey');
+//    grecaptcha.ready(function() {
+//        grecaptcha.execute(key, {action: 'submit'}).then(function(token) {
+//        });
+//    });
     return false;
 }
 var setModal = {
@@ -13,6 +18,14 @@ var setModal = {
     },
 }
 $(document).ready(function(){
+    setTimeout(function(){
+        $.getScript("https://www.google.com/recaptcha/api.js", function( data, textStatus, jqxhr ) {
+          console.log( data ); // Data returned
+          console.log( textStatus ); // Success
+          console.log( jqxhr.status ); // 200
+          console.log( "Load was performed." );
+    });
+    },2000);
     setTimeout(function(){
         var image = $('.primeira-image').attr('src');
         $('.primeira-image').attr('src',image.replace('destaque','vitrine'));
@@ -201,7 +214,7 @@ $(function(){
 var formulario = {
     posicionar: function(modal){
         var formulario = $('.formulario').html();
-        formulario += $('.empresa').html();
+//        formulario += $('.empresa').html();
         if ( modal ){
             $('.reserva-modal .modal-body').html('');
             $('.reserva-modal .modal-body').html('<div class="formulario">'+formulario+'</div>');
