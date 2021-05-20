@@ -1,11 +1,15 @@
 function onSubmit(token) {
             formulario.onSubmit(token);
-//    var key = $('.g-recaptcha').data('sitekey');
-//    grecaptcha.ready(function() {
-//        grecaptcha.execute(key, {action: 'submit'}).then(function(token) {
-//        });
-//    });
     return false;
+}
+function videoClick(){
+    ifrm = document.createElement("IFRAME");
+    ifrm.setAttribute("src", $('.video-data').data('video'));
+    ifrm.style.width = "100%";
+    ifrm.style.height = "550px";
+    ifrm.style.border = "none";
+    console.log(ifrm);
+    $('#video').html(ifrm);
 }
 var setModal = {
     set: function(tipo){
@@ -20,12 +24,15 @@ var setModal = {
 $(document).ready(function(){
     setTimeout(function(){
         $.getScript("https://www.google.com/recaptcha/api.js", function( data, textStatus, jqxhr ) {
-          console.log( data ); // Data returned
-          console.log( textStatus ); // Success
-          console.log( jqxhr.status ); // 200
-          console.log( "Load was performed." );
+          if (LOCALHOST){
+                console.log( data ); // Data returned
+              console.log( textStatus ); // Success
+              
+          }
+//          console.log( jqxhr.status ); // 200
+//          console.log( "Load was performed." );
     });
-    },2000);
+    },4000);
     setTimeout(function(){
         var image = $('.primeira-image').attr('src');
         $('.primeira-image').attr('src',image.replace('destaque','vitrine'));
@@ -37,7 +44,6 @@ $(function(){
         if ( y > 500){
             setTimeout(function(){
                 if ( $('.mapa').data('ativo') == 0 ){
-                    console.log($('.mapa').data('ativo'));
                     ifrm = document.createElement("IFRAME");
                     ifrm.setAttribute("src", URL_HTTP + 'get_mapa?id_imovel='+$('.imovel').data('imovel'));
                     ifrm.style.width = "100%";

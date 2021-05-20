@@ -3,7 +3,7 @@
         <div class="caption"><i class="icon-pin font-yellow-crusta"></i><h4 class="c-left c-font-18 c-font-bold c-font-uppercase caption-subject bold font-yellow-crusta uppercase"> Fotos e Vídeo </h4><div class="c-line-center c-theme-bg"></div><span class="caption-helper"></span></div>
         <ul class="nav nav-tabs">
             <?php if ( ( isset($imovel->video) && !empty($imovel->video) ) ) : ?>
-            <li ><a href="#video" data-toggle="tab"> Vídeo </a></li>
+            <li ><a href="#video" data-toggle="tab" onclick="videoClick()"> Vídeo </a></li>
             <?php endif; ?>
             <li class="active"><a href="#images_tab" data-toggle="tab"> Fotos ( <span class="foto-atual">1</span> de <span class="foto-qtde"><?php echo count($images['lista']['lista']);?></span> ) </a></li>
         </ul>   
@@ -17,6 +17,6 @@
             <a class="left carousel-control" href="#carousel" role="button" data-slide="prev" data-item="<?php echo $imovel->_id;?>" data-atual="1"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Anterior</span></a>
             <a class="right carousel-control" href="#carousel" role="button" data-slide="next" data-item="<?php echo $imovel->_id;?>" data-atual="1"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Proximo</span></a>
         </div></div>
-    <div class="tab-pane" id="video"><?php if ( ( isset($imovel->video) && !empty($imovel->video) ) ) : ?><center><iframe style="width:100%; height: auto; min-height: 550px;" class="video" src="<?php echo set_embed_video($imovel->video);?>" frameborder="0" allowfullscreen></iframe></center><?php endif; ?></div>
+    <div class="tab-pane video-data" id="video" data-video="<?php echo ( ( isset($imovel->video) && !empty($imovel->video) ) ) ? set_embed_video($imovel->video): '';?>"></div>
     </div></div>
 </div>
