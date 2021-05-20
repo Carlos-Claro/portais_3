@@ -172,3 +172,21 @@ $galeria = '';
                                                                     <a type="button" data-item="<?php echo $item->id_empresa;?>" class="btn btn-form btn-secondary  btn-topo" target="_blank" href="<?php echo base_url().'imobiliaria/'.urlencode( tira_especiais($item->imobiliaria_nome) ).'-'.$item->id_empresa;?>/" > + Imóveis <span class="hidden-xs">do anunciante</span></a>
                                                                 </li>
                                                 </ul>
+            
+            
+            
+            <!-- botão whats celular -->
+            
+<li class="dropup"><button class="btn btn-whats whats-desktop btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-whatsapp"></i> WhatsApp</button>
+<div class="dropdown-menu">
+<a target="_blank" class="btn ver-telefone-whats-lista" href="https://web.whatsapp.com/send?phone=+55<?php echo $item->imobiliaria_whatsapp.'&text='. urlencode('Gostaria de saber mais sobre o imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Conversar com a imobiliária</a><br>
+<a target="_blank" class="btn compartilha-telefone-whats-lista"  href="https://web.whatsapp.com/send?<?php echo '&text='. urlencode('Conheça esse imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Enviar para um amigo</a>
+</div>
+<a type="button" class="btn btn-whats whats-mobile btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-whatsapp"></i> WhatsApp</a>
+<div class="dropdown-menu">
+<a target="_blank" class="btn ver-telefone-whats-lista" href="https://api.whatsapp.com/send?phone=+55<?php echo $item->imobiliaria_whatsapp.'&text='. urlencode('Gostaria de saber mais sobre o imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Conversar com a imobiliária</a><br>
+<a target="_blank" class="btn compartilha-telefone-whats-lista"  href="https://api.whatsapp.com/send?<?php echo '&text='. urlencode('Conheça esse imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Enviar para um amigo</a>
+</div>
+</li>
+
+<a target="_blank" class="btn btn-whats whats-desktop btn-secondary hidden-phone ver-telefone-whats-lista" href="https://web.whatsapp.com/send?phone=+55<?php echo $item->imobiliaria_whatsapp.'&text='. urlencode('Gostaria de saber mais sobre o imóvel: '.$url);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>"><i class="fa fa-whatsapp"></i> WhatsApp</a>
