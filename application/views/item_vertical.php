@@ -66,21 +66,9 @@
                                 $col = 4;
                                 ?>
                                 <li class="dropup">
+                                    
                                     <div class="btn-group btn-vertical">
-                                        <button type="button" оnClick="ga('send', 'event', 'botao', 'clique');" class="btn btn-whats hidden-xs whats-desktop btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fa fa-whatsapp"></i> WhatsApp
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a target="_blank" class="btn  ver-telefone-whats-lista" оnClick="ga('send', 'event', 'botao', 'clique');" href="https://web.whatsapp.com/send?phone=+55<?php echo $item->imobiliaria_whatsapp.'&text='. urlencode('Gostaria de saber mais sobre o imóvel: '.$link);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Conversar com a imobiliária</a>
-                                            </li>
-                                            <li>
-                                                <a target="_blank" class="btn compartilha-telefone-whats-lista" оnClick="ga('send', 'event', 'botao', 'clique');" href="https://web.whatsapp.com/send?<?php echo '&text='. urlencode('Conheça esse imóvel: '.$link);?>" data-item="<?php echo $item->id;?>" data-log="<?php echo $origem;?>">Enviar para um amigo</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="btn-group btn-vertical">
-                                        <button type="button" оnClick="ga('send', 'event', 'botao', 'clique');" class="btn btn-whats whats-mobile btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button type="button" оnClick="ga('send', 'event', 'botao', 'clique');" class="btn btn-whats btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-whatsapp">WhatsApp</i> 
                                         </button>
                                         <ul class="dropdown-menu">
