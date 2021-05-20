@@ -127,13 +127,7 @@ $(function(){
             }
         }
     });
-    $.getScript(URL_HTTP + "plugins/select2/js/select2.full.min.js", function( data, textStatus, jqxhr ) {
-          if (LOCALHOST){
-                console.log( data ); // Data returned
-              console.log( textStatus ); // Success
-              
-          }
-        });
+    
     var $localizacaoSelect = $('.localidade-select').select2({
         tags: false,
         placeholder: 'Clique e pesquise a localidade ',
