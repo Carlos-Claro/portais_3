@@ -16,6 +16,16 @@ var URI = base_url;
 var URL_ADMIN = base_url;
 
 $(function(){
+    
+    setTimeout(function(){
+        $.getScript(URL_HTTP + "plugins/font-awesome/css/font-awesome.min.css", function( data, textStatus, jqxhr ) {
+          if (LOCALHOST){
+                console.log( data ); // Data returned
+              console.log( textStatus ); // Success
+              
+          }
+        });
+    },4000);
     fotos.inicia(3);
     $(".item-vertical .carousel").swiperight(function() {  
         $(this).carousel('prev');  

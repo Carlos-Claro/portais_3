@@ -391,7 +391,7 @@ class Layout {
                 ->set_include('js/default.js', TRUE)				
                 ->set_include('js/jquery-migrate-3.0.1.min.js', TRUE)
                 ->set_include('css/bootstrap.min.css', TRUE, TRUE)
-                ->set_include('plugins/font-awesome/css/font-awesome.min.css', TRUE, TRUE)
+//                ->set_include('plugins/font-awesome/css/font-awesome.min.css', TRUE, TRUE)
                 ->set_include('plugins/css/layout.min.css', TRUE, TRUE)
                 ->set_include('css/components.min.css', TRUE, TRUE)
                 ->set_include('css/default.min.css', TRUE, TRUE)
