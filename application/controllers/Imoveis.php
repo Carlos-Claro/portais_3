@@ -360,11 +360,8 @@ class Imoveis extends MY_Controller {
                     if ( isset($b->descricao) ){
                         $tv .= $b->descricao;
                     }else{
-                        var_dump($cb);
                         $bairro_b = $this->get_bairros($cb);
-                        var_dump($bairro_b);
                         $tv .= $bairro_b->descricao;
-
                     }
                     $a++;
                 }
