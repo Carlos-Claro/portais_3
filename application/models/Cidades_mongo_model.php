@@ -76,11 +76,13 @@ class Cidades_mongo_Model extends My_mongo {
     	$data['filtro'] = array(array('tipo'=> 'where', 'campo' => 'link', 'valor' => $link ) );
     	
     	$retorno = $this->get_itens_($data);
-        foreach ($retorno['itens'] as $item)
-        {
-            $retorno_item = $item;
+        $retorno_item = NULL;
+        if ( isset($retorno['itens']) ){
+            foreach ($retorno['itens'] as $item)
+            {
+                $retorno_item = $item;
+            }
         }
-        //var_dump($retorno['itens']);
     	return $retorno_item;
     }
 

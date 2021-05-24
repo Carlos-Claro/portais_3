@@ -740,13 +740,18 @@ class Imoveis extends MY_Controller {
     }
 
     
-    private function get_cidade_( $link )
+    private function get_cidade_( $link, $return = FALSE )
     {
         $cidade = $this->cidades_mongo_model->get_item_por_link( $link );
-        $this->cidades = (object)[];
-        $this->cidades->{$cidade->link} = (object)['id' => $cidade->link, 'descricao' => $cidade->nome];
-        
-//        return $retorno;
+        if ( isset($cidade) ){
+            $this->cidades = (object)[];
+            $this->cidades->{$cidade->link} = (object)['id' => $cidade->link, 'descricao' => $cidade->nome];
+            if ( $return ){
+                return $this->cidades;
+            }
+        }else{
+            return NULL;
+        }
     }
     
     
@@ -923,35 +928,26 @@ class Imoveis extends MY_Controller {
     {
         $valores = array();
         $uri_a = $this->get_uri(NULL);
-        if ( isset($uri_a['id_empresa']) )
-        {
+        if ( isset($uri_a['id_empresa']) ){
             $valores['id_empresa'] = $uri_a['id_empresa'];
             unset($uri_a['id_empresa']);
         }
-        if ( count($uri_a) > 0 && ! empty($uri_a[0]) )
-        {
-            if ( $uri_a[0] != 'imoveis' )
-            {
+        if ( count($uri_a) > 0 && ! empty($uri_a[0]) ){
+            if ( $uri_a[0] != 'imoveis' ){
                 $valores['tipo'] = explode('+',$uri_a[0]);
             }
             unset($uri_a[0]);
-            if ( isset($uri_a) )
-            {
-                foreach( $uri_a as $uri )
-                {
-                    if ( ! empty($uri) )
-                    {
-                        if ( in_array($uri, $this->tipo_negocio) )
-                        {
+            if ( isset($uri_a) ){
+                foreach( $uri_a as $uri ){
+                    if ( ! empty($uri) ){
+                        if ( in_array($uri, $this->tipo_negocio) ){
                             $valores['tipo_negocio'] = $uri;
                         }
-                        if ( isset($valores['cidade']) )
-                        {
+                        if ( isset($valores['cidade']) ){
                             $valores['bairro'] = explode('+',$uri);
                         }
-                        $cidade = $this->get_cidades($uri);
-                        if ( isset($cidade) )
-                        {
+                        $cidade = $this->get_cidade_($uri, true);
+                        if ( isset($cidade) ){
                             $valores['cidade'] = $uri;
                         }
                     }
