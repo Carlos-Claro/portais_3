@@ -130,7 +130,7 @@ class Imobiliarias extends MY_Controller {
                 ->set_includes_defaults()
                 ->set_include('js/imobiliarias.js', TRUE)	
                 ->set_time($this->soma_time())
-                ->set_menu($this->menu)
+//                ->set_menu($this->menu)
                 ->set_logo( $this->logo_principal )
                 ->set_titulo($this->titulo)
                 ->set_description($this->description)

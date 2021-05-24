@@ -128,7 +128,6 @@ class Imoveis extends MY_Controller {
                 ->set_sobre($this->cidade->sobre, $this->cidade->nome, $this->cidade->portal, $this->cidade->gentilico, $this->cidade->link, $this->cidade->uf, $this->cidade->link_prefeitura,1 )
                 ->set_analytics($this->cidade->instrucoes_head);
 //                ->set_google_tag($this->cidade->google_tag);
-
         $layout
                 ->view($this->view, $data, 'layout/layout_3');
 

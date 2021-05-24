@@ -241,9 +241,25 @@
                             </div>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <h1 class="titulo-imobiliaria"><?php echo $empresa->descricao;?></h1>
-                                <!--<p class="texto-imobiliaria">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>-->
-                                <!--<button type="button" class="btn btn-vermelho-imobi">Conheça mais sobre a imobiliária</button>-->
-                                <!--<button type="button" class="btn btn-vermelho-imobi ver-telefone button-left">Ver telefone</button>-->
+                                <?php
+                                if ( isset($empresa->whatsapp) && ! empty($empresa->whatsapp) ):
+                                            ?>
+                                            <li class="dropup">
+                                                <div class="btn-group btn-vertical">
+                                                    <button type="button" class="btn btn-vermelho-imobi dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fa fa-whatsapp">WhatsApp</i> 
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a target="_blank" class="btn ver-telefone-whats-lista" href="https://api.whatsapp.com/send?phone=+55<?php echo $empresa->whatsapp.'&text='. urlencode('Gostaria de saber mais sobre o imóvel: '.$url);?>" data-item="<?php echo $empresa->id;?>" data-log="imob">Conversar com a imobiliária</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <?php
+                                        endif;
+                                        ?>
+<!--                                <p class="texto-imobiliaria">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                                <button type="button" class="btn btn-vermelho-imobi">Conheça mais sobre a imobiliária</button>
+                                <button type="button" class="btn btn-vermelho-imobi ver-telefone button-left">Ver telefone</button>-->
                             </div>
                         </div>
                     </div>
