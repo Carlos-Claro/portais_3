@@ -154,7 +154,7 @@
         </div>
         <div class="c-content">
             <div class="c-section">
-                <h3>Seus itens favoritos</h3>
+                <p class="font-white" style="color:#fff;">Seus itens favoritos</p>
                 <div class="c-settings c-demos c-bs-grid-reset-space">	
                     <a href="#" class="c-demo-container c-demo-img-lg">
                         <div class="c-demo-thumb active">
