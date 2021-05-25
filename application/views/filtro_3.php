@@ -11,6 +11,8 @@
 <div class="container-fluid main" data-uri="<?php echo $url;?>">
     <!--<div class="c-layout-sidebar-menu c-theme ">-->
     <div class="c-layout-sidebar-menu c-theme ">
+        <div class="data-titulo hide"><?php echo $titulo;?></div>
+        <div class="data-descricao hide"><?php echo $descricao;?></div>
         <div class="data-valores hide"><?php echo json_encode($data_valores);?></div>
         <div class="c-content-tab-1 c-theme ">
             <div class="visible-phone c-margin-t-10"></div>

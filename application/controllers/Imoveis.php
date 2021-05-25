@@ -117,7 +117,7 @@ class Imoveis extends MY_Controller {
                 ->set_include('plugins/select2/js/select2.min.js', TRUE)
                 ->set_include('plugins/select2/css/select2.min.css', TRUE)
                 ->set_include('js/filtro.js', TRUE)
-                ->set_time($this->soma_time())
+//                ->set_time($this->soma_time())
                 ->set_mobile($this->is_mobile)
                 ->set_robot($this->cidade->link === $this->get_request('cidade'))
 //                ->set_menu($this->menu)
