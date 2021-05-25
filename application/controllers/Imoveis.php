@@ -1099,7 +1099,7 @@ class Imoveis extends MY_Controller {
             <li>
                 <ul class="dropdown-menu c-menu-type-inline">
                     <li>
-                        <h3>Links da Cidade</h3>
+                        <p>Links da Cidade</p>
                     </li>
                     '.(( $sobre['link_prefeitura'] ) ? '<li><a href="'.$this->cidade->sobre['link_prefeitura'].'" title="Prefeitura da Cidade de '.$this->cidade->sobre['nome'].'"  target="_blank" rel="nofollow">Prefeitura de '.$this->cidade->sobre['nome'].'</a></li>' : '').'
                     <li>
