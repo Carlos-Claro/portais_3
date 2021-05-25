@@ -331,22 +331,23 @@ class Imoveis extends MY_Controller {
             $this->descricao .= 'Busca de Imoveis por codigo: '.$select['valores']['id'];
         }else{
 
+            $this->descricao .= 'Mais de '.$select['total'].' de ';
             if ( count($data_valores['tipo_selecionado']) > 0 && !isset($this->sem_tipo) ){
                 $a = 0; $tv = '';
                 foreach( $data_valores['tipo_selecionado'] as $t ){
                     $tv .= ($a ? ', ' : '').$t->plural;
                     $a++;
                 }
-                $this->titulo .= $tv;
-                $this->descricao .= $tv;
+                $this->titulo .= $tv.' ';
+                $this->descricao .= $tv.' ';
             }else{
                 $this->titulo .= 'Imóveis ';
                 $this->descricao .= 'Imóveis ';
 
             }
             if ( count($data_valores['tipo_negocio_selecionado']) > 0 ){
-                $this->titulo .= ' '.$data_valores['tipo_negocio_selecionado'][$this->request['tipo_negocio']].' ';
-                $this->descricao .= ' '.$data_valores['tipo_negocio_selecionado'][$this->request['tipo_negocio']].' ';
+                $this->titulo .= ''.$data_valores['tipo_negocio_selecionado'][$this->request['tipo_negocio']].' ';
+                $this->descricao .= ''.$data_valores['tipo_negocio_selecionado'][$this->request['tipo_negocio']].' ';
             }else{
                 $this->titulo .= $this->tipo_negocio_data['venda'].' ';
                 $this->descricao .= $this->tipo_negocio_data['venda'].' ';
@@ -368,8 +369,8 @@ class Imoveis extends MY_Controller {
                 $this->descricao .= $tv;
             }
             if ( count($data_valores['localidade_selecionado']['cidade']) > 0 ){
-                $this->titulo .= ' em '.$data_valores['localidade_selecionado']['cidade'][$this->request['cidade']]->descricao.' ';
-                $this->descricao .= ' em '.$data_valores['localidade_selecionado']['cidade'][$this->request['cidade']]->descricao.' ';
+                $this->titulo .= 'em '.$data_valores['localidade_selecionado']['cidade'][$this->request['cidade']]->descricao.' ';
+                $this->descricao .= 'em '.$data_valores['localidade_selecionado']['cidade'][$this->request['cidade']]->descricao.' ';
             }
             $empresa = $this->get_empresa();
             if ( isset($empresa) ){
@@ -389,7 +390,8 @@ class Imoveis extends MY_Controller {
             $this->titulo .= $titulo_itens;
             $this->descricao .= $titulo_itens;
         }
-
+        $this->titulo .= ' - '.ucfirst(str_replace(['https://www.','http://www.','http://','https://'],'',$this->cidade->portal));
+        $this->descricao .= ' - '.ucfirst(str_replace(['https://www.','http://www.','http://','https://'],'',$this->cidade->portal)).' o portal de imóveis de '.$this->cidade->nome;
         return $this;
     }
 
