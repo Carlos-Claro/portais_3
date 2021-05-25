@@ -1,5 +1,13 @@
 //montagem de box
 
+$(document).ready(function(){
+    setTimeout(function(){
+        $.getScript("https://www.google.com/recaptcha/api.js", function( data, textStatus, jqxhr ) {
+        });
+    },1000);
+    
+});
+
 $(function(){
     $('.email').on({
         blur : function(){
@@ -59,69 +67,69 @@ $(function(){
         pesquisa.getValores();
     });
     
-    $localizacaoSelect.on('select2:select', function(e){
-        var cidade = $('.localidade.cidade').data('item');
-        if ( cidade !== undefined && cidade !== '' )
-        {
-            var text = e.params.data.text;
-            var id = e.params.data.id;
-            if ( text.indexOf('*') >= 0 )
-            {
-                formulario.setSelectbairro(e.params.data,true);
-            }
-            else
-            {
-                formulario.setSelectbairro(e.params.data,false);
-            }
-        }
-        else
-        {
-            var i = e.params.data.id;
-            if ( i.indexOf(';') > 0 )
-            {
-                formulario.setSelectcidade(e.params.data,true);
-            }
-            else
-            {
-                formulario.setSelectcidade(e.params.data,false);
-                $('.localizacao').attr('data-cidade',e.params.data.id);
-            }
-        }
-    });
-    $localizacaoSelect.on('select2:unselect', function(e){});
+//    $localizacaoSelect.on('select2:select', function(e){
+//        var cidade = $('.localidade.cidade').data('item');
+//        if ( cidade !== undefined && cidade !== '' )
+//        {
+//            var text = e.params.data.text;
+//            var id = e.params.data.id;
+//            if ( text.indexOf('*') >= 0 )
+//            {
+//                formulario.setSelectbairro(e.params.data,true);
+//            }
+//            else
+//            {
+//                formulario.setSelectbairro(e.params.data,false);
+//            }
+//        }
+//        else
+//        {
+//            var i = e.params.data.id;
+//            if ( i.indexOf(';') > 0 )
+//            {
+//                formulario.setSelectcidade(e.params.data,true);
+//            }
+//            else
+//            {
+//                formulario.setSelectcidade(e.params.data,false);
+//                $('.localizacao').attr('data-cidade',e.params.data.id);
+//            }
+//        }
+//    });
+//    $localizacaoSelect.on('select2:unselect', function(e){});
 
     
 });
-var $localizacaoSelect = $('.localidade-select').select2({
-    tags: false,
-    placeholder: 'Busque uma cidade, bairro, nome da rua que busca seu imóvel ',
-    amdLanguageBase: 'js/i18n/',
-    language: 'pt-BR.js',
-    closeOnSelect: true,
-    ajax: {
-        url: function(params){
-            cidade  = $('.localidade.cidade').attr('data-item');
-            if ( cidade !== undefined && cidade !== '' )
-            {
-                bairro_data = $('.localidade.bairro').attr('data-item');
-                bairro = (bairro_data !== undefined ) ? 1 : 0;
-                return URI + 'funcoes/set_bairros_por_cidade_select2/' + cidade + '/' + bairro + '' + (params.term === undefined ? params.term : '');
-
-            }
-            else
-            {
-                return URI + 'cidades/busca_cidade_json/' + (params.term !== undefined ? params.term : '');
-            }
-        },
-        dataType: 'json',
-        delay: 100,
-        processResults: function(data) {
-            return {
-                results: data
-            };
-        } 
-    }
-});
+//var $localizacaoSelect = $('.localidade-select').select2({
+//    tags: false,
+//    placeholder: 'Busque uma cidade, bairro, nome da rua que busca seu imóvel ',
+//    amdLanguageBase: 'js/i18n/',
+//    language: 'pt-BR.js',
+//    closeOnSelect: true,
+//    ajax: {
+//        url: function(params){
+//            cidade  = $('.localidade.cidade').attr('data-item');
+//            if ( cidade !== undefined && cidade !== '' )
+//            {
+//                bairro_data = $('.localidade.bairro').attr('data-item');
+//                bairro = (bairro_data !== undefined ) ? 1 : 0;
+//                return URI + 'funcoes/set_bairros_por_cidade_select2/' + cidade + '/' + bairro + '' + (params.term === undefined ? params.term : '');
+//
+//            }
+//            else
+//            {
+//                return URI + 'cidades/busca_cidade_json/' + (params.term !== undefined ? params.term : '');
+//            }
+//        },
+//        dataType: 'json',
+//        delay: 100,
+//        processResults: function(data) {
+//            return {
+//                results: data
+//            };
+//        } 
+//    }
+//});
 
 
 function onSubmit(token) {
