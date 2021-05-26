@@ -331,7 +331,7 @@ class Imoveis extends MY_Controller {
             $this->descricao .= 'Busca de Imoveis por codigo: '.$select['valores']['id'];
         }else{
 
-            $this->descricao .= 'Mais de '.$select['total'].' de ';
+            $this->descricao .= 'Mais de '.$select['total'];
             if ( count($data_valores['tipo_selecionado']) > 0 && !isset($this->sem_tipo) ){
                 $a = 0; $tv = '';
                 foreach( $data_valores['tipo_selecionado'] as $t ){

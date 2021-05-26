@@ -20,10 +20,6 @@ $(function(){
     setTimeout(function(){
         pesquisa.inicia();
     },100);
-    setTimeout(function(){
-        
-        
-    },500);
     $('.buscar, .mobiliado, .condominio, .quartos, .vagas, .banheiros, .comercial, .residencial').on('click',function(){
         console.log('buscando');
         valores = pesquisa.getValores(true);
