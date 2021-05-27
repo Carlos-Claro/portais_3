@@ -391,7 +391,7 @@ class Imoveis extends MY_Controller {
             $this->descricao .= $titulo_itens;
         }
         $this->titulo .= ' - '.ucfirst(str_replace(['https://www.','http://www.','http://','https://'],'',$this->cidade->portal));
-        $this->descricao .= ' - comprar ou alugar, apartamentos, casas, sobrados, terrenos. '.ucfirst(str_replace(['https://www.','http://www.','http://','https://'],'',$this->cidade->portal)).' o portal de imóveis de '.$this->cidade->nome;
+        $this->descricao .= ' - várias opções de apartamentos, casas, sobrados, terrenos  para comprar ou alugar. '.ucfirst(str_replace(['https://www.','http://www.','http://','https://'],'',$this->cidade->portal)).' o portal de imóveis de '.$this->cidade->nome;
         return $this;
     }
 
