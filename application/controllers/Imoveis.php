@@ -365,8 +365,8 @@ class Imoveis extends MY_Controller {
                     }
                     $a++;
                 }
-                $this->titulo .= $tv;
-                $this->descricao .= $tv;
+                $this->titulo .= $tv.' ';
+                $this->descricao .= $tv.' ';
             }
             if ( count($data_valores['localidade_selecionado']['cidade']) > 0 ){
                 $this->titulo .= 'em '.$data_valores['localidade_selecionado']['cidade'][$this->request['cidade']]->descricao.' ';
