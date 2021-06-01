@@ -92,6 +92,7 @@ $(function(){
                     {
                         $('.nome').val(data.nome);
                         $('.fone').val(data.telefone);
+                        $('.telefone').val(data.telefone);
                         $('.email').val(email);
                     }
                 });
