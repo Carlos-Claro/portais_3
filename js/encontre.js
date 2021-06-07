@@ -14,7 +14,7 @@ $(function(){
             var email = $(this).val();
             if ( email.length > 0 )
             {
-                $.getJSON(URL_HTTP + '/consulta_cadastro/'+email+'/').done(function(data){
+                $.post(URL_HTTP + 'consulta_cadastro/',{email:email},{},'json').done(function(data){
                     if ( data !== 0 )
                     {
                         $('.nome').val(data.nome);
@@ -224,6 +224,7 @@ var formulario = {
     
     onSubmit: function(token){
         data = formulario.getCampos();
+        console.log(data);
         
         post = data.post;
         post['token'] = token;
@@ -244,7 +245,6 @@ var formulario = {
                 showLoaderOnConfirm: true,
             }, function(){
                     var url = URI + 'contato/nao_encontrei';
-                console.log(url,post);
                     $.post(url, post, function(data){
                         if ( data.status )
                         {

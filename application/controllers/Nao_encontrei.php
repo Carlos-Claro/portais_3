@@ -59,7 +59,6 @@ class Nao_encontrei extends MY_Controller {
         $this->layout
                     ->set_includes_defaults()
                     ->set_include('js/encontre.js', TRUE)
-                    ->set_include('js/imovel.js', TRUE)
 //                    ->set_include('js/3_3/mascara.min.js', TRUE)
                     ->set_include('css/encontre.css', TRUE)
                     ->set_include('plugins/css/components.min.css', TRUE)
