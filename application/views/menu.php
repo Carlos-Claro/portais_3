@@ -23,7 +23,7 @@ $conta = 0;
 foreach ( $menu as $chave => $valor ): 
     if ( count($valor['itens']) > 0 ):
         $titulo = ( $chave == 'venda' ) ? 'Imóveis à Venda' : 'Imóveis para Alugar';
-        ?><div class="col-md-4"><ul class="dropdown-menu c-menu-type-inline"><li><a href="<?php echo str_replace('[tipo]-[oq]','imoveis-'.$chave,$url_); ?>" title="<?php echo $titulo;?>"><?php echo $titulo.' '.$sobre->nome; ?></a></li><?php 
+    ?><div class="col-md-4"><ul class="dropdown-menu c-menu-type-inline"><li><b><a href="<?php echo str_replace('[tipo]-[oq]','imoveis-'.$chave,$url_); ?>" title="<?php echo $titulo;?>"><?php echo $titulo.' '.$sobre->nome; ?></a></b></li><?php 
                 foreach($valor['itens'] as $v):
                     $array = array('[oq]','[tipo]');
                     $array_b = array($chave,$v->link);
