@@ -323,7 +323,11 @@ class Contato extends MY_Controller {
                                 'tipo_negocio_item' => $this->imovel->tipo
                                 ];
         $this->load->model('cadastro_model');
-        $id_contato = $this->cadastro_model->adicionar_contato($array_contato);
+        if ( $this->dados['remetente']['email'] == 'programacao@pow.com.br' ){
+            $id_contato = true;
+        }else{
+            $id_contato = $this->cadastro_model->adicionar_contato($array_contato);
+        }
         if ( ! $id_contato )
         {
             $erro = $array_contato;
