@@ -221,7 +221,7 @@ class Lista_normal
                  */
                 $retorno .= '   </div><!-- .row-->';
                 $retorno .= '</div><!-- .container-->';
-                $retorno .= set_modal_contato();
+//                $retorno .= set_modal_contato();
             }
             else
             {
