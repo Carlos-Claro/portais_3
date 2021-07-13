@@ -35,6 +35,8 @@ class Imovel extends MY_Controller {
         $this->benchmark->mark('loadInicialFavorito_end');
         $this->print_time('loadInicialFavorito');
     }
+    
+    public $negativas = ['','data','tags','i18n','en','ajax','select2','core','assets','demos','modules','handle-key','utils','handle-swal-dom','allowClear','multiple','options','results','dropdown','handle-dom','array','translation','tokenizer','injected-html','search','base','defaults','minimumInputLength','selection','eventRelay','maximumSelectionLength'];
 
     public function set_404($id_imovel)
     {
@@ -43,6 +45,10 @@ class Imovel extends MY_Controller {
         $this->description = 'Desculpe, mas este imóvel não se encontra mais em nossa base.'.$id_imovel;
         $this->titulo = 'Desculpe, mas este imóvel não se encontra mais em nossa base.'.$id_imovel.$this->titulo_padrao;
         $this->load->model('imoveis_historico_model');
+        if (in_array($id_imovel, $this->negativas) ){
+            redirect( base_url() , 'location', 301);
+            exit();
+        }
         $data['item'] = $this->imoveis_historico_model->get_item_por_id($id_imovel);
         if ( isset($data['item']->id) ){
             $data['item']->bairro = $data['item']->bairros_link;
@@ -170,7 +176,7 @@ class Imovel extends MY_Controller {
             }
             else
             {
-                $l->view('imovel_'.$layout, $data, 'layout/'.$layout_principal);
+                $l->view('imovel_'.( in_array($layout, $this->negativas) ? 'novo_3' : $layout), $data, 'layout/'.$layout_principal);
             }
         }
     }
