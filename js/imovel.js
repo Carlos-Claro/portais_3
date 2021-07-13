@@ -60,9 +60,11 @@ $(function(){
                 }
                 if ( $('.espaco-imoveis-relacionados-imobiliaria').html() == '' ){
                     $('.espaco-imoveis-relacionados-imobiliaria').html(' ');
-                    $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':1},function(res){
-                        $('.espaco-imoveis-relacionados-imobiliaria').html(res);
-                    });
+                    setTimeout(function(){
+                        $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':1},function(res){
+                            $('.espaco-imoveis-relacionados-imobiliaria').html(res);
+                        });
+                    },1000)
                 }
             },1000);
         }
