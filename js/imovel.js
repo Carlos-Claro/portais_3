@@ -64,7 +64,7 @@ $(function(){
                         $.get(URL_HTTP + 'relacionados',{'id_imovel':$('.imovel').data('imovel'),'empresa':1},function(res){
                             $('.espaco-imoveis-relacionados-imobiliaria').html(res);
                         });
-                    },1000)
+                    },2000)
                 }
             },1000);
         }
