@@ -628,26 +628,61 @@ class Contato extends MY_Controller {
     public function nao_encontrei_ads()
     {
         $this->load->model(['imoveis_naoencontrei_model']);
-        $dados['remetente']['email'] = 'programacao@pow.com.br';
-        $dados['remetente']['fone'] = '11111111';
-        $dados['remetente']['nome'] = 'prog teste';
-        $dados['remetente']['cidade'] = 'prog cidade';
         $post = json_decode($this->input->raw_input_stream);
+        $data['aceito'] = 1;
+        $data['email'] = $post->user_column_data->EMAIL;
+        $data['nome'] = $post->user_column_data->FULL_NAME;
+        $data['telefone'] = $post->user_column_data->PHONE_NUMBER;
+        $data['cidade']	= 'sao_jose_dos_pinhais_pr';
+        $data['cidade_'] = 'sao_jose_dos_pinhais_pr';
+        $data['complemento']['cidade'][] = 'sao_jose_dos_pinhais_pr';
+//        $data['complemento']['tipo'][] = '';
+        
+        /*
+         * 
+        $data['complemento']['bairro'][] = '';
+        $data['estado'] = 'pr';
+        $data['nome'] =	'Carlos';
+        $data['observacao'] = 'teste';
+        $data['oq'] = 'Locar';
+        $data['telefone'] = 99999999;
+        $data['pedido'] = '';
+        lead_id: TeSter-123-ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz-0123456789-AaBbCcDdEeFfGgHhIiJjKkLl
+user_column_data: Array
+api_version: 1.0
+form_id: 40000000000
+campaign_id: 13440602834
+google_key: 111
+is_test: 1
+gcl_id: TeSter-123-ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz-0123456789-AaBbCcDdEeFfGgHhIiJjKkLl
+adgroup_id: 20000000000
+creative_id: 30000000000
+
+         *          */
         
         $pedido = '';
         foreach($post as $chave => $valor){
             $pedido .= $chave .': '.$valor.PHP_EOL;
         }
+        $pedido .= 'pedido: '.PHP_EOL;
+        foreach ($post->user_column_data as $c => $v ){
+            $pedido .= $v->column_id .': '.$v->column_value.PHP_EOL;
+        }
+        $data['pedido'] = $pedido;
+//        $dados['remetente']['email'] = 'programacao@pow.com.br';
+//        $dados['remetente']['fone'] = '11111111';
+//        $dados['remetente']['nome'] = 'prog teste';
+//        $dados['remetente']['cidade'] = 'prog cidade';
         
-//            $this->set_cadastro();
+            $this->set_cadastro($data);
 //            $mensagem = $this->set_mensagem_nao_encontrei();
 //            $this->set_envia_usuario_nao_encontrei($mensagem);
             $data_nao = array(
                             'id_cadastro' => 1,
                             'data' => time(),
                             'pedido' => $pedido,
-//                            'finalidade' => isset($this->dados['oq']) ? $this->dados['oq'] : '',
-//                            'cidade_interesse' => isset($this->dados['complemento']['cidade'][0]) ? $this->dados['complemento']['cidade'][0] : $this->dados['cidade_'],
+                            'finalidade' => isset($this->dados['oq']) ? $this->dados['oq'] : '',
+                            'cidade_interesse' => isset($this->dados['complemento']['cidade'][0]) ? $this->dados['complemento']['cidade'][0] : $this->dados['cidade_'],
                             );
             $insert = $this->imoveis_naoencontrei_model->adicionar($data_nao);
             if( isset($insert) && $insert )
