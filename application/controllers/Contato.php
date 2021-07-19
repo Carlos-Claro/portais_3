@@ -625,6 +625,39 @@ class Contato extends MY_Controller {
         echo json_encode($retorno);
     }
     
+    public function nao_encontrei_ads()
+    {
+        $this->load->model(['imoveis_naoencontrei_model']);
+        $dados['remetente']['email'] = 'programacao@pow.com.br';
+        $dados['remetente']['fone'] = '11111111';
+        $dados['remetente']['nome'] = 'prog teste';
+        $dados['remetente']['cidade'] = 'prog cidade';
+        $post = json_decode($this->input->raw_input_stream);
+        
+        $pedido = '';
+        foreach($post as $chave => $valor){
+            $pedido .= $chave .': '.$valor.PHP_EOL;
+        }
+        
+//            $this->set_cadastro();
+//            $mensagem = $this->set_mensagem_nao_encontrei();
+//            $this->set_envia_usuario_nao_encontrei($mensagem);
+            $data_nao = array(
+                            'id_cadastro' => 1,
+                            'data' => time(),
+                            'pedido' => $pedido,
+//                            'finalidade' => isset($this->dados['oq']) ? $this->dados['oq'] : '',
+//                            'cidade_interesse' => isset($this->dados['complemento']['cidade'][0]) ? $this->dados['complemento']['cidade'][0] : $this->dados['cidade_'],
+                            );
+            $insert = $this->imoveis_naoencontrei_model->adicionar($data_nao);
+            if( isset($insert) && $insert )
+            {
+                $retorno = array('status' => TRUE, 'mensagem' => 'Seu registro foi salvo e logo será contatado...');
+            }
+        
+        echo json_encode($retorno);
+    }
+    
     public function teste_nao_encontrei()
     {
         $data['aceito'] = 1;
