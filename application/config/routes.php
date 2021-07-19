@@ -189,6 +189,7 @@ $route['favoritos/(:any)'] = 'index/favoritos/$1';
 $route['contato'] = 'contato/index'; 
 $route['contato/teste_mensagem'] = 'contato/teste_mensagem'; 
 $route['contato/nao_encontrei'] = 'contato/nao_encontrei'; 
+$route['contato/nao_encontrei_ads'] = 'contato/nao_encontrei_ads'; 
 $route['contato/teste_nao_encontrei'] = 'contato/teste_nao_encontrei'; 
 $route['email_indica'] = 'contato/index/email_indica'; 
 $route['email_indica/(:any)'] = 'contato/index/email_indica/$1'; 
