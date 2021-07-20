@@ -656,7 +656,7 @@ class Contato extends MY_Controller {
         
         $d = [];
         foreach($post->user_column_data as $item){
-            $d[$chaves[$item->column_id]] = $item->column_name;
+            $d[$chaves[$item->column_id]] = $item->string_value;
         }
         
         
@@ -668,19 +668,19 @@ class Contato extends MY_Controller {
         $data['cidade_'] = 'sao_jose_dos_pinhais_pr';
         $data['complemento']['cidade'][] = 'sao_jose_dos_pinhais_pr';
         $data['complemento']['tipo'][] = isset($d['tipo']) ? $d['tipo'] : 'tipo';
-        $data['pedido'] = (isset($d['obs']) ? $d['obs'] : 'obs').' - '.$post->lead_id;
-        $data['observacao'] = (isset($d['obs']) ? $d['obs'] : 'obs').' - '.$post->lead_id;
-        
+        $data['pedido'] = (isset($d['obs']) ? $d['obs'] : 'obs').' - id_ads: '.$post->lead_id;
+        $data['observacao'] = (isset($d['obs']) ? $d['obs'] : 'obs').' - id_ads: '.$post->lead_id;
+        $this->set_dados_nao_encontrei($data);
         
         
         $pedido = $this->input->raw_input_stream;
-        $this->set_cadastro($data);
-//        $mensagem = $this->set_mensagem_nao_encontrei();
-//        $this->set_envia_usuario_nao_encontrei($mensagem);
+        $this->set_cadastro();
+        $mensagem = $this->set_mensagem_nao_encontrei();
+        $this->set_envia_usuario_nao_encontrei($mensagem);
             $data_nao = array(
                             'id_cadastro' => $this->id_cadastro,
                             'data' => time(),
-                            'pedido' => $$this->dados['pedido'],
+                            'pedido' => $this->dados['pedido'],
                             'finalidade' => isset($this->dados['oq']) ? $this->dados['oq'] : '',
                             'cidade_interesse' => isset($this->dados['complemento']['cidade'][0]) ? $this->dados['complemento']['cidade'][0] : $this->dados['cidade_'],
                             );
