@@ -630,9 +630,9 @@ class Contato extends MY_Controller {
         $this->load->model(['imoveis_naoencontrei_model']);
         $post = json_decode($this->input->raw_input_stream);
         $data['aceito'] = 1;
-        $data['email'] = $post->user_column_data->EMAIL;
-        $data['nome'] = $post->user_column_data->FULL_NAME;
-        $data['telefone'] = $post->user_column_data->PHONE_NUMBER;
+        $data['email'] = isset($post->user_column_data->EMAIL) ? $post->user_column_data->EMAIL : 'programacao@pow.com.br';
+        $data['nome'] = isset($post->user_column_data->FULL_NAME) ? $post->user_column_data->FULL_NAME : 'Pow Teste';
+        $data['telefone'] = isset($post->user_column_data->PHONE_NUMBER) ? $post->user_column_data->PHONE_NUMBER : '4133821581';
         $data['cidade']	= 'sao_jose_dos_pinhais_pr';
         $data['cidade_'] = 'sao_jose_dos_pinhais_pr';
         $data['complemento']['cidade'][] = 'sao_jose_dos_pinhais_pr';
@@ -660,7 +660,7 @@ creative_id: 30000000000
 
          *          */
         
-        $pedido = '';
+        $pedido = $this->input->raw_input_stream;
         foreach($post as $chave => $valor){
             $pedido .= $chave .': '.$valor.PHP_EOL;
         }
