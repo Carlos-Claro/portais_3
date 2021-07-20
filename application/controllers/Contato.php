@@ -629,13 +629,13 @@ class Contato extends MY_Controller {
     {
         $this->load->model(['imoveis_naoencontrei_model']);
         $post = json_decode($this->input->raw_input_stream);
-        $data['aceito'] = 1;
-        $data['email'] = isset($post->user_column_data->EMAIL) ? $post->user_column_data->EMAIL : 'programacao@pow.com.br';
-        $data['nome'] = isset($post->user_column_data->FULL_NAME) ? $post->user_column_data->FULL_NAME : 'Pow Teste';
-        $data['telefone'] = isset($post->user_column_data->PHONE_NUMBER) ? $post->user_column_data->PHONE_NUMBER : '4133821581';
-        $data['cidade']	= 'sao_jose_dos_pinhais_pr';
-        $data['cidade_'] = 'sao_jose_dos_pinhais_pr';
-        $data['complemento']['cidade'][] = 'sao_jose_dos_pinhais_pr';
+//        $data['aceito'] = 1;
+//        $data['email'] = isset($post->user_column_data->EMAIL) ? $post->user_column_data->EMAIL : 'programacao@pow.com.br';
+//        $data['nome'] = isset($post->user_column_data->FULL_NAME) ? $post->user_column_data->FULL_NAME : 'Pow Teste';
+//        $data['telefone'] = isset($post->user_column_data->PHONE_NUMBER) ? $post->user_column_data->PHONE_NUMBER : '4133821581';
+//        $data['cidade']	= 'sao_jose_dos_pinhais_pr';
+//        $data['cidade_'] = 'sao_jose_dos_pinhais_pr';
+//        $data['complemento']['cidade'][] = 'sao_jose_dos_pinhais_pr';
 //        $data['complemento']['tipo'][] = '';
         
         /*
