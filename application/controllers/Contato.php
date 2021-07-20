@@ -675,11 +675,11 @@ creative_id: 30000000000
         $dados['remetente']['nome'] = 'prog teste';
         $dados['remetente']['cidade'] = 'prog cidade';
         
-            $this->set_cadastro($data);
+//            $this->set_cadastro($data);
 //            $mensagem = $this->set_mensagem_nao_encontrei();
 //            $this->set_envia_usuario_nao_encontrei($mensagem);
             $data_nao = array(
-                            'id_cadastro' => $this->id_cadastro,
+                            'id_cadastro' => 1,
                             'data' => time(),
                             'pedido' => $pedido,
                             'finalidade' => isset($this->dados['oq']) ? $this->dados['oq'] : '',
