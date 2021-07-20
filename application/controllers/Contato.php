@@ -678,7 +678,7 @@ creative_id: 30000000000
 //            $mensagem = $this->set_mensagem_nao_encontrei();
 //            $this->set_envia_usuario_nao_encontrei($mensagem);
             $data_nao = array(
-                            'id_cadastro' => 1,
+                            'id_cadastro' => $this->id_cadastro,
                             'data' => time(),
                             'pedido' => $pedido,
                             'finalidade' => isset($this->dados['oq']) ? $this->dados['oq'] : '',
