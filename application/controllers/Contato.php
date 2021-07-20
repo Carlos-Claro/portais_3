@@ -661,18 +661,19 @@ creative_id: 30000000000
          *          */
         
         $pedido = $this->input->raw_input_stream;
-        foreach($post as $chave => $valor){
-            $pedido .= $chave .': '.$valor.PHP_EOL;
-        }
-        $pedido .= 'pedido: '.PHP_EOL;
-        foreach ($post->user_column_data as $c => $v ){
-            $pedido .= $v->column_id .': '.$v->column_value.PHP_EOL;
-        }
-        $data['pedido'] = $pedido;
-//        $dados['remetente']['email'] = 'programacao@pow.com.br';
-//        $dados['remetente']['fone'] = '11111111';
-//        $dados['remetente']['nome'] = 'prog teste';
-//        $dados['remetente']['cidade'] = 'prog cidade';
+//        foreach($post as $chave => $valor){
+//            $pedido .= $chave .': '.$valor.PHP_EOL;
+//        }
+//        $pedido .= 'pedido: '.PHP_EOL;
+//        
+//        foreach ($post->user_column_data as $c => $v ){
+//            $pedido .= $v->column_id .': '.$v->column_value.PHP_EOL;
+//        }
+//        $data['pedido'] = $pedido;
+        $dados['remetente']['email'] = 'programacao@pow.com.br';
+        $dados['remetente']['fone'] = '11111111';
+        $dados['remetente']['nome'] = 'prog teste';
+        $dados['remetente']['cidade'] = 'prog cidade';
         
             $this->set_cadastro($data);
 //            $mensagem = $this->set_mensagem_nao_encontrei();
