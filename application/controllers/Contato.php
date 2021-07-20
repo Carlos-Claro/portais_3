@@ -625,63 +625,62 @@ class Contato extends MY_Controller {
         echo json_encode($retorno);
     }
     
+    
+    
+    /**
+     * exemplo de dados enviados:
+     *  { "lead_id": "TeSter-123-ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz-0123456789-AaBbCcDdEeFfGgHhIiJjKkLl",
+  "user_column_data": [
+     * {"column_name": "Full Name","string_value": "FirstName LastName","column_id": "FULL_NAME"},
+     * {"column_name": "User Phone","string_value": "+16505550123","column_id": "PHONE_NUMBER"},
+     * {"column_name": "User Email","string_value": "test@example.com","column_id": "EMAIL"},
+     * {"string_value": "Casa","column_id": "PROPERTY_TYPE"},
+     * {"string_value": "Example answer","column_id": "REALTOR_HELP_GOAL"}
+     * ],
+     * "api_version": "1.0","form_id": 15854196920,"campaign_id": 13440602834,"google_key": "111","is_test": true,
+     * "gcl_id": "TeSter-123-ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz-0123456789-AaBbCcDdEeFfGgHhIiJjKkLl",
+     * "adgroup_id": 20000000000,"creative_id": 30000000000 }'
+     */
     public function nao_encontrei_ads()
     {
+        
+        $chaves = [
+                    'FULL_NAME' => 'nome',
+                    'PHONE_NUMBER' => 'telefone',
+                    'EMAIL' => 'email',
+                    'PROPERTY_TYPE' => 'tipo',
+                    'REALTOR_HELP_GOAL' => 'obs'
+        ];
         $this->load->model(['imoveis_naoencontrei_model']);
         $post = json_decode($this->input->raw_input_stream);
-//        $data['aceito'] = 1;
-//        $data['email'] = isset($post->user_column_data->EMAIL) ? $post->user_column_data->EMAIL : 'programacao@pow.com.br';
-//        $data['nome'] = isset($post->user_column_data->FULL_NAME) ? $post->user_column_data->FULL_NAME : 'Pow Teste';
-//        $data['telefone'] = isset($post->user_column_data->PHONE_NUMBER) ? $post->user_column_data->PHONE_NUMBER : '4133821581';
-//        $data['cidade']	= 'sao_jose_dos_pinhais_pr';
-//        $data['cidade_'] = 'sao_jose_dos_pinhais_pr';
-//        $data['complemento']['cidade'][] = 'sao_jose_dos_pinhais_pr';
-//        $data['complemento']['tipo'][] = '';
         
-        /*
-         * 
-        $data['complemento']['bairro'][] = '';
-        $data['estado'] = 'pr';
-        $data['nome'] =	'Carlos';
-        $data['observacao'] = 'teste';
-        $data['oq'] = 'Locar';
-        $data['telefone'] = 99999999;
-        $data['pedido'] = '';
-        lead_id: TeSter-123-ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz-0123456789-AaBbCcDdEeFfGgHhIiJjKkLl
-user_column_data: Array
-api_version: 1.0
-form_id: 40000000000
-campaign_id: 13440602834
-google_key: 111
-is_test: 1
-gcl_id: TeSter-123-ABCDEFGHIJKLMNOPQRSTUVWXYZ-abcdefghijklmnopqrstuvwxyz-0123456789-AaBbCcDdEeFfGgHhIiJjKkLl
-adgroup_id: 20000000000
-creative_id: 30000000000
-
-         *          */
+        $d = [];
+        foreach($post->user_column_data as $item){
+            $d[$chaves[$item->column_id]] = $item->column_name;
+        }
+        
+        
+        $data['aceito'] = 1;
+        $data['email'] = isset($d['email']) ? $d['email'] : 'programacao@pow.com.br';
+        $data['nome'] = isset($d['nome']) ? $d['nome'] : 'Pow Teste';
+        $data['telefone'] = isset($d['telefone']) ? $d['telefone'] : '4133821581';
+        $data['cidade']	= 'sao_jose_dos_pinhais_pr';
+        $data['cidade_'] = 'sao_jose_dos_pinhais_pr';
+        $data['complemento']['cidade'][] = 'sao_jose_dos_pinhais_pr';
+        $data['complemento']['tipo'][] = isset($d['tipo']) ? $d['tipo'] : 'tipo';
+        $data['pedido'] = (isset($d['obs']) ? $d['obs'] : 'obs').' - '.$post->lead_id;
+        $data['observacao'] = (isset($d['obs']) ? $d['obs'] : 'obs').' - '.$post->lead_id;
+        
+        
         
         $pedido = $this->input->raw_input_stream;
-//        foreach($post as $chave => $valor){
-//            $pedido .= $chave .': '.$valor.PHP_EOL;
-//        }
-//        $pedido .= 'pedido: '.PHP_EOL;
-//        
-//        foreach ($post->user_column_data as $c => $v ){
-//            $pedido .= $v->column_id .': '.$v->column_value.PHP_EOL;
-//        }
-//        $data['pedido'] = $pedido;
-        $dados['remetente']['email'] = 'programacao@pow.com.br';
-        $dados['remetente']['fone'] = '11111111';
-        $dados['remetente']['nome'] = 'prog teste';
-        $dados['remetente']['cidade'] = 'prog cidade';
-        
-//            $this->set_cadastro($data);
-//            $mensagem = $this->set_mensagem_nao_encontrei();
-//            $this->set_envia_usuario_nao_encontrei($mensagem);
+        $this->set_cadastro($data);
+//        $mensagem = $this->set_mensagem_nao_encontrei();
+//        $this->set_envia_usuario_nao_encontrei($mensagem);
             $data_nao = array(
-                            'id_cadastro' => 1,
+                            'id_cadastro' => $this->id_cadastro,
                             'data' => time(),
-                            'pedido' => $pedido,
+                            'pedido' => $$this->dados['pedido'],
                             'finalidade' => isset($this->dados['oq']) ? $this->dados['oq'] : '',
                             'cidade_interesse' => isset($this->dados['complemento']['cidade'][0]) ? $this->dados['complemento']['cidade'][0] : $this->dados['cidade_'],
                             );
