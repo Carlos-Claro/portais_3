@@ -107,7 +107,7 @@ $(function(){
             id = $('.ver-telefone').data('item');
             var url = URI + 'funcoes/get_empresa/' + id;
             $.getJSON(url,function(data){
-                $('.espaco-telefone .portlet-body').html('<div class="alert alert-info"><p class="bold">Telefone ' + data.contato_telefone_link + ' fale com ' + data.contato_nome + '.</p><p class="bold"> Não se esqueça de dizer que viu este numero no ' + URI +'</p></div>');
+                $('.espaco-telefone .portlet-body').html('<div class="alert alert-info"><p class="bold">Telefone ' + data.contato_telefone_link + ' fale com ' + data.nome_fantasia + '.</p><p class="bold"> Não se esqueça de dizer que viu este numero no ' + URI +'</p></div>');
             }).fail(function(){
                 swal('','Problemas para adquirir os dados.','error');
             });
