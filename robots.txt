@@ -183,3 +183,6 @@ Disallow: /
 
 User-agent: serpstatbot
 Disallow: /
+
+User-agent: PetalBot
+Disallow: /
