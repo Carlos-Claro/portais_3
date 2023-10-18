@@ -1033,7 +1033,7 @@ class Lista_normal
                                       </div>
                                       <div class="btn-group btn-vertical">
                                         <button type="button" class="btn btn-whats whats-mobile ver-telefone-whats-empresa btn-secondary dropdown-toggle " data-item="'.$item->id.'" data-log="22" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fa fa-whatsapp"></i>
+                                            <i class="fa fa-whatsapp"></i> WhatsApp
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li><a class="btn" href="https://api.whatsapp.com/send?phone=+55'.$item->whatsapp.'&text='. urlencode('encontrei sua imobiliaria atraves do link: '.$link).'" data-item="'.$item->id.'" data-log="22" target="_blank">Conversar com a imobiliária</a></li>
