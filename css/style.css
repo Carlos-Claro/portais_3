@@ -432,6 +432,7 @@ label.control-label{
     width: 100%;
     height: 290px;
     margin: 0 auto;
+    object-fit: contain;
 }
 .imoveis .imovel .espaco-image {
     background-color: #d1d1d1;
