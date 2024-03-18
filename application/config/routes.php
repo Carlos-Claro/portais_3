@@ -214,6 +214,7 @@ $route['index/favorito/(:any)'] = 'index/favorito/$1';
 //$route['index/(:any)/(:any)/(:any)'] = 'index/$1/$2/$3'; 
 //$route['index/pesquisa/(:any)'] = 'index/pesquisa/$1'; 
 
+$route['ads.txt'] = 'xml/ads';
 $route['xml/completo.xml'] = 'xml/completo';
 $route['xml/(:any)'] = 'index/$1'; 
 $route['xml/(:any)/(:any)'] = 'index/$1/$2'; 

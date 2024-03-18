@@ -102,7 +102,8 @@ class Cidades_Model extends MY_Model {
                             cidades.google_tag as google_tag,
                             estados.nome as estado,
                             estados.tratamento as estado_tratamento,
-                            cidades.topo as topo
+                            cidades.topo as topo,
+                            cidades.adstxt as adstxt,
                             ';
     	$data['tabela'] = array(
                                 array('nome' => 'dominios'),

@@ -74,7 +74,19 @@ class XML extends MY_Controller {
         
     }
     
-    
+    public function ads(){
+        if ( LOCALHOST )
+        {
+        	$portal = 'https://icuritiba.com';
+        }
+        else
+        {
+        	$portal = 'http://'.$_SERVER['HTTP_HOST'] ;
+        }
+        $this->load->model(array('tipo_model','bairro_model', 'imoveis_model', 'cidades_model', 'empresas_model', 'bairros_proximidade_model'));
+        $cidade = $this->cidades_model->get_item_por_portal( $portal );
+        print($cidade->adstxt);
+    }
     
     public function completo ()
     {
