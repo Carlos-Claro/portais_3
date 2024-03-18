@@ -175,6 +175,7 @@ class Cidades_Model extends MY_Model {
                             cidades.instrucoes_head as instrucoes_head,
                             cidades.header_tag as header_tag,
                             cidades.google_keys as google_keys,
+                            cidades.adstxt as adstxt,
                             ';
     	$data['tabela'] = array(
                                 array('nome' => 'cidades',          ),
