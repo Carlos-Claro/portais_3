@@ -129,6 +129,11 @@ class Index extends MY_Controller {
         {
             $this->_inicia_geral();
         }
+        if( $this->cidade->nome !== $this->cidade_set->nome )
+        {
+            redirect( base_url());
+            $layout->set_robot(FALSE);
+        }
         $titulo = isset($data['itens']['h1']) ? $data['itens']['h1'] : 'Imóveis em '.$this->cidade->nome.': Encontre aqui seu imóvel - '. strtolower(substr($this->cidade->portal, 11));
         $description = isset($data['itens']['description']) ? $data['itens']['description'] : 'No '. strtolower(substr($this->cidade->portal, 11)).' você encontra diversas opções de imóveis para compra, venda e locação: Apartamentos, Casas, terrenos e mais. Confira!';
         $menu = $this->set_menu();
@@ -146,10 +151,7 @@ class Index extends MY_Controller {
                 ->set_sobre($cidade->sobre, $cidade->nome, $cidade->portal, $cidade->gentilico, $cidade->link, $cidade->uf, $cidade->link_prefeitura,1 )
                 ->set_analytics($this->cidade->instrucoes_head)
                 ->set_google_tag($this->cidade->google_tag);
-        if( $this->cidade->nome !== $this->cidade_set->nome )
-        {
-            $layout->set_robot(FALSE);
-        }
+        
         if ( LOCALHOST )
         {
             $layout
