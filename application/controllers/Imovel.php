@@ -108,20 +108,14 @@ class Imovel extends MY_Controller {
     {
         $log = $this->set_local($local);
         $this->set_imovel($id_imovel);
-        if ( isset($_GET['debug_item']) ){
-            echo '<pre>';
-            print_r($this->imovel);
-            print_r($this->cidade);
-            echo '</pre>';
-            if ( $this->imovel->cidade_link != $this->cidade->link )
-            {
-                $cidade_imovel = $this->cidades_mongo_model->get_item_por_link($this->imovel->cidade_link);
-                print_r($cidade_imovel);
-                if ( isset($cidade_imovel->portal) && ! empty($cidade_imovel->portal) )  {
-                    redirect( $cidade_imovel->portal.'/imovel/0/'.$this->imovel->id.'/'.$local, 'location', 301);
-                }
+        
+        if ( $this->imovel->cidade_link != $this->cidade->link )
+        {
+            $cidade_imovel = $this->cidades_mongo_model->get_item_por_link($this->imovel->cidade_link);
+            print_r($cidade_imovel);
+            if ( isset($cidade_imovel->portal) && ! empty($cidade_imovel->portal) )  {
+                redirect( $cidade_imovel->portal.'/imovel/0/'.$this->imovel->id.'/'.$local, 'location', 301);
             }
-            die();
         }
         $data['item'] = $this->imovel;
         $data['log'] = $local;
