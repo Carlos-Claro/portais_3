@@ -2340,6 +2340,7 @@ class Index extends MY_Controller {
                 print_r($data['item']);
                 print_r($this->cidade);
                 echo '</pre>';
+                die();
             }
         $separador = '-';
         if ( $data['item']) 
