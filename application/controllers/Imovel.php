@@ -108,6 +108,13 @@ class Imovel extends MY_Controller {
     {
         $log = $this->set_local($local);
         $this->set_imovel($id_imovel);
+        if ( isset($_GET['debug_item']) ){
+            echo '<pre>';
+            print_r($data['item']);
+            print_r($this->cidade);
+            echo '</pre>';
+            die();
+        }
         $data['item'] = $this->imovel;
         $data['log'] = $local;
         if ( ! $this->imovel )
