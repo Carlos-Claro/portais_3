@@ -2335,6 +2335,12 @@ class Index extends MY_Controller {
                     $data['image_destaque'] = $image_gr;
                 }
             }
+            if ( isset($_GET['debug_item']) ){
+                echo '<pre>';
+                print_r($data['item']);
+                print_r($this->cidade);
+                echo '</pre>';
+            }
         $separador = '-';
         if ( $data['item']) 
         {
