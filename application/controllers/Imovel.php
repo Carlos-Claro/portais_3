@@ -113,6 +113,13 @@ class Imovel extends MY_Controller {
             print_r($this->imovel);
             print_r($this->cidade);
             echo '</pre>';
+            if ( $this->imovel->cidade_link != $this->cidade->link )
+            {
+                $cidade_imovel = $this->cidades_mongo_model->get_item_por_link($this->imovel->cidade_link);
+                if ( isset($cidade_imovel->portal) && ! empty($cidade_imovel->portal) )  {
+                    redirect( $cidade_imovel->portal'/imovel/0/'.$this->imovel->id.'/'.$local, 'location', 301);
+                }
+            }
             die();
         }
         $data['item'] = $this->imovel;
