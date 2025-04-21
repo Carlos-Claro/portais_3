@@ -2335,13 +2335,7 @@ class Index extends MY_Controller {
                     $data['image_destaque'] = $image_gr;
                 }
             }
-            if ( isset($_GET['debug_item']) ){
-                echo '<pre>';
-                print_r($data['item']);
-                print_r($this->cidade);
-                echo '</pre>';
-                die();
-            }
+            
         $separador = '-';
         if ( $data['item']) 
         {
@@ -2369,6 +2363,13 @@ class Index extends MY_Controller {
             $load = "_googWcmGet(liga_imobiliaria,'55-".$data['item']->ddd."-".$data['item']->imobiliaria_telefone."')";
 //            $load = "_googWcmGet(liga_imobiliaria,'55-41-33821581')";
             $l->set_on_load($load);
+        }
+        if ( isset($_GET['debug_item']) ){
+            echo '<pre>';
+            print_r($data['item']);
+            print_r($this->cidade);
+            echo '</pre>';
+            die();
         }
         $menu = $this->set_menu();
         $l
